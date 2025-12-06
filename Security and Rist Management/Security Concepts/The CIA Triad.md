@@ -1,6 +1,4 @@
-## The CIA Triad
 These three concepts of the triad form the **security objective**. If any one of these pillars is breached, the system is considered insecure. It helps security professionals prioritize what they need to protect based on the specific needs of the data.
-
 
 ```text
 		 Confidentiality
@@ -10,7 +8,6 @@ These three concepts of the triad form the **security objective**. If any one of
 		  /          \
 	Integrity ---- Availability
 ```
-
 
 - **Confidentiality (Privacy)**
 	* Goal: Ensuring that sensitive information is disclosed only to authorized individuals.
@@ -24,3 +21,18 @@ These three concepts of the triad form the **security objective**. If any one of
 	* Goal: Ensuring that authorized users have access to the information and resources when they need them.
 	* Mechanism: Backups, redundancy (backup servers), protection against Denial of Service (DoS) attacks.
 	* Example: When you open the app on payday to pay your rent, the banking server is online and lets you log in immediately.
+
+While the CIA triad represents the security goals, the DAD triad represents the **failures** or the objectives of an attacker. If you fail to maintain CIA, you usually result in DAD (Disclosure, Alteration, and Destruction). It is the **Anti-Model** to the CIA Triad and the two models map directly to one another. Security professionals implement CIA to prevent DAD.
+
+```text
+			Disclosure 
+			  /    \
+			 /      \
+		    /        \
+		   /          \
+	Alteration ---- Destruction
+```
+
+- **Confidentiality** prevents **Disclosure**.
+- **Integrity** prevents **Alteration**.
+- **Availability** prevents **Destruction**.

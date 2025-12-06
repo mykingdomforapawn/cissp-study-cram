@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security and Rist Management/Security Concepts.md",
+                "file": "Security and Rist Management/Security Concepts/The AAA Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Security Concepts"
+              "title": "The AAA Framework"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 372.5
   },
   "right": {
     "id": "4537dc0fae1a6516",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security and Rist Management/Security Concepts.md",
+                "file": "Security and Rist Management/Security Concepts/The AAA Framework.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Security Concepts"
+              "title": "Backlinks for The AAA Framework"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security and Rist Management/Security Concepts.md",
+                "file": "Security and Rist Management/Security Concepts/The AAA Framework.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Security Concepts"
+              "title": "Outgoing links from The AAA Framework"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Security and Rist Management/Security Concepts.md",
+                "file": "Security and Rist Management/Security Concepts/The AAA Framework.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Security Concepts"
+              "title": "Outline of The AAA Framework"
             }
           }
         ]
@@ -185,7 +185,15 @@
   },
   "active": "c3e15064be0a7033",
   "lastOpenFiles": [
-    "Security and Rist Management",
-    "Security and Rist Management/Security Concepts.md"
+    "Security and Rist Management/Security Concepts/The AAA Framework.md",
+    "Security and Rist Management/Security Concepts/Defense in Depth.md",
+    "Security and Rist Management/Security Governance/Security Control Frameworks.md",
+    "Security and Rist Management/Security Governance/Organizational Roles and Responsibilities.md",
+    "Security and Rist Management/Security Governance/Organizational Security Processes.md",
+    "Security and Rist Management/Security Governance/Security Governance & Management.md",
+    "Security and Rist Management/Security Governance",
+    "Security and Rist Management/Security Concepts/The CIA Triad.md",
+    "Security and Rist Management/Security Concepts",
+    "Security and Rist Management"
   ]
 }
