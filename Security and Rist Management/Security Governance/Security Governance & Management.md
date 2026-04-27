@@ -1,4 +1,6 @@
-Governance is the oversight that ensures security strategies align with business goals. It moves from high-level visions down to daily tasks. Security must support the organization's mission, not obstruct it.
+Governance is the oversight that ensures security strategies align with business goals. It moves from high-level visions down to daily tasks. Security must support the organization's mission, not obstruct it. The roles responsible for executing governance are covered in [[Organizational Roles and Responsibilities]], the processes used to verify it in [[Organizational Security Processes]], and the frameworks it aligns with in [[Security Control Frameworks]].
+
+**Risk Appetite** is the amount of risk an organization is willing to accept in pursuit of its goals. It is set by senior management at the strategic level and acts as the boundary within which all tactical and operational decisions must stay — controls are designed to bring risk *down to* the appetite, not necessarily to zero.
 
 ```text
 	[ Strategic Plan ] (The "Vision" - Long Term) 
@@ -22,3 +24,16 @@ Governance is the oversight that ensures security strategies align with business
 	* Definition: Detailed, step-by-step procedures and tasks required to maintain security controls and keep systems running. 
 	* Timeframe: Short-term (Daily, Weekly, Monthly). 
 	* Responsibility: Operational Staff (e.g., SysAdmins, Security Analysts, Help Desk).
+
+## Policy Hierarchy
+
+Governance produces a cascade of documents, each more specific than the last. The four levels map directly onto the planning tiers above:
+
+| Document | Mandatory? | Planning Level | Example |
+|---|---|---|---|
+| **Policy** | Yes | Strategic | "All sensitive data must be encrypted." |
+| **Standard** | Yes | Tactical | "AES-256 must be used for data at rest." |
+| **Guideline** | No | Tactical | "Consider using a password manager." |
+| **Procedure** | Yes | Operational | Step-by-step instructions for encrypting a laptop before travel. |
+
+The key distinction: policies state *what* must be achieved; standards define *how* to measure compliance; guidelines offer *recommended* approaches; procedures describe *exactly how* to carry out a task. Guidelines are the only non-mandatory level — they recommend but do not require.
