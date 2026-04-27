@@ -27,13 +27,14 @@ Governance is the oversight that ensures security strategies align with business
 
 ## Policy Hierarchy
 
-Governance produces a cascade of documents, each more specific than the last. The four levels map directly onto the planning tiers above:
+Governance produces a cascade of documents, each more specific than the last. The levels map directly onto the planning tiers above:
 
 | Document | Mandatory? | Planning Level | Example |
 |---|---|---|---|
 | **Policy** | Yes | Strategic | "All sensitive data must be encrypted." |
 | **Standard** | Yes | Tactical | "AES-256 must be used for data at rest." |
+| **Baseline** | Yes | Tactical | "All Windows workstations must have BitLocker, antivirus, and auto-updates enabled." |
 | **Guideline** | No | Tactical | "Consider using a password manager." |
-| **Procedure** | Yes | Operational | Step-by-step instructions for encrypting a laptop before travel. |
+| **Procedure / SOP** | Yes | Operational | Step-by-step instructions for encrypting a laptop before travel. |
 
-The key distinction: policies state *what* must be achieved; standards define *how* to measure compliance; guidelines offer *recommended* approaches; procedures describe *exactly how* to carry out a task. Guidelines are the only non-mandatory level — they recommend but do not require.
+The key distinctions: policies state *what* must be achieved; standards define *how* to measure compliance; baselines define the *minimum security configuration* for a specific platform or system type — the floor every deployment must meet; guidelines offer *recommended* approaches; procedures (also called SOPs — Standard Operating Procedures) describe *exactly how* to carry out a task. Guidelines are the only non-mandatory level.
