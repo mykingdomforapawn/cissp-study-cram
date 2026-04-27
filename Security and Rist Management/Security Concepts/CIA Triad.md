@@ -34,5 +34,25 @@ While the CIA triad represents the security goals, the DAD triad represents the 
 ```
 
 - **Confidentiality** prevents **Disclosure**.
-- **Integrity** prevents **Alteration**.
+- **Integrity** prevents **Alteration**. Integrity also underpins **non-repudiation** — ensuring a party cannot deny an action they performed (e.g., digital signatures). See threat modeling for full coverage.
 - **Availability** prevents **Destruction**.
+
+## Context-Dependent Prioritization
+
+Different domains weight the triad differently — which pillar dominates depends on the context:
+
+| Domain | Top priority | Reasoning |
+|---|---|---|
+| Military / intelligence | Confidentiality | Disclosure of secrets causes the greatest harm |
+| Financial systems | Integrity | Altered transaction data is catastrophic |
+| Emergency services / healthcare | Availability | Systems must be reachable when lives depend on it |
+
+## Trade-offs Between Pillars
+
+Strengthening one pillar can weaken another:
+
+- **Confidentiality vs. Availability**: Heavy encryption and strict access controls slow down or block access, reducing availability.
+- **Integrity vs. Availability**: Checksums, approval workflows, and write locks protect integrity but add latency and friction.
+- **Availability vs. Confidentiality**: Replication and redundancy (more copies in more places) increase the attack surface for disclosure.
+
+Security professionals don't maximize all three simultaneously — they balance them based on the asset's business context.
