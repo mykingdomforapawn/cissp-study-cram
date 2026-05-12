@@ -1,0 +1,1 @@
+The mechanisms used to treat risk, classified by category (administrative, technical, physical) and by function (preventive, detective, corrective, deterrent, recovery, compensating, directive). Most real controls combine multiple categories and functions, and the classifications guide where to apply them in defense in depth.

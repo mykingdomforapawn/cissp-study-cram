@@ -1,0 +1,1 @@
+Structured methodologies for conducting risk management consistently across an organization, including NIST RMF, ISO 27005, FAIR, and OCTAVE. Frameworks provide repeatable processes, common vocabulary, and defensible decisions that ad-hoc risk assessment lacks.

@@ -1,0 +1,1 @@
+The set of treatment options available once a risk has been assessed: mitigate, accept, transfer, avoid, and reject. Choice depends on cost, feasibility, and the organization's risk appetite, with residual risk remaining after any treatment.

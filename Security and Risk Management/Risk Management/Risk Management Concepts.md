@@ -1,0 +1,1 @@
+The core vocabulary that every other risk topic depends on: asset, threat, vulnerability, risk, exposure, attack, and breach. Without precise definitions here, downstream discussions of assessment and treatment lose meaning.

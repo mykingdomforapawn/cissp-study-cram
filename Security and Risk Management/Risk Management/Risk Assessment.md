@@ -1,0 +1,1 @@
+The process of identifying and evaluating risk, using either qualitative methods (relative ratings, scenarios) or quantitative methods (dollar-denominated math with SLE, ARO, and ALE). Each approach suits different data availability and decision contexts.
