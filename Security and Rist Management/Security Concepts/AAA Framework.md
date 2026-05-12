@@ -22,7 +22,7 @@ This framework represents the core lifecycle of **Access Control** and **Identit
 	* Goal: Verifying that the subject is actually who they claim to be.
 	* Mechanism: Passwords (something you know), Tokens (something you have), Biometrics (something you are).
 	* Example: You enter your password and use your fingerprint. The system compares this against the database to confirm you are indeed John.
-	* **Authentication Factor Types**: Factors are formally classified as Type 1 (something you know — password, PIN), Type 2 (something you have — token, smart card), and Type 3 (something you are — biometrics). **Multi-Factor Authentication (MFA)** requires two or more factors from *different* types. Two passwords is not MFA — a password plus a token is. This distinction matters because combining factors of the same type adds length, not strength.
+	* **Authentication Factor Types**: Factors are formally classified as Type 1 (something you know — password, PIN), Type 2 (something you have — token, smart card), and Type 3 (something you are — biometrics). **Multi-Factor Authentication (MFA)** requires two or more factors from *different* types. Two passwords is not MFA — a password plus a token is.
 	* CIA link: Authentication enforces **Confidentiality** — only verified identities reach protected data. See [[CIA Triad]].
 - **Authorization (Defining Permissions)**
 	* Goal: Determining exactly what the authenticated user is allowed to do.

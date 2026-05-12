@@ -30,14 +30,14 @@ The output is a clear picture of where the system is exposed, which feeds direct
 
 **STRIDE** (Microsoft) — categorizes threats by type. Applied per component after reduction analysis:
 
-| Threat | Violates | Example |
-|---|---|---|
-| **S**poofing | Authentication | Attacker impersonates a legitimate user |
-| **T**ampering | Integrity | Attacker modifies data in transit |
-| **R**epudiation | Non-repudiation | User denies performing an action |
-| **I**nformation Disclosure | Confidentiality | Sensitive data exposed in error messages |
-| **D**enial of Service | Availability | Flood attack takes down a service |
-| **E**levation of Privilege | Authorization | User gains admin rights they shouldn't have |
+| Threat                     | Violates        | Example                                     |
+| -------------------------- | --------------- | ------------------------------------------- |
+| **S**poofing               | Authentication  | Attacker impersonates a legitimate user     |
+| **T**ampering              | Integrity       | Attacker modifies data in transit           |
+| **R**epudiation            | Non-repudiation | User denies performing an action            |
+| **I**nformation Disclosure | Confidentiality | Sensitive data exposed in error messages    |
+| **D**enial of Service      | Availability    | Flood attack takes down a service           |
+| **E**levation of Privilege | Authorization   | User gains admin rights they shouldn't have |
 
 Other methodologies (PASTA, Attack Trees, VAST) exist but are less central — STRIDE is the primary one for CISSP.
 
