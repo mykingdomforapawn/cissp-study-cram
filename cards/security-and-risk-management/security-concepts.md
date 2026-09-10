@@ -260,3 +260,88 @@ An attack tree — models the paths towards a single goal rather than prioritizi
 
 **Source**
 [[Threat Modeling]]
+
+## Card 16
+
+**Domain**
+1 — Security and Risk Management / Security Concepts
+
+**Question**
+A user types their email address into a login form and the system displays a password prompt. At this point in the sequence, what has the user actually done?
+
+**Options**
+*Made an identity claim through identification — the claim has been asserted but nothing has yet been proven.
+Completed authentication — authentication is the subsequent step, where the claim is verified against something the user knows, has, or is.
+Received authorization — authorization determines permitted actions and only follows successful authentication.
+Generated an accounting record — accounting reviews logged activity to hold subjects accountable, well after this point.
+
+**Source**
+[[AAA Framework]]
+
+## Card 17
+
+**Domain**
+1 — Security and Risk Management / Security Concepts
+
+**Question**
+A network team needs a AAA protocol for administrative access to routers and switches, and specifically wants authentication, authorization, and accounting handled as independent steps so that command-level authorization can be controlled separately. Which protocol fits?
+
+**Options**
+*TACACS+ — separates authentication, authorization, and accounting into independent steps, which supports granular command authorization for device administration.
+RADIUS — combines authentication and authorization, and is oriented towards network access such as VPN and wireless.
+Kerberos — an authentication protocol for network services rather than a device administration AAA protocol.
+LDAP — a directory access protocol used as an identity source, not a AAA protocol in itself.
+
+**Source**
+[[AAA Framework]]
+
+## Card 18
+
+**Domain**
+1 — Security and Risk Management / Security Concepts
+
+**Question**
+An intelligence agency and a hospital emergency department each ask which pillar of the triad their architecture should favour when a trade-off is unavoidable. What is the correct answer for each?
+
+**Options**
+*Confidentiality for the agency and availability for the hospital — disclosure of secrets causes the greatest harm in intelligence work, while emergency systems must be reachable when lives depend on them.
+Integrity for the agency and availability for the hospital — integrity dominates in financial systems, where altered transaction data is the catastrophic outcome.
+Confidentiality for both — a hospital holds sensitive records, but an unreachable emergency system is the more severe failure.
+Availability for both — an intelligence system that stays up while leaking secrets has failed at its primary purpose.
+
+**Source**
+[[CIA Triad]]
+
+## Card 19
+
+**Domain**
+1 — Security and Risk Management / Security Concepts
+
+**Question**
+A manufacturer sources a specialized component from a single supplier at a favourable price. The security team raises a supply chain concern that has nothing to do with the component's technical integrity. What is it?
+
+**Options**
+*Single-source dependency creates a single point of failure — a disruption at that one supplier halts production with no alternative available.
+The supplier may insert a hardware implant during manufacturing — a genuine supply chain risk, but one concerning the component's integrity.
+The component may be counterfeit and fail prematurely — again an integrity concern rather than a dependency concern.
+The supplier's firmware may not support a silicon root of trust — a technical integrity property of the component itself.
+
+**Source**
+[[Supply Chain Risk Management]]
+
+## Card 20
+
+**Domain**
+1 — Security and Risk Management / Security Concepts
+
+**Question**
+A defence contractor must be able to confirm that chips arriving from a distributor are genuine and not cloned substitutes, using a property that cannot be copied even by a sophisticated counterfeiter. Which mechanism provides this?
+
+**Options**
+*A physically unclonable function — exploits unique manufacturing variations in silicon to produce a hardware fingerprint that cannot be cloned.
+A silicon root of trust — validates firmware integrity before the operating system loads, addressing boot integrity rather than chip authenticity.
+A software bill of materials — inventories software components and says nothing about the authenticity of hardware.
+A tamper-evident shipping seal — reveals interference in transit but cannot establish that the chip inside was genuine to begin with.
+
+**Source**
+[[Supply Chain Risk Management]]

@@ -311,3 +311,105 @@ A memorandum of understanding — records non-binding intent and is unsuitable f
 
 **Source**
 [[Vendor, Consultant, and Contractor Agreements]]
+
+## Card 19
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+An employee receives a call from someone identifying themselves as the head of internal audit, who states that a regulatory filing is due within the hour and demands the employee read out a system password immediately. Which two psychological principles is the caller relying on <b>MOST</b> directly?
+
+**Options**
+*Authority and urgency — a claimed position of power short-circuits skepticism, and time pressure removes the opportunity to verify.
+Scarcity and consensus — scarcity exploits fear of missing out, and consensus relies on what others are said to be doing, neither of which is present here.
+Familiarity and trust — these depend on an established relationship the caller has not claimed.
+Intimidation and liking — liking works by building rapport, which contradicts the pressure being applied.
+
+**Source**
+[[Social Engineering]]
+
+## Card 20
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+Users report emails whose subject lines begin with "RE:" as if continuing an existing thread, sent from a domain differing from the corporate one by a single transposed letter. Which two techniques are in use?
+
+**Options**
+*Prepending and typosquatting — a legitimate-looking prefix makes the message appear part of a trusted exchange, and the near-identical domain survives a quick glance.
+Pretexting and impersonation — a fabricated scenario and a claimed identity, neither of which describes the subject line or the domain.
+Elicitation and masquerading — drawing out information through conversation, and assuming an identity inside a system after credentials are stolen.
+Hoax and spam — false information spread to cause panic, and bulk unsolicited messaging.
+
+**Source**
+[[Social Engineering]]
+
+## Card 21
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+An attacker recovers printed account statements and a decommissioned drive from a skip behind an office building. Which countermeasure would have been <b>MOST</b> effective?
+
+**Options**
+*A secure disposal policy with document shredding and certified media destruction — removes the recoverable material at source.
+A clean desk policy — protects material during the working day but does not govern how it is discarded.
+Visitor escort procedures — control access to the interior, whereas the skip is outside the controlled perimeter.
+Security awareness training on tailgating — addresses a different physical attack entirely.
+
+**Source**
+[[Social Engineering]]
+
+## Card 22
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+An organization is hiring both a treasury analyst who will authorize payments and a graphic designer who will work on marketing collateral. HR proposes running an identical background check package, including a credit history check, on both. What is the <b>BEST</b> objection?
+
+**Options**
+*Screening depth should scale with the sensitivity of the role — a credit check is a relevant fraud indicator for the treasury role and not justifiable for the designer.
+Credit history checks are never permissible in pre-employment screening — they are legitimate for finance-adjacent roles where financial pressure is a genuine risk indicator.
+Both candidates should instead receive the deeper package applied to the treasury role — uniformly maximal screening is disproportionate and costly.
+Background checks should be run after the offer rather than before — timing is a separate question and does not address the mismatch in depth.
+
+**Source**
+[[Personnel Security Lifecycle]]
+
+## Card 23
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+A hiring manager wants to post a newly created role immediately and work out its system access once someone is in the seat. What is the <b>PRIMARY</b> security argument for documenting duties, data sensitivity, and required privileges before the role is advertised?
+
+**Options**
+*The documented role is the foundation for least privilege and separation of duties — without it, access is granted ad hoc, drifts over time, and accountability blurs.
+It allows the recruiter to describe the role accurately to candidates — a hiring benefit rather than a security control.
+It determines which employment agreements the new hire must sign — the standard agreements apply regardless of how the role is documented.
+It establishes the salary band appropriate to the level of responsibility — a compensation question with no security dimension.
+
+**Source**
+[[Personnel Security Lifecycle]]
+
+## Card 24
+
+**Domain**
+1 — Security and Risk Management / Personnel Security
+
+**Question**
+Each department at a company manages its own contractors through spreadsheets and shared inboxes. Nobody can state how many third-party personnel currently hold access, and audit findings on stale contractor accounts recur every year. What is the <b>BEST</b> systemic response?
+
+**Options**
+*Implement a vendor management system as the single system of record, integrated with identity management — engagement end dates then drive revocation automatically, and the active contractor population becomes a query rather than a scavenger hunt.
+Issue a policy requiring every department to maintain its contractor spreadsheet accurately — preserves the fragmentation that causes the problem.
+Run a quarterly manual reconciliation of contractor accounts against departmental records — detects the drift repeatedly without preventing it.
+Require all contractors to be converted to employees — a disproportionate response that removes the flexibility contracting exists to provide.
+
+**Source**
+[[Vendor, Consultant, and Contractor Agreements]]

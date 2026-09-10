@@ -331,3 +331,88 @@ A risk assessment — evaluates risk in order to prioritize treatment, rather th
 
 **Source**
 [[Security Controls]]
+
+## Card 20
+
+**Domain**
+1 — Security and Risk Management / Risk Management
+
+**Question**
+An incoming CISO finds that risks are discussed in meetings and remediation is sometimes agreed, but there is no single place recording what each risk is, how it was rated, who owns it, and what was decided. Which artifact is missing?
+
+**Options**
+*A risk register — the living record of identified risks with their ratings, owners, and treatment decisions.
+A heat map — a visual likelihood and impact grid that communicates posture at a glance but records neither ownership nor decisions.
+A security control assessment report — evaluates whether deployed controls work, not what risks exist.
+A business impact analysis — quantifies the effect of disruption over time and belongs to continuity planning.
+
+**Source**
+[[Risk Assessment]]
+
+## Card 21
+
+**Domain**
+1 — Security and Risk Management / Risk Management
+
+**Question**
+A team has no reliable monetary loss data but finds that High, Medium, and Low ratings are too coarse to rank thirty risks against each other for prioritization. What is the <b>MOST</b> appropriate adjustment?
+
+**Options**
+*Move to a semi-quantitative approach, scoring likelihood and impact on numeric scales — enables ranking without claiming a monetary valuation the data cannot support.
+Move to a fully quantitative approach using estimated dollar values — manufactures precision from data the team has already established it does not have.
+Keep the qualitative scales and rank within each band by expert judgment — reintroduces the inconsistency the numeric scale is meant to remove.
+Reduce the number of risks assessed so the coarse scale suffices — hides the problem by narrowing scope rather than improving the method.
+
+**Source**
+[[Risk Assessment]]
+
+## Card 22
+
+**Domain**
+1 — Security and Risk Management / Risk Management
+
+**Question**
+A risk was assessed as low and formally accepted two years ago. Since then the system has been exposed to the internet and several exploits for its platform have been published. The acceptance has not been revisited. Which principle has been violated?
+
+**Options**
+*Continuous improvement — risk management is an ongoing cycle, and a risk accepted under earlier conditions must be reassessed as the threat landscape and environment change.
+Due diligence — the original risk was in fact identified and understood at the time.
+Separation of duties — concerns splitting a sensitive process across people and is unrelated to reassessment.
+Defence in depth — concerns the layering of controls rather than the frequency of risk review.
+
+**Source**
+[[Risk Management Concepts]]
+
+## Card 23
+
+**Domain**
+1 — Security and Risk Management / Risk Management
+
+**Question**
+An organization publishes a mandatory instruction requiring all staff to encrypt removable media before taking it off site. Considered on its own, how is this control classified by function?
+
+**Options**
+*Directive — it guides required behaviour through policy or instruction rather than technically enforcing it.
+Preventive — the encryption itself would be preventive, but the instruction to perform it is directive.
+Deterrent — deterrent controls discourage a threat agent from attempting an attack, not instruct staff on required conduct.
+Compensating — a compensating control substitutes for a primary control that cannot be implemented, which is not the case here.
+
+**Source**
+[[Security Controls]]
+
+## Card 24
+
+**Domain**
+1 — Security and Risk Management / Risk Management
+
+**Question**
+Following a ransomware incident, an organization restores encrypted file servers from offline backups and returns the business to normal operation. How is the backup restoration <b>BEST</b> classified by function?
+
+**Options**
+*Recovery — restores systems and operations after an incident has run its course.
+Detective — identifies that an incident occurred, which had already happened before the restore began.
+Preventive — stops an incident before it occurs, whereas this action follows one.
+Deterrent — discourages an attacker from attempting the attack in the first place.
+
+**Source**
+[[Security Controls]]

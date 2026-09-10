@@ -209,3 +209,54 @@ An on-site assessment — observes how policies are implemented in practice rath
 
 **Source**
 [[Organizational Security Processes]]
+
+## Card 13
+
+**Domain**
+1 — Security and Risk Management / Security Governance
+
+**Question**
+A security architect needs a detailed, prescriptive catalogue of technical controls to implement on a specific system, and separately the CISO needs a high-level structure for reporting the organization's overall cybersecurity posture to the board. Which pairing is correct?
+
+**Options**
+*NIST SP 800 series for the detailed controls, and the NIST Cybersecurity Framework for the board-level structure — SP 800 is prescriptive and control-level, while the CSF organizes outcomes at a risk management level.
+The NIST Cybersecurity Framework for the detailed controls, and NIST SP 800 series for the board-level structure — the two are the right frameworks but their roles are reversed.
+NIST SP 800 series for both purposes — it provides the control detail but is far too granular to communicate posture to a board.
+The NIST Cybersecurity Framework for both purposes — it structures outcomes without specifying the technical controls the architect needs.
+
+**Source**
+[[Security Control Frameworks]]
+
+## Card 14
+
+**Domain**
+1 — Security and Risk Management / Security Governance
+
+**Question**
+A reviewer needs to establish how customer data is actually transferred to a third-party processor and whether the handling complies with policy, without travelling to either site. Which method is <b>MOST</b> appropriate?
+
+**Options**
+*Document exchange and review — examines data flow documentation, exchange agreements, and prior assessment records to evaluate how data is handled.
+An on-site assessment — directly observes practice, but requires the site visit the reviewer is trying to avoid.
+A process and policy review — checks that written policies are complete and current, rather than how a specific transfer actually works.
+A third-party audit — produces independent assurance, a heavier and slower instrument than this question requires.
+
+**Source**
+[[Organizational Security Processes]]
+
+## Card 15
+
+**Domain**
+1 — Security and Risk Management / Security Governance
+
+**Question**
+An internal auditor discovers that a business unit head has been approving their own team's exceptions to the access control policy. The auditor's findings will be uncomfortable for that executive. To whom should the findings be reported?
+
+**Options**
+*Senior management — auditors report findings upward to senior management, which preserves independence from the function being examined.
+The business unit head, so they can remediate before the report is finalized — lets the audited party influence findings about their own conduct.
+The security professional who designed the access control policy — policy authors implement and advise, and are not the recipient of audit findings.
+The asset owners affected by the exceptions — owners classify data and grant access, but they are not the reporting line for audit findings.
+
+**Source**
+[[Organizational Roles and Responsibilities]]
