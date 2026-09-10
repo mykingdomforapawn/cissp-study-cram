@@ -1,0 +1,28 @@
+.card {
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: 17px; line-height: 1.5;
+  text-align: left; max-width: 40em; margin: 0 auto;
+  color: #1a1a1a; background: #fdfdfc;
+}
+
+.domain { font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+          color: #8a8a85; margin-bottom: 1em; }
+.question { margin-bottom: 1.2em; }
+
+.opt { display: grid; grid-template-columns: auto 1fr; gap: .2em .6em;
+       padding: .55em .7em; margin-bottom: .4em;
+       border: 1px solid #e2e2dd; border-radius: 6px; }
+.opt .letter { grid-column: 1; font-weight: 600; color: #8a8a85; }
+.opt .text   { grid-column: 2; }
+.opt.correct { border-color: #2f7d4f; background: #eef7f1; }
+.opt.correct .letter { color: #2f7d4f; }
+
+.why { grid-column: 2; margin-top: .1em;
+       font-size: 14px; color: #6b6b66; }
+
+.source { margin-top: 1.4em; font-size: 13px; color: #8a8a85; }
+
+.nightMode.card { color: #e8e8e4; background: #1c1c1a; }
+.nightMode .opt { border-color: #3a3a36; }
+.nightMode .opt.correct { border-color: #4a9d6b; background: #1f2f26; }
+.nightMode .why, .nightMode .source, .nightMode .domain { color: #9a9a94; }

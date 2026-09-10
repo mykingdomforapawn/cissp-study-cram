@@ -1,0 +1,61 @@
+<div class="domain">{{Domain}}</div>
+<div class="question">{{Question}}</div>
+<div id="opts"></div>
+<div id="raw" style="display:none">{{Options}}</div>
+
+<script>
+(function () {
+  var SHOW_WHY = false;
+
+  function parse() {
+    var raw = document.getElementById('raw').innerHTML;
+    var t = raw.replace(/<br\s*\/?>/gi, '\n')
+               .replace(/<\/(div|p|li)>/gi, '\n')
+               .replace(/<[^>]+>/g, '');
+    var ta = document.createElement('textarea');
+    ta.innerHTML = t;
+    return ta.value.split('\n').map(function (s) { return s.trim(); })
+      .filter(Boolean).map(function (line) {
+        var correct = line.charAt(0) === '*';
+        if (correct) line = line.slice(1).trim();
+        var m = line.match(/\s[—–-]\s/);
+        var text = line, why = '';
+        if (m) {
+          text = line.slice(0, m.index).trim();
+          why = line.slice(m.index + m[0].length).trim();
+        }
+        return { text: text, why: why, correct: correct };
+      });
+  }
+
+  function order(n, key) {
+    var g = globalThis;
+    if (g.__cissp && g.__cissp.key === key && g.__cissp.order.length === n) {
+      return g.__cissp.order;
+    }
+    var a = [];
+    for (var i = 0; i < n; i++) a.push(i);
+    for (var i = n - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    g.__cissp = { key: key, order: a };
+    return a;
+  }
+
+  var opts = parse();
+  var key = opts.map(function (o) { return o.text; }).join('|');
+  var ord = order(opts.length, key);
+  var letters = 'ABCDEFGH';
+  var html = '';
+  ord.forEach(function (idx, pos) {
+    var o = opts[idx];
+    html += '<div class="opt' + (SHOW_WHY && o.correct ? ' correct' : '') + '">'
+          + '<span class="letter">' + letters[pos] + '</span>'
+          + '<span class="text">' + o.text + '</span>'
+          + (SHOW_WHY && o.why ? '<div class="why">' + o.why + '</div>' : '')
+          + '</div>';
+  });
+  document.getElementById('opts').innerHTML = html;
+})();
+</script>
