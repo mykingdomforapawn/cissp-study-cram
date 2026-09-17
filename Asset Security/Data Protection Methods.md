@@ -1,0 +1,12 @@
+ Technical controls that enforce the handling requirements in [[Information and Asset Handling Requirements]], generally chosen based on which [[Identifying and Classifying Assets|data state]] is being protected.
+
+- **Encryption** — the primary control across all three data states, though the mechanism differs: encryption at rest protects stored data, in-transit encryption (TLS, VPN) protects data crossing a network, and in-use protection (e.g., confidential computing/secure enclaves) is the hardest and least mature of the three
+- **DRM (Digital Rights Management)** — a set of techniques aimed at enforcing copyright protection for digital content, controlling what a recipient can do with it after they've received it. Extends protection beyond the organization's own perimeter, unlike most other controls here. Implemented through mechanisms like:
+	- **DRM license** — a license file tied to the content that defines what the recipient is permitted to do with it (view, print, copy)
+	- **Persistent online authentication** — the content requires the viewer to re-authenticate with a licensing server each time it's accessed, so access can be revoked centrally even after distribution
+	- **Continuous audit trail** — logs every access/use event so usage can be tracked back to the individual
+	- **Automatic expiration** — the content becomes inaccessible after a set date, regardless of where the copy has ended up
+- **CASB (Cloud Access Security Broker)** — sits between users and cloud services to give visibility and policy enforcement over data going to/from cloud apps that the organization doesn't directly control; often the practical way DLP and access policy get enforced for SaaS
+- **Pseudonymization** — replaces identifying fields with an artificial identifier, but the mapping back to the real identity is retained (separately secured); the data is still considered personal data under regulations like GDPR because re-identification is possible
+- **Anonymization** — removes identifying information such that the individual can no longer be re-identified, even by the organization itself; properly anonymized data generally falls outside privacy law scope since it's no longer "personal data"
+- **Tokenization** — replaces sensitive data with a non-sensitive substitute (a token) that has no exploitable value on its own; the original value is stored separately in a secure token vault. Common for payment card data (PCI DSS) so that systems can process transactions without ever handling the real card number
