@@ -4,7 +4,8 @@
 Usage:  python3 cards/generate.py
 
 Reads every cards/<domain>/<topic>.md, parses the `## Card N` blocks, and
-writes cards/build/cissp-cards.txt — tab-separated, one note per line.
+writes one tab-separated import file per topic to cards/build/, plus a
+combined all-cards.txt. Import a single topic file to update just that topic.
 See cards/CLAUDE.md for the card format.
 """
 
@@ -13,7 +14,7 @@ import re
 import sys
 
 CARDS_DIR = pathlib.Path(__file__).parent
-OUT_FILE = CARDS_DIR / "build" / "cissp-cards.txt"
+BUILD_DIR = CARDS_DIR / "build"
 
 # Deck path every card is filed under, before the domain and topic.
 DECK_ROOT = "Certifications::CISSP"
@@ -96,8 +97,18 @@ def warn(message):
     warnings.append(message)
 
 
+def write_file(path, rows):
+    """Write one import file: the headers, then a line per card."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as fh:
+        for line in HEADER:
+            fh.write(line + "\n")
+        for row in rows:
+            fh.write("\t".join(row) + "\n")
+
+
 def main():
-    rows = []
+    by_source = {}
 
     for path in sorted(CARDS_DIR.rglob("*.md")):
         if path.name == "CLAUDE.md" or "anki-template" in path.parts:
@@ -120,16 +131,22 @@ def main():
                 warn(f"{where}: contains a tab character — skipped")
                 continue
 
-            rows.append(row)
+            by_source.setdefault(path, []).append(row)
 
-    OUT_FILE.parent.mkdir(exist_ok=True)
-    with OUT_FILE.open("w", encoding="utf-8", newline="\n") as fh:
-        for line in HEADER:
-            fh.write(line + "\n")
-        for row in rows:
-            fh.write("\t".join(row) + "\n")
+    # Clear stale output so a renamed or deleted topic file leaves nothing behind.
+    for stale in BUILD_DIR.rglob("*.txt"):
+        stale.unlink()
 
-    print(f"{len(rows)} cards -> {OUT_FILE.relative_to(CARDS_DIR.parent)}")
+    combined = []
+    for source, rows in sorted(by_source.items()):
+        relative = source.relative_to(CARDS_DIR).with_suffix(".txt")
+        write_file(BUILD_DIR / relative, rows)
+        combined.extend(rows)
+        print(f"{len(rows):4d}  build/{relative}")
+
+    write_file(BUILD_DIR / "all-cards.txt", combined)
+    print(f"{len(combined):4d}  build/all-cards.txt (everything)")
+
     for message in warnings:
         print(f"  warning: {message}", file=sys.stderr)
     return 1 if warnings else 0
