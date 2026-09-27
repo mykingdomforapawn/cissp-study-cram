@@ -10,13 +10,26 @@ Threat modeling is a structured process for identifying, analyzing, and prioriti
 
 ## Reduction Analysis
 
-Before threats can be identified, the system must be decomposed into its components to understand the attack surface. This involves mapping:
+Before threats can be identified, the system must be decomposed into its components to understand the attack surface. Five things are mapped:
+
 - **Trust boundaries** — where data crosses between zones of different trust levels
-- **Data flows** — how data moves through the system
-- **Entry and exit points** — anywhere input enters or output leaves
-- **Privileged code** — components that run with elevated permissions
+- **Dataflow paths** — how data moves through the system
+- **Input points** — anywhere data enters, since every input is a place an attacker can reach
+- **Privileged operations** — actions that run with elevated permissions, where the consequence of compromise is highest
+- **Security stance and approach** — the assumptions the design already makes about what protects what
+
+The last one is easy to skip and matters most. A decomposition that records the components but not the reasoning behind their protection produces a map with no legend — later reviewers cannot tell which exposures were accepted deliberately and which were never considered.
 
 The output is a clear picture of where the system is exposed, which feeds directly into threat identification.
+
+## Proactive and Reactive Modeling
+
+Threat modeling can happen at two very different points in a system's life, and the timing changes what it can achieve.
+
+- **Proactive (defensive)** — performed during design and development, before the system exists. Threats are addressed by changing the design, which is the cheapest point at which a flaw can be removed.
+- **Reactive (adversarial)** — performed after a product has been built and deployed, often in response to an incident or a penetration test. The design is now fixed, so the available responses are compensating controls and patches rather than structural change.
+
+Neither replaces the other. Proactive modeling catches design flaws; reactive modeling catches what the design assumptions got wrong once the system meets reality.
 
 ## Threat Modeling Process
 
@@ -39,7 +52,13 @@ The output is a clear picture of where the system is exposed, which feeds direct
 | **D**enial of Service      | Availability    | Flood attack takes down a service           |
 | **E**levation of Privilege | Authorization   | User gains admin rights they shouldn't have |
 
-Other methodologies (PASTA, Attack Trees, VAST) exist but are less central — STRIDE is the primary one for CISSP.
+**PASTA** (Process for Attack Simulation and Threat Analysis) — a seven-stage, **risk-centric** methodology. Where STRIDE asks what could go wrong with a component, PASTA asks what is worth protecting and how much protection is proportionate: countermeasures are selected or developed in relation to the *value of the assets* being protected. This makes it the natural fit where security spending has to be justified against business impact.
+
+**VAST** (Visual, Agile, and Simple Threat) — integrates threat and risk management into an Agile development environment on a scalable basis. Its design goal is breadth rather than depth: usable by many teams repeatedly inside an existing workflow, rather than as a separate security exercise a specialist runs occasionally.
+
+**Attack trees** — model the paths to a single attacker goal as a branching structure, with the goal at the root and the means of achieving it below. Useful for reasoning about one high-value target in depth.
+
+The four differ in what they are *for*: STRIDE categorizes, DREAD rates, PASTA weighs against asset value, and VAST scales across an organization.
 
 ## Prioritization & Response (DREAD)
 

@@ -42,3 +42,17 @@ Two related but distinct processes — covered in detail in the assessment chapt
 - **Penetration Testing** — actively exploits vulnerabilities to prove real-world impact; answers "what can actually be breached?"
 
 A vulnerability assessment tells you the door is unlocked. A penetration test walks through it.
+
+## Third-Party Governance
+
+**Third-party governance** is the system of external oversight applied to an organization — or applied by an organization to its own suppliers. The obligation to submit to it can come from law, regulation, industry standards, contractual terms, or licensing conditions. The method varies, but it generally involves an outside investigator or auditor, and the assessment methods above are how it is carried out in practice.
+
+The direction matters. An organization is simultaneously the subject of third-party governance (its regulators and customers oversee it) and the party exercising it (it oversees its own vendors). The same instruments — documentation review, on-site assessment, audit — apply in both directions.
+
+### Authorization to Operate
+
+An **authorization to operate (ATO)** is formal permission for a system or a supplier to be used in a given environment, granted on the strength of evidence that security requirements are met. It is most familiar from government and military contexts but the concept generalizes to any organization that gates a supplier before use.
+
+The consequence worth understanding: **failing to provide sufficient documentation to meet third-party governance requirements can cost an ATO.** Where a review finds a supplier no longer meeting the minimum requirements its authorization was granted against, withdrawing that authorization is the response the situation calls for — writing a report records the finding but leaves an inadequately secured supplier in production. Documentation is not a formality here; it is the evidence the authorization rests on, and an authorization without evidence has nothing holding it up.
+
+Where the organization sets minimum security requirements for a third party, those requirements are modeled on its **own existing security policy** — the operating principle being that a party handling your data should be held to at least the standard you hold yourself to. An audit or scan of the vendor reveals their current state, which is a different question from what they ought to meet.

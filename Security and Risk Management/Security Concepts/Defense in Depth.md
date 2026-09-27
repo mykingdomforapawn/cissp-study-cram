@@ -56,3 +56,26 @@ These two dimensions are independent — a security camera is both Physical (cat
 ## Vendor Diversity
 
 Using the same product at multiple layers creates a hidden single point of failure — one vulnerability in that vendor's software bypasses both. Intentionally mixing vendors across layers ensures that a flaw in one product doesn't silently collapse the whole strategy.
+## Security Boundaries
+
+A **security boundary** is the line of intersection between two areas, subnets, or environments that have different security requirements. It is where the layering in this note actually gets enforced — the point at which a subject or a packet moves from one set of expectations into another, and where controls must sit to check that the move is legitimate.
+
+Boundaries are not only technical. The line between a general office area and a server room is a security boundary; so is the line between an internal network and a partner extranet, or between an unprivileged process and the kernel. Identifying them is the first step in deciding where controls belong, because a control placed anywhere other than a boundary protects nothing that was not already protected.
+
+## The Vocabulary of Layering
+
+Layered design has accumulated a lot of terminology, and the terms describe the same underlying idea applied at different levels. All of the following relate to or are based on defense in depth:
+
+| Term | Where it applies |
+|---|---|
+| **Layering** | The general principle: multiple controls in series |
+| **Zones** | Network areas of differing trust (internal, DMZ, external) |
+| **Segmentation** | Dividing a network so traffic cannot move freely between parts |
+| **Compartments** | Isolating information so access to one part grants no access to others |
+| **Silos** | Separated functional or data areas with no lateral path between them |
+| **Realms** | Administrative domains under separate authority |
+| **Classifications** | Levels of sensitivity, which stratify data the way zones stratify networks |
+| **Lattice structure** | A formal model of security levels and the permitted flows between them |
+| **Protection rings** | Processor and operating system privilege levels, from kernel outward |
+
+Recognizing these as one family matters more than memorizing the list. Encountering "compartments" in a data classification discussion and "protection rings" in an operating system one, it is the same structural idea: no single boundary is trusted to hold, so another sits behind it.

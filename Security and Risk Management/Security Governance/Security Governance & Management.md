@@ -25,6 +25,25 @@ Governance is the oversight that ensures security strategies align with business
 	* Timeframe: Short-term (Daily, Weekly, Monthly). 
 	* Responsibility: Operational Staff (e.g., SysAdmins, Security Analysts, Help Desk).
 
+**Rollback plan** — not a tier in the hierarchy but frequently listed alongside them: the predefined means of returning to a prior state after a change fails to meet expectations. Where the three plans above look forward, a rollback plan is the prepared retreat, and preparing it is part of authorizing the change rather than a reaction to the failure.
+
+## Business Cases
+
+A **business case** is a documented argument, or stated position, establishing a need to make a decision or take some form of action. Making one means demonstrating a business-specific need to alter an existing process or adopt a particular approach.
+
+Security work is frequently funded this way, and the framing matters: a business case argues from organizational need rather than from technical desirability. "This control closes a known exposure that carries this much risk" is a business case; "this is best practice" is not. It is the mechanism by which a security initiative competes for resources alongside everything else the organization could spend them on, which is also why security that cannot articulate its business case tends not to get funded.
+
+## Risk from Mergers, Acquisitions, and Divestitures
+
+Periods of heavy corporate activity raise an organization's risk level distinctly, because environments built under different assumptions are being joined together or pulled apart at speed. Characteristic risks:
+
+- **Inappropriate information disclosure** — data becomes visible to people in the other organization before anyone has decided it should be
+- **Data loss** — records fall between two systems during migration, or are abandoned in an environment nobody retains ownership of
+- **Downtime** — integration work touches production systems that were never designed to interoperate
+- **Failure to achieve sufficient return on investment** — the security and integration cost of the combination is underestimated in the valuation
+
+Worth distinguishing from these: increased worker compliance is a *precaution* one would want during such a period, not a risk of it, and better insight into insider motivations is a possible *result* of investigating incidents, not a risk either. The distinction is between what the activity exposes the organization to and what the organization might do or learn in response.
+
 ## Policy Hierarchy
 
 Governance produces a cascade of documents, each more specific than the last. The levels map directly onto the planning tiers above:

@@ -11,6 +11,8 @@ Outcome-based and voluntary — defines *what* to achieve, not *how*. Organized 
 5. **Respond** — take action when an incident is detected
 6. **Recover** — restore capabilities after an incident
 
+**Version note:** Govern arrived with CSF 2.0 in 2024. CSF 1.1 had five functions, Identify through Recover, and a great deal of existing documentation, training material, and tooling still describes it that way. Adding Govern was an acknowledgement that the other five presuppose someone has set the risk strategy and assigned accountability — previously treated as context, now part of the framework itself. See [[Security Control Frameworks]].
+
 ## NIST RMF (Risk Management Framework, SP 800-37)
 
 More prescriptive than CSF; primarily used in federal and government contexts. Seven steps:

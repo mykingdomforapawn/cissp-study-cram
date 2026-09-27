@@ -44,3 +44,13 @@ This framework represents the core lifecycle of **Access Control** and **Identit
 ## AAA Protocols
 
 The AAA framework is implemented in practice through dedicated protocols — covered in detail in the networking chapter. For reference: **RADIUS** handles network access (VPNs, Wi-Fi), while **TACACS+** handles device administration (routers, switches). The key structural difference is that TACACS+ separates Authentication, Authorization, and Accounting into independent steps, whereas RADIUS combines the first two.
+
+## Abstraction
+
+**Abstraction** is the practice of collecting similar elements into groups, classes, or roles that are then assigned security controls, restrictions, or permissions *as a collective*, rather than individually.
+
+It is what makes authorization administrable at scale. Granting permissions to a "Finance Analyst" role and placing 340 people in it is not merely less typing than 340 individual grants — it means the intended access policy exists in one reviewable place. Individually assigned permissions have no such place: the policy is only the sum of whatever was granted over the years, and nobody can state it without enumerating every account.
+
+- Applies to objects as well as subjects: file types, system categories, and data classifications are all abstractions.
+- The trade-off is precision. A role is an approximation of what its members need, so any role broad enough to be useful grants someone more than they strictly require — abstraction and least privilege pull against each other, and the balance is a design decision.
+- Related to, but distinct from, **classification** (grouping by sensitivity) and **need-to-know** (restricting within a group).
