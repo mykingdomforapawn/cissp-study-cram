@@ -30,6 +30,11 @@ How roles are structured and managed is itself a governance control. See [[Secur
 * Key Task: Reviewing logs, checking policy adherence, reporting findings to Senior Management. 
 * Note: Auditors must be independent to avoid conflicts of interest (they should not check their own work).
 
+**Security Champion (The Advocate)**
+* Goal: A member of a non-security team — often a developer, ops engineer, or analyst — who takes up the cause of driving security adoption within their own group.
+* Key Task: Encouraging peers to follow secure practices, acting as the first point of contact for security questions on the team, surfacing concerns to the security function early.
+* Note: Not a formal security role and carries no special authority — the value is peer influence, not enforcement. Distinct from the CISO (organization-wide authority) and the auditor (independent, compliance-focused).
+
 ## Personnel Governance Controls
 
 How roles are assigned and rotated is a governance mechanism in itself — these controls prevent fraud, limit abuse, and reduce over-reliance on individuals. They are mandated at the governance level (see [[Security Governance & Management]]) and enforced through HR and management processes.

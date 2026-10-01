@@ -25,6 +25,16 @@ More prescriptive than CSF; primarily used in federal and government contexts. S
 6. **Authorize** — management formally accepts residual risk
 7. **Monitor** — continuously track control effectiveness
 
+## Risk Maturity Model (RMM)
+
+Rates how mature an organization's risk management *process* is, not how much risk it has. Five levels:
+
+1. **Ad Hoc** — chaotic, no defined process; risk management happens reactively if at all
+2. **Preliminary** — loose, informal attempts; each department assesses risk its own way
+3. **Defined** — a common, standardized risk framework is adopted organization-wide
+4. **Integrated** — risk management is woven into business processes, with metrics tracking effectiveness and risk feeding into strategy decisions
+5. **Optimized** — focus shifts from reacting to threats to achieving objectives; lessons learned feed back into the process and risk management supports strategic planning
+
 ## Other Frameworks
 
 - **ISO 27005** — risk management standard within the ISO 27000 family; aligns with ISO 27001 for information security management systems
