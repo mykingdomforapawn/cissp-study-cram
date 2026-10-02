@@ -8,5 +8,6 @@ Common continuity strategies:
 	- **Cold site** — bare facility with power/space only, cheapest but slowest to activate
 - **Personnel continuity** — succession planning and cross-training so critical roles aren't single points of failure
 - **Communications continuity** — backup channels to reach staff, customers, and partners when primary systems are down
+- **Alternative systems** — redundant components (e.g., a second communications circuit) that take over when the primary fails; one of several general provision categories alongside hardening a system or reducing its exposure
 
 This is also where DRP-specific technical recovery procedures (backups, system restoration, failover) plug into the broader plan — DRP delivers the "how" for the systems a continuity strategy depends on.

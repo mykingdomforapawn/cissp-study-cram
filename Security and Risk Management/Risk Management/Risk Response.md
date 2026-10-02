@@ -4,7 +4,7 @@ Once risk is assessed, each risk gets a treatment decision based on cost, feasib
 
 - **Mitigate** — implement controls to reduce the likelihood or impact of the risk
 - **Transfer** — shift the financial consequence to a third party (insurance, contracts, SLAs). Cybersecurity insurance covers costs like breach response, legal liability, regulatory fines, and business interruption — but does not eliminate the risk or the need for controls. It reduces financial exposure only.
-- **Accept** — acknowledge the risk and take no action; must be documented and formally owned
+- **Accept** — acknowledge the risk and take no action; must be documented and formally owned. Acceptance documentation covers the list of risks deemed acceptable, the rationale for that call, and future events that would warrant reconsidering it — not mitigation controls, since an accepted risk is by definition not being mitigated
 - **Avoid** — eliminate the activity or condition that creates the risk entirely
 - **Reject/Ignore** — pretend the risk doesn't exist; not a valid management strategy
 

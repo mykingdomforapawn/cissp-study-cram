@@ -6,3 +6,5 @@ The first element of BCP (see [[BCP vs DRP]]) sets up the effort before any anal
 - **External requirements** — obligations imposed from outside the organization that shape scope and priorities:
 	- **Vendors** — dependencies on third parties and their own continuity posture
 	- **Legal and regulatory requirements** — industry regulations, contractual SLAs, and legal obligations that may mandate certain continuity capabilities or reporting
+
+Executive sponsorship isn't just practical — officers and directors have a fiduciary duty of **due diligence** to ensure adequate continuity planning is in place. Board-level review of the BCP is how that obligation gets satisfied.

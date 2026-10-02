@@ -1,4 +1,4 @@
-The final element of BCP (see [[BCP vs DRP]]) turns the plan from a document into an organizational capability.
+The final element of BCP (see [[BCP vs DRP]]) turns the plan from a document into an organizational capability. Throughout every element, the safety of human life is the paramount concern — above facilities, infrastructure, or financial loss — and this priority should be explicit in whatever is disseminated to employees.
 
 - **Senior management approval** — the plan needs formal sign-off to carry authority, secure funding, and confirm it aligns with organizational priorities
 - **Implementation** — rolling the plan out: assigning ownership, distributing procedures, and building awareness/training so staff know their role during a disruption

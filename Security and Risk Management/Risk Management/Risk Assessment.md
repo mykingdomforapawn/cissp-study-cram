@@ -9,7 +9,7 @@ Produces dollar-denominated outputs, enabling direct cost-benefit comparisons.
 | **AV** (Asset Value)                | Monetary value of the asset                           | —         |
 | **EF** (Exposure Factor)            | Percentage of asset value lost in a single loss event | 0–100%    |
 | **SLE** (Single Loss Expectancy)    | Cost of one occurrence of the threat                  | AV × EF   |
-| **ARO** (Annual Rate of Occurrence) | Expected frequency of the threat per year             | —         |
+| **ARO** (Annual Rate of Occurrence) | Expected frequency of the threat per year — a stable probability, not something that drifts because the event happened to occur or not occur recently; it only changes if the underlying circumstances do | —         |
 | **ALE** (Annual Loss Expectancy)    | Expected annual cost of the risk                      | SLE × ARO |
 
 **Safeguard cost-benefit**: the value of a safeguard is calculated as:
