@@ -6,4 +6,6 @@ Legal systems classify law into categories that determine how a case is proven, 
 | **Civil Law** (Tort) | A private party | Preponderance of the evidence (lower) | Compensate a wronged party for damages | A company sues a vendor for breach of contract after a data leak |
 | **Administrative/Regulatory Law** | A government agency | Preponderance of the evidence | Enforce compliance with agency rules; fines, sanctions | A regulator fines a company for violating HIPAA |
 
+Administrative law is distinct in how it's created: it doesn't require an act of Congress. Executive branch agencies promulgate it directly as regulations, policies, and procedures — though it remains subject to judicial review and must stay within the bounds of the criminal and civil law the legislature has enacted.
+
 The same underlying incident is often pursued under more than one category at once — e.g., an attacker faces criminal prosecution while the breached company separately faces a regulatory fine and civil lawsuits from affected customers.
