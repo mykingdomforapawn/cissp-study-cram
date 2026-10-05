@@ -1,7 +1,7 @@
 Cryptography exists to serve four distinct security goals. Two of them map directly onto the [[CIA Triad]]; the other two are additions the triad doesn't cover on its own.
 
 - **Confidentiality**
-	* Goal: Only authorized parties can read the data.
+	* Goal: Only authorized parties can read the data, whether it's [[Identifying and Classifying Assets|at rest, in transit, or in use]].
 	* Mechanism: Encryption (symmetric or asymmetric) — see the Modern Cryptography notes.
 	* Maps to: Confidentiality in the CIA Triad.
 - **Integrity**
