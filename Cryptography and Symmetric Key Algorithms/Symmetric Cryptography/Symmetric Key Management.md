@@ -29,3 +29,10 @@ A trusted third party holds a copy of a key for authorized recovery later — fo
 ## Key Recovery
 
 The authorized process of retrieving an escrowed or otherwise lost key — distinct from an attacker "recovering" a key through cracking. To prevent any single person (including an insider) from triggering recovery alone, recovery is typically gated by **split knowledge** / **M of N control** (see Crypto Mathematics): the key is divided among multiple custodians, and a minimum number of them must act together to reconstruct it.
+
+## Crypto-Agility and Migration
+
+Keys and algorithms don't last forever (see Work Function in Crypto Mathematics for why a fixed key length erodes over time), so key management has to plan for replacing them without disruption:
+
+- **Crypto-agility** — designing a system so its algorithm or key length can be swapped without a full redesign, by abstracting cryptographic operations behind an interface rather than hardcoding a specific algorithm throughout the codebase. A crypto-agile system treats "which algorithm" as a configuration choice, not an architectural assumption.
+- **Migration planning** — the practical rollout of a new algorithm or key length: a transition period where old and new are both supported, followed by re-encrypting existing data at rest under the new standard, and finally retiring the old algorithm. See Symmetric Algorithm Comparison's takeaway for which algorithms are already past this point.

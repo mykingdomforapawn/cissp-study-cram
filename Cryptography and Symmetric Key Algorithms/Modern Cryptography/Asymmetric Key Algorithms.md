@@ -33,3 +33,7 @@ This combines asymmetric crypto's solution to key distribution with symmetric cr
 - **ECC (Elliptic Curve Cryptography)** — based on the elliptic curve discrete logarithm problem; achieves equivalent strength to RSA at much shorter key lengths.
 
 Full mechanics of each are deferred to the PKI chapter.
+
+## Post-Quantum Note
+
+RSA, Diffie-Hellman, and ECC all rely on math problems (factoring, discrete logs) that a sufficiently capable quantum computer could solve efficiently, breaking them outright — this is the next major deprecation wave on the horizon for asymmetric crypto specifically. Symmetric crypto (AES) is far less affected, since brute-forcing it only gets easier by a square root factor, not broken outright. "Post-quantum cryptography" names the replacement algorithms being standardized now; worth recognizing the term, with depth deferred to wherever it's covered in detail.
