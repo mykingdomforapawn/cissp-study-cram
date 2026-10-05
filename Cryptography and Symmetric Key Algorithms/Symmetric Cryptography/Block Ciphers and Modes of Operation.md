@@ -37,12 +37,26 @@ Encrypts a **counter value** (a nonce combined with an incrementing number) inst
 - No error propagation — a corrupted ciphertext bit only affects the corresponding plaintext bit.
 - The modern default: underlies authenticated modes like AES-GCM used throughout current protocols (e.g., TLS).
 
+## Why Authenticity Matters Beyond Confidentiality
+
+ECB through CTR above only provide **confidentiality** — they say nothing about whether the ciphertext was tampered with in transit. An attacker who can't read the plaintext can often still flip bits in the ciphertext and have the recipient decrypt it into corrupted (or deliberately manipulated) plaintext without detection. **Authenticated encryption** modes close that gap by producing an authentication tag alongside the ciphertext, checked on decryption before the plaintext is trusted.
+
+## GCM (Galois/Counter Mode)
+
+Combines CTR mode's keystream generation with a Galois-field-based authentication tag, computed over the ciphertext in the same pass as encryption. Provides **confidentiality and data authenticity/integrity together**, with CTR's full parallelizability. This is the modern default for authenticated encryption — e.g., AES-GCM underlies TLS.
+
+## CCM (Counter with CBC-MAC)
+
+Combines CTR mode for confidentiality with **CBC-MAC** (a MAC built from CBC mode) for authenticity — two passes over the data instead of GCM's one, so it's slower, but it's used where GCM isn't available or standardized, such as some wireless and IoT protocols (e.g., WPA2's CCMP).
+
 ## Comparison
 
-| Mode | Parallelizable | Error propagation | Typical use |
-|---|---|---|---|
-| ECB | Yes | No (errors stay in-block) | Never — insecure, leaks patterns |
-| CBC | No (encryption); yes (decryption) | Yes, into the next block | Legacy default |
-| CFB | No (encryption); yes (decryption) | Yes, into the next block | Legacy, stream-like use |
-| OFB | No | No | Legacy, error-sensitive channels |
-| CTR | Yes | No | Modern default (e.g., AES-GCM) |
+| Mode | Parallelizable | Error propagation | Authenticity | Typical use |
+|---|---|---|---|---|
+| ECB | Yes | No (errors stay in-block) | No | Never — insecure, leaks patterns |
+| CBC | No (encryption); yes (decryption) | Yes, into the next block | No | Legacy default |
+| CFB | No (encryption); yes (decryption) | Yes, into the next block | No | Legacy, stream-like use |
+| OFB | No | No | No | Legacy, error-sensitive channels |
+| CTR | Yes | No | No | Confidentiality-only baseline |
+| GCM | Yes | No | Yes | Modern default (e.g., AES-GCM in TLS) |
+| CCM | No | No | Yes | Where GCM isn't available (e.g., WPA2/CCMP) |
