@@ -1,6 +1,6 @@
 ## What Asymmetric Crypto Is
 
-A mathematically linked **key pair**: a public key and a private key. What one key encrypts, only the other can decrypt — and critically, the private key can't feasibly be derived from the public one, even though they're mathematically related (see Modulo and One-Way Functions in Crypto Mathematics for why). The public key is shared freely; the private key never leaves its owner.
+A mathematically linked **key pair**: a public key and a private key. What one key encrypts, only the other can decrypt — and critically, the private key can't feasibly be derived from the public one, even though they're mathematically related (see Modulo and One-Way Functions in Crypto Mathematics for why). The public key is shared freely; the private key never leaves its owner. Full depth on the key pair itself, and on specific algorithms, is in Public and Private Keys and the other Asymmetric Cryptography notes.
 
 ## Solves the Key Distribution Problem
 
@@ -11,7 +11,7 @@ Unlike symmetric crypto, the public key doesn't need a secure channel to be shar
 - **Encrypt with the recipient's public key** — only the recipient's private key can decrypt it. Provides confidentiality.
 - **Sign with your own private key** — anyone can verify the signature using your public key, proving the message came from you and wasn't altered. Provides authentication and non-repudiation (see Goals of Cryptography).
 
-The certificate and trust mechanics behind actually distributing and validating public keys (PKI, certificate authorities) are covered in depth in the next chapter.
+The certificate and trust mechanics behind actually distributing and validating public keys (PKI, certificate authorities) are covered in the PKI notes.
 
 ## Why It's Slow
 
@@ -26,14 +26,15 @@ In practice, almost no real system uses asymmetric crypto alone. Instead:
 
 This combines asymmetric crypto's solution to key distribution with symmetric crypto's speed — this pattern underlies TLS and most other modern secure-communication protocols.
 
-## Common Algorithms (Named Only)
+## Common Algorithms
 
-- **RSA** — based on the difficulty of factoring large prime products.
-- **Diffie-Hellman** — a key *exchange* protocol (not encryption itself), based on discrete logarithms.
-- **ECC (Elliptic Curve Cryptography)** — based on the elliptic curve discrete logarithm problem; achieves equivalent strength to RSA at much shorter key lengths.
+- **RSA** — based on the difficulty of factoring large prime products. See RSA.
+- **Diffie-Hellman** — a key *exchange* protocol (not encryption itself), based on discrete logarithms. See Diffie-Hellman Key Exchange.
+- **ElGamal** — encryption built on the same discrete logarithm problem as Diffie-Hellman. See ElGamal.
+- **ECC (Elliptic Curve Cryptography)** — based on the elliptic curve discrete logarithm problem; achieves equivalent strength to RSA at much shorter key lengths. See Elliptic Curve Cryptography.
 
-Full mechanics of each are deferred to the PKI chapter.
+Full mechanics of each are in the dedicated Asymmetric Cryptography notes above.
 
 ## Post-Quantum Note
 
-RSA, Diffie-Hellman, and ECC all rely on math problems (factoring, discrete logs) that a sufficiently capable quantum computer could solve efficiently, breaking them outright — this is the next major deprecation wave on the horizon for asymmetric crypto specifically. Symmetric crypto (AES) is far less affected, since brute-forcing it only gets easier by a square root factor, not broken outright. "Post-quantum cryptography" names the replacement algorithms being standardized now; worth recognizing the term, with depth deferred to wherever it's covered in detail.
+RSA, Diffie-Hellman, ElGamal, and ECC all rely on math problems that a sufficiently capable quantum computer could solve efficiently, breaking them outright — see Quantum Computing and Cryptography and Post-Quantum Cryptography for the full treatment.

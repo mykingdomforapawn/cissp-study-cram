@@ -8,7 +8,7 @@ The structural problem described in Symmetric Key Algorithms: both parties need 
 
 - **Offline (out-of-band) distribution** — physically or separately transmitting the key outside the channel it will protect (e.g., in person, via a separate courier).
 - **Public key encryption** — encrypting the symmetric key with the recipient's public key before sending it, the same hybrid cryptosystem pattern described in Asymmetric Key Algorithms.
-- **Diffie-Hellman key exchange** — both parties derive the same shared secret over an insecure channel without ever transmitting the key itself. Named here as one of the three methods; the mechanics are covered in detail in the PKI chapter.
+- **Diffie-Hellman key exchange** — both parties derive the same shared secret over an insecure channel without ever transmitting the key itself. See Diffie-Hellman Key Exchange (Asymmetric Cryptography) for the mechanics.
 
 ## Key Storage
 

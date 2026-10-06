@@ -14,6 +14,8 @@ Depth on each is in the dedicated Symmetric Key Algorithms and Asymmetric Key Al
 - **Public key** — distributed freely; anyone can use it to encrypt a message for the key owner, or verify a signature made by the key owner.
 - **Private key** — never leaves the owner's control; used to decrypt messages encrypted with the matching public key, or to create a digital signature.
 
+Full depth on the key pair itself is in Public and Private Keys (Asymmetric Cryptography).
+
 ## Key Security Principles
 
 Regardless of symmetric or asymmetric, a key is only as good as how it's handled:
