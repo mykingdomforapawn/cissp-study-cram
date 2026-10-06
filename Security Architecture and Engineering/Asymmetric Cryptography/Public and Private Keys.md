@@ -16,4 +16,4 @@ Mixing these up is a common point of confusion: encrypting with your *own* priva
 
 ## Key Pair Generation
 
-Each algorithm (RSA, ElGamal, ECC — covered in their own notes) has its own mathematical method for generating a linked pair, but the generation always has to produce a public key from which the private key is computationally infeasible to recover, at the key length chosen. Generation itself relies on the same randomness requirements as any other key (see Key Creation in Symmetric Key Management) — a flawed random number generator that produces predictable private keys defeats the whole pair, regardless of key length.
+Each algorithm (RSA, ElGamal, ECC — see Asymmetric Algorithm Comparison) has its own mathematical method for generating a linked pair, but the generation always has to produce a public key from which the private key is computationally infeasible to recover, at the key length chosen. Generation itself relies on the same randomness requirements as any other key (see Key Creation in Symmetric Key Management) — a flawed random number generator that produces predictable private keys defeats the whole pair, regardless of key length.

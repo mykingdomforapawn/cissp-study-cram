@@ -28,13 +28,8 @@ This combines asymmetric crypto's solution to key distribution with symmetric cr
 
 ## Common Algorithms
 
-- **RSA** — based on the difficulty of factoring large prime products. See RSA.
-- **Diffie-Hellman** — a key *exchange* protocol (not encryption itself), based on discrete logarithms. See Diffie-Hellman Key Exchange.
-- **ElGamal** — encryption built on the same discrete logarithm problem as Diffie-Hellman. See ElGamal.
-- **ECC (Elliptic Curve Cryptography)** — based on the elliptic curve discrete logarithm problem; achieves equivalent strength to RSA at much shorter key lengths. See Elliptic Curve Cryptography.
-
-Full mechanics of each are in the dedicated Asymmetric Cryptography notes above.
+RSA, Diffie-Hellman, ElGamal, and ECC — see Asymmetric Algorithm Comparison for the hard problem, trade-offs, and key-length comparison across all four.
 
 ## Post-Quantum Note
 
-RSA, Diffie-Hellman, ElGamal, and ECC all rely on math problems that a sufficiently capable quantum computer could solve efficiently, breaking them outright — see Quantum Computing and Cryptography and Post-Quantum Cryptography for the full treatment.
+RSA, Diffie-Hellman, ElGamal, and ECC all rely on math problems that a sufficiently capable quantum computer could solve efficiently, breaking them outright — see Quantum Computing and Cryptography for the full treatment, including post-quantum replacement efforts.
