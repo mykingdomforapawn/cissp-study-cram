@@ -17,13 +17,9 @@ Hashing provides **integrity**, not confidentiality — see the Goals of Cryptog
 
 A **collision** is when two different inputs produce the same hash digest — a direct violation of collision resistance. Collisions matter because they let an attacker substitute a malicious file or message for a legitimate one while keeping the same digest, defeating any integrity check that relies on comparing hashes. An algorithm with known, practical collision attacks is no longer trustworthy for integrity verification.
 
-## Common Algorithms (Named Only)
+## Common Algorithms
 
-- **MD5** — produces a 128-bit digest; broken, practical collision attacks exist. Should not be used for security purposes.
-- **SHA-1** — produces a 160-bit digest; deprecated, practical collision attacks exist.
-- **SHA-2 family** (SHA-256, SHA-512, etc.) — current standard, no practical collision attacks known.
-
-Full mechanics of each are deferred to the PKI chapter.
+SHA family, MD5, RIPEMD — see Hash Algorithm Comparison for digest sizes, status, and which are safe to use today.
 
 ## Salting
 
