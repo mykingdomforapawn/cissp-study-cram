@@ -43,6 +43,7 @@ A certificate sometimes needs to be invalidated before its validity period ends 
 
 - **CRL (Certificate Revocation List)** — a signed, periodically published list of revoked certificate serial numbers; a relying party downloads and checks it. Simple, but can lag reality between publications.
 - **OCSP (Online Certificate Status Protocol)** — a relying party queries the CA (or a designated responder) in real time for one certificate's current status. More up-to-date than a CRL, at the cost of needing a live connection to the responder at verification time.
+- **OCSP stapling** — instead of the relying party querying the OCSP responder itself, the *server* presenting the certificate periodically queries the responder on its own behalf, gets back a signed, time-stamped response, and "staples" (attaches) that response to the TLS handshake. The relying party gets OCSP's freshness without having to contact the responder directly — fixing OCSP's live-connection requirement and removing the privacy leak of every relying party revealing which certificates it's checking directly to the CA.
 
 ## Certificate Formats
 
