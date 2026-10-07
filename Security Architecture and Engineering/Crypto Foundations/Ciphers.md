@@ -43,10 +43,11 @@ Break any one of these requirements and the "unbreakable" guarantee disappears. 
 
 This is a foundational distinction for symmetric algorithms — see Block Ciphers and Modes of Operation for the detailed mechanics.
 
-## Concealment and Steganography
+## Concealment, Steganography, and Watermarking
 
-A different approach entirely: instead of scrambling the message (encryption), **hide the fact that a message exists at all**.
+A different approach entirely: instead of scrambling the message (encryption), **hide the fact that a message exists at all** — or, with watermarking, hide a mark whose presence is secondary to proving ownership.
 
 - **Concealment cipher** — the real message is hidden within an innocuous-looking cover message, readable only if you know the rule (e.g., "read every 5th word").
 - **Steganography** — hiding data inside another file, most commonly an image, audio, or video file, by embedding it in redundant or low-order bits that don't visibly change the cover file.
+- **Digital watermarking** — a related but distinct goal: embedding identifying information (e.g., an owner's mark) into a file, not to hide a secret message, but to prove ownership or detect unauthorized copies/tampering later. Unlike steganography, a watermark doesn't need to stay perfectly invisible — some watermarks are deliberately visible as a deterrent — and it's expected to survive the file being copied, compressed, or edited, which steganographic payloads generally aren't designed to withstand.
 - Key distinction from encryption: encryption makes a message unreadable but obviously present; steganography/concealment tries to make the message invisible in the first place. The two are complementary — a hidden message can also be encrypted for defense in depth.
