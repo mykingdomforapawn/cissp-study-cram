@@ -8,6 +8,8 @@
 | Blowfish | 32–448 bits (variable) | 64 bits | 16 | Legacy, still unbroken |
 | Skipjack | 80 bits | 64 bits | 32 | Deprecated, escrow controversy |
 | RC5 / RC6 | Variable (up to 2048 bits) | Variable (32/64/128 bits) | Variable | Legacy; RC6 was an AES finalist |
+| RC4 | 40–2048 bits (variable) | Stream cipher — no block | N/A | Broken — keystream biases, do not use |
+| CAST-256 | 128, 160, 192, 224, or 256 bits | 128 bits | 48 | Current, secure; AES finalist |
 | AES | 128, 192, or 256 bits | 128 bits | 10, 12, or 14 (by key size) | Current standard |
 
 ## DES (Data Encryption Standard)
@@ -34,12 +36,21 @@ An NSA-designed cipher, notable mainly for its association with the 1990s **Clip
 
 RC5 (and its successor RC6) use a variable key size, block size, and number of rounds, making them flexible but also harder to standardize comparisons against. **RC6 was a finalist in the NIST competition that ultimately selected Rijndael (AES)** — it lost on parts of the evaluation criteria, not on being broken.
 
+## RC4
+
+A **stream cipher** (see Block vs. Stream Ciphers in Ciphers), once ubiquitous — it was the default for WEP and early SSL/TLS. Now **broken**: statistical biases in its keystream let an attacker recover plaintext from enough captured ciphertext without needing the key at all. It should not be used in any new system; its removal from TLS is a large part of why WEP and early TLS versions are themselves deprecated.
+
+## CAST-256
+
+A modern, secure block cipher and one of the AES finalists (alongside RC6 above) — it lost the competition but was never broken. Supports key sizes from 128 to 256 bits in 32-bit increments, with a 128-bit block. A reasonable, secure alternative to AES, though far less commonly deployed since AES won the standardization.
+
 ## AES (Advanced Encryption Standard)
 
 The current US federal and de facto global standard, based on the **Rijndael** cipher. Uses a 128-bit block and a 128, 192, or 256-bit key (with 10, 12, or 14 rounds respectively — more rounds for longer keys). Won the NIST competition for combining strong security margins with high performance in both software and hardware, replacing DES/3DES as the default choice for new systems.
 
 ## Takeaway: What's Safe to Use Today
 
-- **Use:** AES (paired with an authenticated mode like GCM — see Block Ciphers and Modes of Operation).
-- **Historical / legacy only, do not use for new systems:** DES, 3DES, IDEA, Skipjack.
+- **Use:** AES (paired with an authenticated mode like GCM — see Block Ciphers and Modes of Operation), or CAST-256 as a secure alternative.
+- **Broken, do not use:** DES, RC4.
+- **Historical / legacy only, do not use for new systems:** 3DES, IDEA, Skipjack.
 - **Legacy, technically unbroken but not a modern default:** Blowfish, RC5/RC6.
