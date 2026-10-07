@@ -4,7 +4,7 @@
 |---|---|---|
 | MD5 | 128 bits | Broken — practical collision attacks exist |
 | SHA-1 | 160 bits | Deprecated — practical collision attacks exist |
-| SHA-2 family (SHA-256, SHA-384, SHA-512) | 256–512 bits | Current standard |
+| SHA-2 family (SHA-224, SHA-256, SHA-384, SHA-512) | 224–512 bits | Current standard |
 | SHA-3 | 224–512 bits (selectable) | Current standard, structurally independent backup to SHA-2 |
 | RIPEMD-160 | 160 bits | Legacy, not broken, rarely the default choice |
 
@@ -13,7 +13,7 @@
 The **Secure Hash Algorithm** family, developed by NIST, is the current standard:
 
 - **SHA-1** — 160-bit digest. Deprecated: practical collision attacks have been demonstrated, so it should not be used for new security purposes, even though it's still found in legacy systems.
-- **SHA-2** — the current standard family (SHA-256, SHA-384, SHA-512, named for digest size). No practical collision attacks known; this is the default choice for integrity, signatures, and certificates today.
+- **SHA-2** — the current standard family (SHA-224, SHA-256, SHA-384, SHA-512, named for digest size). No practical collision attacks known; this is the default choice for integrity, signatures, and certificates today.
 - **SHA-3** — standardized later, built on a structurally different internal design (a sponge construction, not the Merkle–Damgård structure SHA-1/SHA-2 share). It exists as a backup standard — if a structural weakness were ever found in SHA-2's design, SHA-3 wouldn't share it, since it's built differently from the ground up.
 
 ## MD5

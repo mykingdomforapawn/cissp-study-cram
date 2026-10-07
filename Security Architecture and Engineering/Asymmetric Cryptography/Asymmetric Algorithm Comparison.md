@@ -30,3 +30,7 @@ Also built on the **discrete logarithm problem**. Primarily used for **encryptio
 Security rests on the **elliptic curve discrete logarithm problem**: points on a specially defined elliptic curve combine (add) easily, but working backward to find how many times a point was combined with itself to reach a given result is computationally infeasible at sufficient size — a harder problem per bit than RSA's factoring or classic discrete logs, which is why ECC achieves equivalent strength at much shorter key lengths (faster computation, less bandwidth/storage — the reason it's preferred for constrained environments like mobile devices, smart cards, and IoT).
 
 ECC isn't a single algorithm but a mathematical foundation other algorithms build on: **ECDH** (elliptic curve Diffie-Hellman, key exchange) and **ECDSA** (elliptic curve digital signature algorithm, signatures) are the common named implementations.
+
+## Merkle-Hellman Knapsack (Broken, Historical)
+
+An early asymmetric cryptosystem based on the **subset-sum (knapsack) problem** rather than factoring or discrete logs. It's a classic exam distractor precisely because it's **broken** — cryptanalysts found a way to exploit the specific mathematical structure used to hide the "easy" knapsack inside a "hard" one, recovering the private key. Worth recognizing by name as a historical, now-insecure asymmetric algorithm, distinct from RSA/Diffie-Hellman/ElGamal/ECC above, all of which remain secure today.

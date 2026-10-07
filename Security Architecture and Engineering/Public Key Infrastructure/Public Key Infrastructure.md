@@ -51,5 +51,6 @@ Named-only distinctions in how a certificate (and sometimes its private key) is 
 
 - **PEM** — base64-encoded text, the most common format; readable as plain text (`-----BEGIN CERTIFICATE-----` style).
 - **DER** — the same underlying data as PEM, but binary-encoded rather than base64 text.
-- **PKCS#12 / PFX** — bundles a certificate *together with its private key* (and often the chain of trust) in one password-protected file; used for exporting/importing a full identity, not just a public certificate.
+- **PKCS#12 / PFX** — bundles a certificate *together with its private key* (and often the chain of trust) in one password-protected binary file; used for exporting/importing a full identity, not just a public certificate. Closely associated with Windows systems storing certificates in binary form.
+- **PKCS#7 / P7B** — bundles a certificate chain *without* the private key, in text (base64) form rather than binary — the Windows text-format counterpart to PFX's binary bundling.
 - **CER / CRT** — generic certificate file extensions; the file may be either PEM or DER encoded underneath, so the extension alone doesn't tell you which.

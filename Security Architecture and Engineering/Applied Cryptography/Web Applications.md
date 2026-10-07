@@ -7,6 +7,8 @@
 
 SSL itself is obsolete and insecure — "SSL" in casual conversation almost always actually means TLS today, which has gone through several versions as weaknesses in earlier ones were found. Ephemeral key exchange (see Ephemeral Keys in Asymmetric Key Algorithms) is what gives modern TLS forward secrecy: compromising the server's long-term private key doesn't expose past session traffic, since each session's symmetric key was unique and discarded.
 
+HTTPS (HTTP over TLS) runs over **TCP port 443**, distinct from unencrypted HTTP's port 80.
+
 ## Tor and the Dark Web
 
 **Tor (The Onion Router)** provides anonymity rather than just confidentiality: traffic is wrapped in multiple layers of encryption and routed through a chain of volunteer-run relays, with each relay only able to decrypt (peel off) one layer — learning the previous and next hop, but never the full path from source to destination. This is **onion routing**, and it's a distinct goal from TLS: TLS protects *what* is being said from an eavesdropper, while Tor protects *who is talking to whom* from any single observer along the path.
