@@ -35,7 +35,11 @@ In practice, almost no real system uses asymmetric crypto alone. Instead:
 1. Asymmetric crypto encrypts a small, randomly generated **symmetric session key**.
 2. The fast symmetric algorithm encrypts the actual bulk data using that session key.
 
-This combines asymmetric crypto's solution to key distribution with symmetric crypto's speed — this pattern underlies TLS and most other modern secure-communication protocols.
+This combines asymmetric crypto's solution to key distribution with symmetric crypto's speed — neither one alone gives you both strong key distribution *and* fast bulk encryption, so real systems always combine them. This pattern underlies TLS and most other modern secure-communication protocols.
+
+### Ephemeral Keys
+
+The session key in a hybrid cryptosystem is usually **ephemeral** — generated fresh for one session only and discarded afterward, rather than reused across sessions. This limits the damage if a session key is ever compromised: an attacker who recovers one session's key gains nothing about any other session, past or future (a property called **forward secrecy** when combined with an ephemeral Diffie-Hellman exchange — see Diffie-Hellman in Asymmetric Algorithm Comparison). It's also why key rollover (see Asymmetric Key Management) matters for the long-lived asymmetric key pair itself: that pair generates a fresh ephemeral session key every time, so its own compromise would expose every session it was ever used to establish.
 
 ## Common Algorithms
 
