@@ -1,4 +1,4 @@
-Frameworks provide repeatable processes, common vocabulary, and defensible decisions that ad-hoc risk management lacks. Two NIST frameworks are the most exam-relevant; others are worth recognizing by name and purpose.
+Frameworks provide repeatable processes, common vocabulary, and defensible decisions that ad-hoc risk management lacks. Two NIST frameworks are the most widely used; others are worth recognizing by name and purpose.
 
 ## NIST CSF (Cybersecurity Framework)
 

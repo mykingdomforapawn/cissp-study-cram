@@ -13,7 +13,7 @@ Quantum computing is an **asymmetric-crypto-breaking** threat more than a symmet
 
 ## Current State
 
-Large-scale, fault-tolerant quantum computers capable of running Shor's algorithm against real-world key sizes don't exist yet — this is a forward-looking risk, not a present break. The exam-relevant point is the *why* (which problems quantum computing solves and which algorithms that endangers), not a specific timeline.
+Large-scale, fault-tolerant quantum computers capable of running Shor's algorithm against real-world key sizes don't exist yet — this is a forward-looking risk, not a present break. The point to take away is the *why* (which problems quantum computing solves and which algorithms that endangers), not a specific timeline.
 
 ## Post-Quantum Cryptography
 
@@ -23,4 +23,4 @@ Even though large-scale quantum computers don't exist yet, migration is already 
 
 This is a direct, concrete instance of the crypto-agility principle described in Symmetric Key Management: systems designed to swap algorithms without a full redesign will migrate to post-quantum algorithms far more easily than systems with RSA or ECC hardcoded throughout.
 
-Standardization is underway (e.g., NIST has been selecting and publishing post-quantum algorithm standards); naming specific algorithms is beyond what the exam tests. The exam-relevant point is recognizing the term, understanding why it exists, and the harvest-now-decrypt-later urgency — not implementation details.
+Standardization is underway (e.g., NIST has been selecting and publishing post-quantum algorithm standards); naming specific algorithms is beyond the scope of this note. What matters is recognizing the term, understanding why it exists, and the harvest-now-decrypt-later urgency — not implementation details.

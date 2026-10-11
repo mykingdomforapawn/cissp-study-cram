@@ -21,7 +21,7 @@ Laws written specifically to address unauthorized computer access and misuse, ra
 
 ## Software Licensing
 
-Using software also means being bound by its license terms, and failure to comply carries legal exposure similar to other IP violations. The main risk to manage is running unlicensed, under-licensed, or counterfeit software — organizations are subject to license compliance audits by vendors, and violations can mean significant fines. The detailed license types (open source, proprietary, etc.) aren't worth memorizing individually for the exam — the key point is that a license is a legal contract, and using software outside its terms is a compliance failure.
+Using software also means being bound by its license terms, and failure to comply carries legal exposure similar to other IP violations. The main risk to manage is running unlicensed, under-licensed, or counterfeit software — organizations are subject to license compliance audits by vendors, and violations can mean significant fines. The detailed license types (open source, proprietary, etc.) aren't worth memorizing individually — the key point is that a license is a legal contract, and using software outside its terms is a compliance failure.
 
 ## Privacy Laws (Federal / International)
 

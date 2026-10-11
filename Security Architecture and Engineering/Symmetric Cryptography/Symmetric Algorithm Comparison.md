@@ -30,7 +30,7 @@ Designed as a free, unpatented replacement for DES. Uses a variable key length (
 
 ## Skipjack
 
-An NSA-designed cipher, notable mainly for its association with the 1990s **Clipper Chip** initiative, which built in a **key escrow** mechanism — a copy of each key held by the government, recoverable with a warrant. The controversy over mandated government access (rather than any cryptographic flaw) is why Skipjack is a recurring exam reference point, more than its technical design.
+An NSA-designed cipher, notable mainly for its association with the 1990s **Clipper Chip** initiative, which built in a **key escrow** mechanism — a copy of each key held by the government, recoverable with a warrant. The controversy over mandated government access (rather than any cryptographic flaw) is why Skipjack is remembered more for that debate than for its technical design.
 
 ## Rivest (RC5 / RC6)
 

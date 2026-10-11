@@ -33,4 +33,4 @@ ECC isn't a single algorithm but a mathematical foundation other algorithms buil
 
 ## Merkle-Hellman Knapsack (Broken, Historical)
 
-An early asymmetric cryptosystem based on the **subset-sum (knapsack) problem** rather than factoring or discrete logs. It's a classic exam distractor precisely because it's **broken** — cryptanalysts found a way to exploit the specific mathematical structure used to hide the "easy" knapsack inside a "hard" one, recovering the private key. Worth recognizing by name as a historical, now-insecure asymmetric algorithm, distinct from RSA/Diffie-Hellman/ElGamal/ECC above, all of which remain secure today.
+An early asymmetric cryptosystem based on the **subset-sum (knapsack) problem** rather than factoring or discrete logs. It is a well-known cautionary example precisely because it is **broken** — cryptanalysts found a way to exploit the specific mathematical structure used to hide the "easy" knapsack inside a "hard" one, recovering the private key. Worth recognizing by name as a historical, now-insecure asymmetric algorithm, distinct from RSA/Diffie-Hellman/ElGamal/ECC above, all of which remain secure today.

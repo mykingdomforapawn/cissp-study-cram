@@ -2,7 +2,7 @@
 
 A **digital certificate** binds an identity to a public key, signed by a trusted third party. This is the piece missing from Public and Private Keys up to now: a public key alone doesn't prove *whose* key it is — anyone could publish a key and claim to be anyone. A certificate solves that by having a trusted party vouch for the binding.
 
-Conceptually, a certificate holds (the X.509 standard, named only — field-level detail isn't exam-relevant):
+Conceptually, a certificate holds (the X.509 standard, named only — field-level detail is beyond what this note covers):
 
 - The **subject**'s identity (person, server, organization).
 - The subject's **public key**.

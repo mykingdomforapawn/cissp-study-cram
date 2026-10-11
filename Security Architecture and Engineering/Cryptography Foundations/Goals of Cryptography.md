@@ -19,7 +19,7 @@ Cryptography exists to serve four distinct security goals. Two of them map direc
 
 ## Why Non-repudiation Requires Asymmetric Crypto
 
-This is a frequent exam trap: **symmetric encryption cannot provide non-repudiation.** Both parties hold the *same* shared key, so either one could have produced the ciphertext — there's no way to prove which one did. Only asymmetric crypto can provide non-repudiation, because a private key belongs to exactly one party: if a message verifies against their public key, only they could have signed it.
+This is a frequently misunderstood point: **symmetric encryption cannot provide non-repudiation.** Both parties hold the *same* shared key, so either one could have produced the ciphertext — there's no way to prove which one did. Only asymmetric crypto can provide non-repudiation, because a private key belongs to exactly one party: if a message verifies against their public key, only they could have signed it.
 
 | Goal | Symmetric crypto | Asymmetric crypto |
 |---|---|---|
