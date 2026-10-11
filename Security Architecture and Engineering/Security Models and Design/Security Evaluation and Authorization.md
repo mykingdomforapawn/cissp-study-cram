@@ -31,7 +31,7 @@ A higher EAL means **more rigorous** evaluation, not stronger security features.
 
 ## Authorization to Operate
 
-Evaluating a product says little about whether it is acceptable in a particular environment. **Authorization to operate (ATO)** is the decision, made by a responsible official, to let a specific system run in a specific environment, and to **accept the residual risk** that remains. The concept itself is covered in [[Organizational Security Processes]].
+Evaluating a product says little about whether it is acceptable in a particular environment. **Authorization to operate (ATO)** is the decision, made by the **authorizing official (AO)**, to let a specific system run in a specific environment, and to **accept the residual risk** that remains. The concept itself is covered in [[Organizational Security Processes]].
 
 Two steps are commonly distinguished:
 
@@ -43,6 +43,15 @@ In US federal practice both are part of the NIST Risk Management Framework (see 
 - **The ATO expires** — it is granted for a limited period, so it lapses unless renewed.
 - **A security breach occurs** — the evidence the authorization rested on can no longer be trusted.
 - **The security posture changes** — a significant change to the system, its environment, or its controls means the earlier assessment no longer describes what is running.
+
+The AO has the discretion to decide which breaches or changes cost the system its authorization, and can issue four types of authorization decision:
+
+| Decision | Meaning |
+|---|---|
+| **Authorization to operate** | The system may run, with its residual risk accepted |
+| **Common control authorization** | Approves controls that many systems inherit, such as a shared data center or identity service |
+| **Authorization to use** | Accepts an existing authorization from another organization for a system or service the organization is adopting |
+| **Denial of authorization** | The system may not run, because the risk is not acceptable |
 
 ## How They Fit Together
 

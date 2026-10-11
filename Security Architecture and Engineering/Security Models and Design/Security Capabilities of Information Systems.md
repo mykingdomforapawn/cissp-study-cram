@@ -2,7 +2,7 @@ Security models say what a system must enforce, and these are the capabilities b
 
 ## Memory Protection
 
-Memory is shared by every process, so the system has to stop one from reading or corrupting another, or the operating system itself. It is the implementation of the **bounds** and **isolation** ideas in [[Techniques for Ensuring CIA]], enforced by the hardware and the operating system.
+Memory is shared by every process, so the system has to stop one from reading or corrupting another, or the operating system itself. It is the implementation of the **bounds** and **isolation** ideas in [[Techniques for Ensuring CIA]], enforced by the hardware and the operating system. It has to be enforced regardless of which programs are running. Without it the typical results are instability, integrity violations between applications, local denial of service, and information disclosure between processes.
 
 ## Virtualization
 
@@ -19,7 +19,7 @@ A **TPM** is a hardware chip that acts as a **root of trust** for a device: a co
 
 ## Interfaces
 
-A **constrained (restricted) interface** limits what a user can see or do to what their role permits, instead of relying only on blocking forbidden actions behind the scenes.
+A **constrained (restricted) interface** limits what a user can see or do to what their role permits, instead of relying only on blocking forbidden actions behind the scenes. It limits the actions of both authorized and unauthorized users. It is not authentication (verifying identity) and not auditing (tracking events).
 
 - **Menus and shells** that offer only permitted commands, and **greyed-out or hidden** options for functions the user cannot use.
 - **Database views** that expose only certain columns or rows.

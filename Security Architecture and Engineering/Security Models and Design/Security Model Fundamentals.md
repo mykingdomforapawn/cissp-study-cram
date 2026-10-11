@@ -1,4 +1,6 @@
-A **security model** is a formal, abstract description of how a security policy is enforced: it states the rules for which subjects may do what to which objects, so that a design can be reasoned about and checked before it is built. Models do not prescribe technology. Each one captures one concern, such as confidentiality, integrity, or conflict of interest, and real systems combine them. The vocabulary of subjects and objects is in [[Secure Design Principles]], and the mechanisms the models rely on are in [[Techniques for Ensuring CIA]].
+A **security model** is a formal, abstract description of how a security policy is enforced: it states the rules for which subjects may do what to which objects, so that a design can be reasoned about and checked before it is built. Models do not prescribe technology.
+
+A model is not the same as a **policy**, which states what an organization requires. The model is the framework for implementing that policy, giving designers something to map the policy to and measure the design against. Evaluating a finished system is a third thing (see [[Security Evaluation and Authorization]]). Each one captures one concern, such as confidentiality, integrity, or conflict of interest, and real systems combine them. The vocabulary of subjects and objects is in [[Secure Design Principles]], and the mechanisms the models rely on are in [[Techniques for Ensuring CIA]].
 
 > [!info] Tokens, capabilities, and labels
 > Three ways of attaching security information to the access decision:
@@ -12,14 +14,14 @@ The **trusted computing base (TCB)** is the combination of hardware, firmware, a
 
 - **Reference monitor** — the abstract concept: a component that mediates *every* access by a subject to an object. It must be tamper-proof, always invoked, and small enough to be verified.
 - **Security kernel** — the TCB components that actually implement the reference monitor.
-- **Security perimeter** — the boundary separating the TCB from everything else.
+- **Security perimeter** — the (imaginary) boundary separating the TCB from everything else. In physical security the same term means the boundary of the physically secure area around a system.
 - **Trusted path** — a protected channel between the user and the TCB, so that, for example, a password entry cannot be intercepted by untrusted code.
 
 ## State Machine Model
 
 Describes a system as a set of **states** and the **transitions** between them. A state is a snapshot of the system (who holds which access, what is in memory), and a transition is an operation that moves it to another state.
 
-A system is **secure** if it starts in a secure state and every possible transition leads only to another secure state. It is the foundation for most other models, which differ in what they define as a "secure state". It is also the reasoning behind failing securely: even a crash must land in a secure state.
+A system is **secure** if it starts in a secure state and every possible transition leads only to another secure state. **Bell-LaPadula** and **Biba** are built on it, and they differ in what they define as a "secure state". Take-Grant and Clark-Wilson are not directly based on it. It is also the reasoning behind failing securely: even a crash must land in a secure state.
 
 ## Information Flow Model
 
@@ -58,7 +60,7 @@ Its purpose is analysis: given an initial graph, which subjects can eventually *
 
 ## Access Control Matrix
 
-A table with **subjects as rows** and **objects as columns**, where each cell holds the operations that subject may perform on that object (read, write, execute, own).
+A table with **subjects as rows** and **objects as columns**, where each cell, an **access control entry (ACE)**, holds the operations that subject may perform on that object (read, write, execute, own). It assembles the ACLs of many objects into a single table.
 
 | | File A | File B | Printer |
 |---|---|---|---|
@@ -80,11 +82,13 @@ A **confidentiality** model built on the state machine and information flow idea
 - **Discretionary Security Property** — an access control matrix is also used, so need to know applies within a level.
 - **Tranquility principle** — labels do not change while in use (strong tranquility: never; weak: only in ways that do not violate the policy).
 
+A **trusted subject** is allowed to violate the wording of the star property and write an object to a lower level. The legitimate case is **declassification**: moving an object to a lower classification once it no longer justifies the higher one. It breaks the letter of the rule but not its intent, which is preventing unauthorized disclosure, and it is why only trusted subjects may do it.
+
 It protects only confidentiality and says nothing about integrity. It also does not address covert channels, or how access control is managed in practice.
 
 ## Biba Model
 
-An **integrity** model with a lattice of integrity levels. It protects data from being modified by lower-integrity subjects, and so it is the mirror image of Bell-LaPadula's confidentiality rules: the direction of the rules is reversed.
+An **integrity** model with a lattice of integrity levels. Like Bell-LaPadula it is built on the state machine model, is based on information flow, and is multilevel. It protects data from being modified by lower-integrity subjects, and so it is the mirror image of Bell-LaPadula's confidentiality rules: the direction of the rules is reversed. What is forbidden implies what is allowed: read up and write down.
 
 - **Simple Integrity Axiom** — **no read down**: a subject may not read data at a lower integrity level, so unreliable data cannot contaminate it.
 - **\* (Star) Integrity Axiom** — **no write up**: a subject may not write to a higher integrity level, so it cannot corrupt trusted data.
@@ -94,7 +98,7 @@ It covers only one integrity goal, preventing modification by **unauthorized sub
 
 ## Clark-Wilson Model
 
-An **integrity** model aimed at commercial systems, where subjects are not allowed to touch data directly. Access is mediated by approved programs, in the triple **subject → program → object**.
+An **integrity** model aimed at commercial systems, where subjects are not allowed to touch data directly. Instead of defining a formal state machine, it defines each data item and the allowed transformations of it. Access is mediated by approved programs, in the access triple **subject → program → object**, where the program is also called the **interface** (see constrained interfaces in [[Security Capabilities of Information Systems]]).
 
 - **Constrained data items (CDIs)** — protected data whose integrity is enforced.
 - **Unconstrained data items (UDIs)** — data not yet validated, such as raw user input.

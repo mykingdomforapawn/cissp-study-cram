@@ -20,7 +20,7 @@ The roles are relative to the interaction, not fixed. A program is a subject whe
 
 | | Open system | Closed system |
 |---|---|---|
-| **Built on** | Published, industry-standard interfaces | Proprietary interfaces and designs |
+| **Built on** | Published, industry-standard interfaces | Proprietary designs with unpublished protocols and standards |
 | **Interoperability** | High, components from many vendors work together | Limited, tied to one vendor or ecosystem |
 | **Strength** | Flexibility, vendor choice, broad scrutiny of the standards | Smaller external surface, tighter control over every component |
 | **Weakness** | Wider exposure and a larger pool of known attack techniques | Lock-in, and security that rests on few reviewers |
@@ -38,7 +38,7 @@ Out of the box, a system should be in its most restrictive reasonable configurat
 - Least privilege is the starting point for new accounts.
 - Strong encryption and logging are on without being asked.
 
-The reasoning is that most users never change defaults, so the default *is* the deployed configuration for most installations. A convenience-first default scales the same weakness across every customer. It is often summarized as **secure by design, secure by default, secure in deployment**.
+Connected consumer and IoT devices are the usual example: a Wi-Fi baby monitor or camera taken over because it still had its default credentials and configuration. The reasoning is that most users never change defaults, so the default *is* the deployed configuration for most installations. A convenience-first default scales the same weakness across every customer. It is often summarized as **secure by design, secure by default, secure in deployment**.
 
 ## Fail Securely
 
@@ -49,6 +49,8 @@ When a system hits an error, crash, or unexpected state, it should end up in a s
 | **Fail-closed** (fail-secure) | Denies access, locks down | Confidentiality and integrity | A firewall that blocks all traffic when it crashes; a vault door that stays locked on power loss |
 | **Fail-open** | Permits access, stays available | Availability | A network bypass that keeps a link up when the inspection device dies |
 | **Fail-safe** | Moves to whatever state protects people from harm | Human safety | A fire exit that unlocks on power loss; equipment that shuts down rather than overheating |
+
+A system that halts on a critical error is failing closed. The Windows Blue Screen of Death (stop error) or a kernel panic stops all processing, protecting confidentiality and integrity at the cost of availability, while fail-open would keep running in spite of the error.
 
 No mode is always right. Where **human life** is at stake, safety wins, which usually means failing open for doors and exits (fail-safe). Where assets and data are at stake, the mechanism should fail closed. Fail-safe is a goal (nobody gets hurt) while fail-open and fail-closed describe the resulting access state, and the two can coincide. Sources use *fail-safe* and *fail-secure* loosely and sometimes interchangeably, so the context matters. Related practices are not leaking sensitive detail in error messages and not letting an exception skip an authorization check.
 
