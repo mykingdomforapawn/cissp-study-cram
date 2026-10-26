@@ -44,3 +44,14 @@ How roles are assigned and rotated is a governance mechanism in itself — these
 - **Job Rotation**: Employees periodically move between roles. This exposes any irregularities that relied on one person's continuous presence to stay hidden, and cross-trains staff as a secondary benefit. Example: rotating who manages the backup system reveals if someone has been quietly deleting logs.
 
 - **Mandatory Vacation**: Employees are required to take leave and a colleague temporarily covers their duties. Fraud that requires daily intervention to conceal — such as skimming from accounts — surfaces during the absence. Example: a financial controller taking forced leave reveals discrepancies a substitute notices immediately.
+
+## Shared Responsibility
+
+Security is a responsibility spread across the whole organization and beyond it, not a task that belongs only to the security team.
+
+- **Everyone has some level of security responsibility.** Users follow policy and report problems, managers enforce it, and the security team designs and advises (see the roles above).
+- **The organization answers to its stakeholders** for making sound security decisions that sustain the business.
+- **Third parties share responsibility.** When work is outsourced, above all to a cloud provider, each side must understand which part of operating the service and maintaining its security belongs to it. The provider secures the underlying facilities, hardware, and platform, and the customer secures what it puts on them, mainly its data, identities, and configuration. The more the provider manages (IaaS, then PaaS, then SaaS), the more it is responsible for, but the customer always keeps its data and accountability, because accountability cannot be delegated (see [[Contracting and Procurement]] and [[Supply Chain Risk Management]]).
+- **Responsible disclosure.** Someone who discovers a new vulnerability or threat is expected to report it to the affected vendor, or to an information sharing center, and not publish it before a fix exists or exploit it.
+
+Do not confuse this with related ideas: considering the threat to tangible and intangible assets is a risk management and business impact analysis point (see [[Risk Assessment]]), and layered protection is [[Defense in Depth]].

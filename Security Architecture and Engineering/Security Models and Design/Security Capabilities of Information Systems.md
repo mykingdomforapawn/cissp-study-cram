@@ -2,7 +2,10 @@ Security models say what a system must enforce, and these are the capabilities b
 
 ## Memory Protection
 
-Memory is shared by every process, so the system has to stop one from reading or corrupting another, or the operating system itself. It is the implementation of the **bounds** and **isolation** ideas in [[Techniques for Ensuring CIA]], enforced by the hardware and the operating system. It has to be enforced regardless of which programs are running. Without it the typical results are instability, integrity violations between applications, local denial of service, and information disclosure between processes.
+Memory is shared by every process, so the system has to stop one from reading or corrupting another, or the operating system itself. It is the implementation of the **bounds** and **isolation** ideas in [[Techniques for Ensuring CIA]], enforced by the hardware and the operating system. It has to be enforced regardless of which programs are running. Without it the typical results are instability, integrity violations between applications, local denial of service, and information disclosure between processes. It rests on two mechanisms:
+
+- **Process isolation.** The OS gives each process its own **virtual address space**, so it cannot even name another process's memory, and processes communicate only through controlled channels (inter-process communication). **Object encapsulation** (an object's data is reached only through its interface) and **time multiplexing** (shared resources such as the processor are used in turns, with leftovers cleaned up between) support it.
+- **Hardware segmentation.** The same separation enforced by the hardware: memory is divided into **segments**, and the hardware stops a process from touching memory outside its own, above all the kernel's. It uses the base and limit values in [[Memory]], keeps kernel space and user space apart (see rings in [[Processors]]), and cannot be talked around by a software bug, which makes it stronger than software-only isolation.
 
 ## Virtualization
 
@@ -16,6 +19,8 @@ A **TPM** is a hardware chip that acts as a **root of trust** for a device: a co
 - **Remote attestation** — the device can prove its measured state to another party.
 - **Sealed storage** — keys and data are released only if the platform is in the expected state.
 - **Key generation and protection** — keys are created and kept in hardware and never leave it.
+
+A root of trust anchors a **chain of trust**: it verifies the first boot stage, which verifies the next, up to the OS and applications, so each link is checked by one already trusted. It is trusted without verification, because nothing underneath it can check it, so it must be small, tamper-resistant, and unchangeable by software. HSMs, secure enclaves, and the boot ROM serve the same role, and a compromise at the root undermines everything above it (see [[Firmware]] and [[Supply Chain Risk Management]]).
 
 ## Interfaces
 
