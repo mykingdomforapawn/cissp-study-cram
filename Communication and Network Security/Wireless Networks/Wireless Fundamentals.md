@@ -50,16 +50,25 @@ Where power and antenna tuning are not enough, **shielding** contains the signal
 
 The usual checklist for deploying a wireless network securely:
 
-1. Change the AP's **default administrator credentials** and manage it only from the wired side or over HTTPS.
-2. Keep AP **firmware** updated.
-3. Change the **default SSID**; decide on broadcast based on usability (hiding adds little).
-4. Use **WPA3** (or at minimum WPA2) with **AES**; in an organization use **enterprise mode with 802.1X** rather than a shared passphrase (see [[Wireless Security Protocols]]).
-5. **Disable WPS**; MAC filtering optional.
-6. Place and tune APs with a **site survey**; adjust power and antennas.
-7. **Segment** wireless from the wired LAN: treat it as an untrusted segment behind a firewall, with guest traffic separated by VLAN and with no path to internal resources.
-8. Use a **VPN or TLS** for sensitive traffic even over the encrypted WLAN.
-9. Use a **wireless IDS/IPS** to detect rogue APs, evil twins, and deauthentication attacks (see [[Wireless Attacks]]).
-10. Periodically re-survey and audit, and treat the AP as a network device subject to the same configuration management as switches.
+1. Keep AP **firmware** updated.
+2. Change the AP's **default administrator credentials** and manage it only from the wired side or over HTTPS.
+3. Enable **WPA3** (or at minimum **WPA2**) with **AES**; avoid WEP and TKIP (see [[Wireless Security Protocols]]).
+4. In an organization, use **enterprise authentication** (802.1X with EAP and RADIUS) rather than a shared passphrase.
+5. Change the **default SSID**; defaults reveal the vendor and often the default credentials.
+6. Change the AP's **default wireless MAC address (BSSID)**, which can also identify the vendor and model.
+7. **Decide whether to disable SSID broadcast**: it only stops casual discovery, since the name still appears in probe and association frames.
+8. Enable **MAC filtering** as an extra layer if the administrative cost is acceptable; it is spoofable and must never be the only control.
+9. Decide between **static IP addressing and DHCP**, with the trade-offs in mind:
+    - **DHCP** is easy to manage and scales, but hands an address to any device that associates, so an intruder gets a working configuration automatically.
+    - **Static addressing** (or DHCP reservations and a small scope) means an intruder has to guess a valid address, but it adds administrative overhead and does not hide the range from a sniffer.
+10. Treat wireless as **external or remote access**: place it in its own segment behind a firewall, with guest traffic on a separate VLAN and no path to internal resources.
+11. Treat wireless as an **entry point for attackers**: assume the signal is reachable from outside and design the controls (segmentation, authentication, monitoring) accordingly.
+12. Deploy a **wireless IDS/IPS (WIDS/WIPS)** to detect rogue APs, evil twins, and deauthentication attacks (see [[Wireless Attacks]]).
+13. Use a **VPN or TLS** for sensitive traffic even over the encrypted WLAN.
+14. Use a **captive portal** where guests or unmanaged devices must authenticate or accept terms; it does not encrypt the air.
+15. **Track and log events** (associations, authentication failures, WIDS alerts, configuration changes) and review them.
+
+Additional measures that complement the list: **disable WPS**, place and tune APs with a **site survey** (power and antennas), re-survey and audit periodically, and treat the AP as a network device under the same configuration management as switches.
 
 ## Key Points
 
@@ -69,3 +78,4 @@ The usual checklist for deploying a wireless network securely:
 - **WPS PIN is brute-forceable in hours; disable it.**
 - **Captive portals authenticate users but do not encrypt the air.**
 - **Treat the WLAN as an untrusted segment: firewall it from the wired LAN, use WPA3/WPA2 enterprise, and still encrypt above it.**
+- **Treat wireless as external access and as an entry point for attackers: segment it, authenticate it, monitor and log it.**
