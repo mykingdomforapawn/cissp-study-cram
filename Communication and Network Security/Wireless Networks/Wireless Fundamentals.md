@@ -38,6 +38,8 @@ Antenna type and placement control **where** the signal goes, which is a securit
 - **Power level** adjustment: reduce transmit power so that the usable signal ends near the building boundary. Attackers use high-gain antennas, so this limits rather than prevents exposure.
 - Mount APs away from exterior walls and windows, and consider the floor above and below.
 
+Where power and antenna tuning are not enough, **shielding** contains the signal. A **Faraday cage** (a conductive enclosure, shielded room, or shielded building materials) blocks electromagnetic fields in both directions, so a wireless network inside the cage works normally for devices inside while its signals cannot be received, or detected, outside. It is the answer when an organization wants internal wireless with no possibility of external detection or access. An **air gap** is not: it works only when wireless is absent altogether. See [[Emanations and Input Output Devices]].
+
 ## WPS, MAC Filtering, Captive Portals
 
 - **Wi-Fi Protected Setup (WPS)** was meant to simplify joining a network with a button press or an 8-digit PIN. The PIN is validated in two halves, which reduces the search space to about 11,000 attempts, so WPS PIN can be brute-forced in hours. **Disable WPS.**
@@ -63,6 +65,7 @@ The usual checklist for deploying a wireless network securely:
 
 - **Wireless has no physical boundary; the signal reaches the parking lot.** Site surveys, antenna placement, and power tuning limit, but do not eliminate, exposure.
 - **Hiding the SSID and MAC filtering are not security controls**; both are defeated by a sniffer.
+- **A Faraday cage keeps internal wireless from being received or detected outside; an air gap cannot, since it excludes wireless entirely.**
 - **WPS PIN is brute-forceable in hours; disable it.**
 - **Captive portals authenticate users but do not encrypt the air.**
 - **Treat the WLAN as an untrusted segment: firewall it from the wired LAN, use WPA3/WPA2 enterprise, and still encrypt above it.**

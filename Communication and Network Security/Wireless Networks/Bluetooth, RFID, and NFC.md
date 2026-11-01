@@ -29,6 +29,10 @@ Attacks (names matter):
 
 Range is the attacker's limit, but directional antennas extend "short range" to over a kilometer. Defenses: keep Bluetooth **off or non-discoverable** when not needed, patch devices, use modern pairing with numeric comparison, refuse unexpected pairing requests, do not transfer sensitive data over Bluetooth, and in secure areas prohibit it through MDM policy (see [[Mobile Device Security Features]]).
 
+## Zigbee
+
+**Zigbee** (IEEE 802.15.4) is a low-power, low-data-rate mesh protocol for **IoT and home or industrial automation** (sensors, smart lighting, meters). It is related to Bluetooth in purpose but built for tiny battery-powered devices that send small amounts of data over short distances, typically tens of meters, with devices relaying for each other. Unlike classic Bluetooth, it **encrypts traffic with 128-bit AES** by design. Weaknesses are in key handling: a network key distributed in the clear when a device joins can be sniffed, and default or well-known keys are a configuration failure. Compare **Bluetooth Low Energy**, which is also low power but whose payload protection depends on pairing mode and application design.
+
 ## RFID
 
 **Radio frequency identification** uses a reader that energizes and queries a **tag**. **Passive** tags have no battery and are powered by the reader's field (short range, centimeters to a few meters); **active** tags have a battery and transmit on their own (tens of meters or more). Frequencies range from low frequency (animal tags, older access cards) through 13.56 MHz (smart cards, NFC) to UHF (supply chain, toll tags).
@@ -53,5 +57,6 @@ The short range is the main defense, but it is not a guarantee: relay attacks, s
 - **FHSS hops frequencies (Bluetooth), DSSS spreads with a chipping code (802.11b, GPS), OFDM uses parallel sub-carriers (modern Wi-Fi, LTE, 5G).**
 - **Bluejacking = unsolicited messages; bluesnarfing = data theft; bluebugging = device takeover.**
 - **Bluetooth defenses: off or non-discoverable, patched, modern pairing, no sensitive data over it.**
+- **Zigbee is a low-power IoT mesh protocol with built-in 128-bit AES; protect the joining and key distribution step.**
 - **RFID tags often answer any reader: skimming, cloning, and tracking are the risks; legacy proximity cards are cloneable.**
 - **NFC's centimeter range is the main control; payments add tokenization and cryptograms; relay and skimming attacks still exist.**

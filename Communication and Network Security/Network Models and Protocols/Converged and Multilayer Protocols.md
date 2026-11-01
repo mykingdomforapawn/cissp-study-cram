@@ -22,6 +22,13 @@ TCP/IP is a **multilayer protocol** suite: a web request is HTTP inside TCP insi
 
 Storage protocols deserve emphasis: a SAN that was once physically separate becomes a target on the data network, and most of these protocols have weak or no authentication. Segmentation, dedicated interfaces, and encryption where supported are the controls.
 
+## Storage Area Network Considerations
+
+A **storage area network (SAN)** gives servers block storage over a dedicated or converged fabric. Two efficiency features matter for security and recovery:
+
+- **Deduplication** stores one copy of identical data and replaces the others with pointers. It saves space where many users hold the same files, but **the single remaining copy becomes a single point of failure**: if it is corrupted, encrypted by malware, or lost, every pointer to it is affected, so recovery of many "separate" files fails together. Backups must be verified independently of the primary store, and dedup combined with encryption works only when applied in the right order (deduplicate before encrypting).
+- **Whole-volume or drive encryption** is the usual fit for shared SAN storage; per-file encryption by individual users defeats deduplication and is rarely how group data is protected.
+
 ## VoIP
 
 **Voice over IP** carries calls as packets: **SIP** (Session Initiation Protocol) sets up and tears down the call, **RTP** carries the audio. Protocols are standard, so the attacks are standard too:
@@ -51,4 +58,5 @@ From a network security view the additional points are:
 - **Converged protocols put storage, voice, and data on one network**: cheaper, but formerly isolated traffic becomes reachable and a shared failure point.
 - **FCoE is layer 2 storage; iSCSI is routable storage; MPLS forwards on labels and is private, not encrypted.**
 - **VoIP uses SIP for signaling and RTP for media; SRTP and SIP over TLS encrypt it; vishing and toll fraud are the characteristic attacks.**
+- **Deduplication saves space but turns one stored copy into a single point of failure; test restores and keep independent backups.**
 - **SDN centralizes the control plane; its controller and APIs become the crown jewels.**

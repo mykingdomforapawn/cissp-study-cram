@@ -16,6 +16,16 @@
 
 Security notes on IPv6: it is often **enabled by default and unmonitored**, so an attacker can use it to bypass IPv4-only filters; **dual stack** doubles the attack surface; the loss of NAT exposes hosts directly; and link-local **neighbor discovery** can be spoofed like ARP. **Scope** also matters: an address can be link-local (fe80::), unique local (fc00::/7, the private range), or global.
 
+**Coexistence.** Networks rarely switch from IPv4 to IPv6 at once, so three mechanisms let both run together:
+
+| Mechanism | How it works |
+|---|---|
+| **Dual stack** | Hosts and devices run both protocols and use whichever suits each conversation. Simple, but doubles configuration and attack surface |
+| **Tunneling** | Hosts run one protocol and wrap packets of the other inside it (IPv6 inside IPv4), so islands of one protocol can cross a network of the other |
+| **NAT-PT** (network address translation, protocol translation) | A translator converts between IPv4 and IPv6 segments, much as NAT converts between internal and external addresses. Deprecated in favor of the other two, but still the named translation approach |
+
+IPsec is not a coexistence mechanism: it secures IP traffic of either version.
+
 ## IPv4 Address Classes and Private Ranges
 
 Original **classful** addressing split the space by first octet:
@@ -74,6 +84,7 @@ Related layer 2 attack: **MAC flooding** overflows the switch's CAM table so it 
 ## Key Points
 
 - **IPv4 is 32-bit and exhausted; IPv6 is 128-bit, has no broadcast, uses SLAAC, and is often enabled but unmonitored.**
+- **IPv4 and IPv6 coexist through dual stack, tunneling, or NAT-PT (translation); IPsec is security, not coexistence.**
 - **Private ranges: 10/8, 172.16/12, 192.168/16; NAT translates them; 127/8 is loopback; 169.254/16 is APIPA; class D is multicast.**
 - **ICMP is diagnostics with no authentication: Smurf, ping of death, redirects, tunneling. Filter selectively, not entirely.**
 - **IGMP manages multicast group membership.**
