@@ -9,4 +9,9 @@ A suite of protocols that encrypts and authenticates traffic at the **network la
 - **Transport mode** — encrypts only the payload of each IP packet, leaving the original header intact; used for end-to-end protection between two hosts.
 - **Tunnel mode** — encrypts the entire original packet (header included) and wraps it in a new IP header; used for site-to-site VPNs, since it hides the original source/destination from anyone observing the tunnel.
 
+Two more components complete the suite:
+
+- **IKE** (Internet Key Exchange) negotiates the cryptography and manages keys, establishing the **security associations** that define how a given flow is protected. It is built from three parts: **ISAKMP** (the framework for managing security associations), **OAKLEY** (the Diffie-Hellman-based key exchange), and **SKEME** (key exchange and authentication mechanics).
+- **IPComp** (IP Payload Compression) compresses the payload **before** ESP encrypts it, since encrypted data cannot be compressed afterward. It exists to keep IPsec closer to wire speed.
+
 IPsec relies on the same building blocks covered elsewhere: a key exchange (typically Diffie-Hellman, see Asymmetric Algorithm Comparison) to establish a shared secret, then symmetric encryption for the actual traffic — the hybrid cryptosystem pattern again (see Hybrid Cryptosystems in Asymmetric Key Algorithms).

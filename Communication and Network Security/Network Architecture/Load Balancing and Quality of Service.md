@@ -42,14 +42,16 @@ Related ideas: **DNS round robin** is primitive balancing with no health awarene
 
 **QoS** manages a network's limited capacity by treating traffic differently instead of equally. It exists because some applications tolerate degradation and others do not.
 
-The four measures that define what an application needs:
+The measures that define what an application needs, and what a QoS investigation looks at:
 
-- **Bandwidth** — capacity available to the flow.
-- **Latency** — delay end to end.
-- **Jitter** — **variation** in latency, which is what destroys real-time audio and video even when average latency is fine.
+- **Bandwidth** — capacity available to the flow; **throughput** (bit rate) is what is actually achieved, which is always less.
+- **Latency** — delay end to end, of which **transmission delay** is the part spent putting bits on the wire.
+- **Jitter** — **variation** in latency, which destroys real-time audio and video even when average latency is fine.
 - **Packet loss** — dropped packets; TCP retransmits, real-time traffic cannot.
+- **Interference** and **signal-to-noise ratio** — on wireless and on poorly shielded copper, the physical causes behind loss and retransmission (see [[Transmission Media]]).
+- **Availability** — the link being there at all.
 
-Voice and video need low latency, low jitter, and low loss but little bandwidth; a backup job needs huge bandwidth but tolerates any delay. QoS lets both share one link.
+Voice and video need low latency, low jitter, and low loss but little bandwidth; a backup job needs huge bandwidth but tolerates any delay. QoS lets both share one link. When users report dropped connections and data loss, these are the measures to investigate — not system uptime, OS versions, or which application protocol is in use.
 
 **Mechanisms**: **classification and marking** of packets (DSCP at layer 3, CoS at layer 2), **queuing and prioritization** per class, **traffic shaping** (buffering to smooth a flow to a rate) and **policing** (dropping what exceeds it), **congestion avoidance**, and **bandwidth reservation**.
 

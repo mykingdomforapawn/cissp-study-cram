@@ -44,6 +44,29 @@ Two methods:
 
 A VLAN is a **logical** boundary enforced by a device's configuration; a misconfiguration or a compromised switch collapses it, which is why a physically separate network is still stronger for genuinely hostile separation (see [[Network Segmentation]]).
 
+## What VLANs Give You
+
+Stated positively, before the attacks on them:
+
+- **Traffic isolation** — hosts in different VLANs cannot reach each other without passing a router, even on the same switch.
+- **Traffic management and control** — broadcast domains shrink, and inter-VLAN traffic hits a point where ACLs and inspection apply.
+- **Reduced exposure to sniffers** — a captured frame only reveals its own VLAN's traffic.
+- **Flexibility** — membership is a configuration setting, so segments are changed without recabling, and a user keeps their VLAN wherever they plug in.
+
+What a VLAN does **not** do: **encrypt anything**. Traffic inside a VLAN is cleartext unless something else encrypts it, and a VLAN is a configuration boundary rather than a cryptographic one.
+
+## The Three Meanings of Port Security
+
+"Port security" is used for three different things, and which one is meant depends on the kind of port:
+
+| Sense of "port" | What port security means |
+|---|---|
+| **Network access** (the logical port a device joins on) | **NAC and 802.1X**: a device must authenticate before it may communicate on the network at all |
+| **Transport-layer ports** (TCP/UDP port numbers) | **Firewall rules** granting or denying traffic per port, closing unused services — the sense used when hardening a host or writing an ACL |
+| **Physical ports** (the RJ-45 jack) | Disabling unused jacks and switch ports, disabling a port when its cable is disconnected, limiting the MAC addresses per port — stopping an unauthorized device from being plugged in |
+
+The switch-level controls below are the second and third senses in practice.
+
 ## Port Security and Layer 2 Hardening
 
 | Control | What it stops |
@@ -63,6 +86,8 @@ Plus the management-plane basics for the switch itself — no defaults, encrypte
 
 ## Key Points
 
+- **VLANs give traffic isolation, traffic management, and less exposure to sniffers — but no encryption.**
+- **Port security means three things: NAC/802.1X authentication, TCP/UDP port filtering, and physically disabling unused RJ-45 jacks.**
 - **The CAM table is learned without authentication; layer 2 attacks exploit that and are launched from inside the broadcast domain.**
 - **MAC flooding fills the CAM table so the switch fails open and floods frames everywhere — effectively turning it into a hub. Port security is the counter.**
 - **MAC cloning defeats MAC filtering trivially, because MAC addresses are software-settable; 802.1X authenticates with a credential instead.**

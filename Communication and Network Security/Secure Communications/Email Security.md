@@ -21,7 +21,7 @@ Stated as the services that must be added, since the protocols provide none of t
 - **Authentication of the sender**, and **non-repudiation** that they sent it — digital signatures again. Note that **SPF/DKIM/DMARC authenticate the sending domain, not the human**.
 - **Availability** of the mail service, and **delivery assurance** where it is needed (delivery and read receipts, with the caveat that they are advisory).
 - **Access control** over mailboxes, including delegated and shared mailboxes.
-- **Classification and retention**: email is a records-management and eDiscovery problem as much as a security one — mail is **discoverable evidence** and needs a retention schedule that is actually enforced.
+- **Classification and retention**: email is a records-management and eDiscovery problem as much as a security one — mail is **discoverable evidence** and needs a retention schedule that is actually enforced. A retention policy has to be **communicated to users**, covering the **privacy implications** of their mail being kept, **how long** messages are retained, and **what the messages may be used for** (auditor review, investigations of policy violations). The technical backup method is an internal matter and not part of that conversation.
 
 ## Email Security Issues
 

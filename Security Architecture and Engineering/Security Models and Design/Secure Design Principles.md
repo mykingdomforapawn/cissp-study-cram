@@ -99,6 +99,18 @@ The older, perimeter-oriented posture. Entities inside the boundary (or those al
 
 It still has a place where constant checking is impractical, such as dealing with a vetted partner or contractor, supported by detective controls ([[Vendor, Consultant, and Contractor Agreements]]). It is weak where the perimeter has dissolved through cloud, remote work, and mobile devices.
 
+## Transparency
+
+A control is **transparent** when it does its job **without being noticed by legitimate users** — no extra step, no visible change to how the system behaves. Transparency is a design goal because a control users notice is a control users work around, and friction is the most common reason security measures are disabled or bypassed. NAT, a transparent proxy, an inline IPS, and full-disk encryption that unlocks from a TPM are all transparent in this sense.
+
+Three terms it is easily confused with:
+
+- **Invisibility** is not the same thing: it describes something actively **hiding itself**, which is a rootkit behavior rather than a security property.
+- **Diversion** is drawing an attacker toward a decoy, the function of a honeypot.
+- **Camouflage** is blending into the surroundings so an observer fails to distinguish the object.
+
+Note that the word carries a second, unrelated meaning in governance and privacy — openness about what the organization does, as in the Privacy by Design principle below. Context decides which is meant.
+
 ## Privacy by Design
 
 Privacy is built into the system from the start rather than added afterward. It is associated with Ann Cavoukian, and its seven foundational principles are:

@@ -34,6 +34,9 @@ The progression from PAP to CHAP to EAP is the answer to those questions getting
 | **EAP-FAST** | Shared secret (a **PAC**) instead of a certificate | Cisco's LEAP replacement; weak if the PAC is provisioned anonymously |
 | **EAP-MD5** | Password hash, no server authentication, no key material | One-way only, no mutual authentication; unusable for wireless |
 | **EAP-SIM / EAP-AKA** | The credential on a cellular **SIM** card | Carrier Wi-Fi offload; the phone authenticates to Wi-Fi with its mobile identity |
+| **EAP-POTP** | A **one-time password** token | Adds OTP hardware or software tokens to EAP, usable for multifactor |
+
+More than 40 EAP methods have been defined, so the useful skill is recognizing real ones (LEAP, PEAP, EAP-SIM, EAP-FAST, EAP-MD5, EAP-POTP, EAP-TLS, EAP-TTLS) rather than memorizing the list.
 
 The pattern: **tunnel first, authenticate inside**. Any EAP method that exposes the inner exchange to the network is attackable offline.
 

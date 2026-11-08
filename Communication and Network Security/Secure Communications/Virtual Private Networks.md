@@ -15,7 +15,9 @@ A **virtual private network** is a tunnel that is also **authenticated and encry
 
 What a VPN does **not** do: it does not protect data before it enters or after it leaves the tunnel, it does not make an infected endpoint safe, and it does not authenticate the user beyond whatever credential the VPN itself checks. Encryption ends at the **tunnel endpoint**, not at the application server.
 
-**Two deployment shapes:**
+A VPN always needs an **intermediary network** to run over — it is a tunnel through something, so two systems with no network between them cannot be linked by one. The intermediary is usually the internet, but it does not have to be: a VPN between two systems **on the same LAN** is valid and is how sensitive internal traffic is protected on an untrusted internal network.
+
+**Deployment shapes:**
 
 | | Endpoints | Typical use |
 |---|---|---|
