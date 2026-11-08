@@ -19,7 +19,7 @@ NAT is paired with the **RFC 1918 private ranges**, which are not routable on th
 | 172.16.0.0 – 172.31.255.255 | 172.16.0.0/12 | 16 class B |
 | 192.168.0.0 – 192.168.255.255 | 192.168.0.0/16 | 256 class C |
 
-Related special ranges worth keeping together: **127.0.0.0/8** loopback, **169.254.0.0/16** APIPA (below), **224.0.0.0/4** multicast (class D), and in IPv6 **fc00::/7** unique local and **fe80::/10** link-local.
+Other special ranges: **127.0.0.0/8** loopback, **169.254.0.0/16** APIPA (below), **224.0.0.0/4** multicast (class D), and in IPv6 **fc00::/7** unique local and **fe80::/10** link-local.
 
 A packet with a private source address arriving from the internet is **spoofed by definition**; filtering those (ingress/egress filtering, **bogon filtering**) is a basic perimeter control.
 

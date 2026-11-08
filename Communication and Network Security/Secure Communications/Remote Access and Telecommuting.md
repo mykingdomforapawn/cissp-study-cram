@@ -6,7 +6,7 @@
 
 ## Remote Access Techniques
 
-The book's three categories are worth keeping because they describe **where the data and the processing actually live**.
+The three techniques differ in **where the data and the processing actually live**.
 
 | Technique | How it works | Risk profile |
 |---|---|---|
@@ -14,7 +14,7 @@ The book's three categories are worth keeping because they describe **where the 
 | **Remote control** | The remote user takes over a **physical or virtual desktop inside** the network (RDP, VNC, VDI, remote assistance). Only screen, keyboard, and mouse cross the link | Data stays inside; the endpoint is a thin terminal. Risks: credential theft gives a full interactive session, and clipboard/drive redirection reopens the data path |
 | **Remote node** | The remote device becomes a **full member of the network** (the classic VPN client) and runs applications locally on its own data | Largest exposure: the untrusted endpoint is inside the network, and data lands on it |
 
-A **screen scraper** is the related technology that reads a screen's contents programmatically — legitimately for terminal emulation and automating systems with no API, and illegitimately as the mechanism behind remote-control spyware. The security point is that screen content is itself an exfiltration channel: a remote-control session that is "data-safe" still shows the data.
+A **screen scraper** reads a screen's contents programmatically — legitimately for terminal emulation and automating systems with no API, illegitimately as the mechanism behind remote-control spyware. Screen content is itself an exfiltration channel: a remote-control session that keeps data inside still shows the data.
 
 Choosing between them is a trade-off between **convenience and data location**. If data must not leave the datacenter, remote control or published applications beat remote node.
 
@@ -22,7 +22,7 @@ Choosing between them is a trade-off between **convenience and data location**. 
 
 - **Encrypt the channel**: VPN, TLS, or SSH. Never a protocol that exposes credentials or data in transit — see [[Virtual Private Networks]].
 - **Strong authentication**: **MFA is the baseline** for remote access, because a password alone is exposed to phishing, reuse, and keylogging with no compensating physical control. Certificates or device identity authenticate the machine as well as the user.
-- **Callback** is the legacy control: the server hangs up and dials the user back at a **pre-registered number**, proving location. Defeated by **call forwarding**, and useless for mobile users, but it is the historical example of authenticating by location.
+- **Callback** is the legacy control: the server hangs up and dials the user back at a **pre-registered number**, proving location. Defeated by **call forwarding** and useless for mobile users; it is authentication by location.
 - **Caller ID filtering** is the weaker relative — spoofable.
 - **Endpoint posture**: patch level, disk encryption, anti-malware, screen lock, no split tunnel on an unmanaged device.
 - **Restricted landing zone**: terminate remote sessions in a segment with its own rules rather than the flat internal LAN.
@@ -37,7 +37,7 @@ A remote access policy answers four questions explicitly, so that access is gran
 3. **How** the connection is made: which VPN or portal, which authentication, full vs split tunnel, no untrusted public Wi-Fi without the tunnel.
 4. **What protections are required** at the remote site: disk encryption, lock screens, physical security of the device and of printed material, separation from family-shared computers, and secure disposal of printouts.
 
-The policy must also address **what happens when it fails**: how a lost device is reported and wiped, and how access is revoked on termination. Remote workers also need the **support, training, and awareness** that office workers absorb by proximity, and the policy should name the hardware, software, and connectivity the organization provides versus what the employee supplies.
+It must also cover **failure and exit**: reporting and wiping a lost device, and revoking access on termination. Two things are easy to forget — who supplies the hardware, software, and connectivity, and the **training and awareness** that office workers absorb by proximity.
 
 ## Network Administrative Functions and Management
 
@@ -48,7 +48,7 @@ Remote administration is remote access with the highest possible privilege, so i
 - **Encrypted management protocols only**: SSH, HTTPS, SNMPv3 — never Telnet, HTTP, or SNMPv1/v2.
 - **Session recording and command logging** for privileged sessions, with TACACS+ providing per-command authorization (see [[Authentication Protocols]]).
 
-**Monitoring and management** of the network more broadly means keeping a current picture of what is on it and how it behaves: configuration backups and versioning, change control for every device change, synchronized time (**NTP**) so logs correlate, and centralized collection of syslog, SNMP traps, and flow records. The operational detail is in [[Network Devices]]. The security point is that an unmonitored network cannot be shown to be secure — and that the monitoring infrastructure itself is a high-value target, since it holds credentials for everything.
+**Monitoring and management** of the network more broadly means keeping a current picture of what is on it and how it behaves: configuration backups and versioning, change control for every device change, synchronized time (**NTP**) so logs correlate, and centralized collection of syslog, SNMP traps, and flow records. The operational detail is in [[Network Devices]]. The monitoring infrastructure itself is a high-value target, since it holds credentials for everything.
 
 ## Third-Party Connectivity
 

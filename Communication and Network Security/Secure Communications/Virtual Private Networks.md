@@ -48,7 +48,7 @@ What a VPN does **not** do: it does not protect data before it enters or after i
 | **OpenVPN** | 5-7 | Open-source, uses TLS for key exchange and its own data channel over UDP or TCP; widely used in commercial and self-hosted VPNs |
 | **WireGuard** | 3 | Modern, small codebase, fixed modern cipher suite, fast to connect; increasingly the default in new deployments |
 
-**IPsec vs TLS VPN** is the common comparison: IPsec is transparent to applications and protects everything on the host, but needs a client and struggles with NAT (hence **NAT-T** encapsulating ESP in UDP). A TLS VPN is easier to deploy and firewall-friendly, but historically gives access to a defined set of applications rather than the whole network.
+**IPsec vs TLS VPN**: IPsec is transparent to applications and protects everything on the host, but needs a client and struggles with NAT (hence **NAT-T** encapsulating ESP in UDP). A TLS VPN is easier to deploy and firewall-friendly, but historically gives access to a defined set of applications rather than the whole network.
 
 ## Operational Concerns
 

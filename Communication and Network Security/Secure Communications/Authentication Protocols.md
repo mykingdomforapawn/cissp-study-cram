@@ -59,7 +59,7 @@ The authenticator does not hold credentials itself; it asks a central service. T
 | **TACACS+** | TCP 49 | Encrypts the **entire payload**; **separates** authentication, authorization, and accounting, so command-level authorization is possible. Cisco-originated; the standard for **device administration** |
 | **Diameter** | TCP/SCTP, with TLS/IPsec | RADIUS successor: reliable transport, better capacity and failover; used in mobile (LTE/IMS) and telecom networks |
 
-Rule of thumb: **RADIUS for who may get on the network, TACACS+ for who may type which command on the router.**
+**RADIUS decides who may get on the network; TACACS+ decides who may type which command on the router.**
 
 ## Key Points
 

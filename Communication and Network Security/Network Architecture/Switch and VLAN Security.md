@@ -1,6 +1,6 @@
 ## Why Layer 2 Matters
 
-A switch forwards frames only to the port that owns the destination MAC, which is why a sniffer on another port normally sees nothing. **Layer 2 attacks all aim to undo that**: to make the switch send the attacker traffic it should not, or to let the attacker reach a segment they should not. They are launched from **inside** the broadcast domain, so they are insider or post-compromise attacks — which is exactly why the perimeter does not help.
+A switch forwards frames only to the port that owns the destination MAC, which is why a sniffer on another port normally sees nothing. **Layer 2 attacks all aim to undo that**: to make the switch send the attacker traffic it should not, or to let the attacker reach a segment they should not. They are launched from **inside** the broadcast domain, so they are insider or post-compromise attacks, and the perimeter does not see them.
 
 The switch's forwarding table is the **CAM table** (content-addressable memory), mapping MAC addresses to ports. It is learned automatically from traffic, with no authentication — the root of most of what follows.
 

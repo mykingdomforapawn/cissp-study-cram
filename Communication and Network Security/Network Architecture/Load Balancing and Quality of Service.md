@@ -24,7 +24,7 @@ Consequences:
 | **Complexity** | Higher: shared or synchronized state, session affinity, split-brain risk | Lower: only one node is authoritative |
 | **Typical use** | Web and application tiers, stateless workloads | Firewalls, databases, anything where two writers would corrupt state |
 
-The planning point is that **active-active must be sized with failure in mind** (N+1, not N), and that **split-brain** — both nodes believing they are active after losing contact with each other — is the characteristic active-active failure, addressed with quorum or a separate heartbeat path.
+**Active-active must be sized for failure** (N+1, not N). Its characteristic failure is **split-brain**: both nodes believe they are active after losing contact with each other, addressed with quorum or a separate heartbeat path.
 
 ## Scheduling and Persistence
 

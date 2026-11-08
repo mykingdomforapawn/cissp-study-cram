@@ -1,6 +1,6 @@
-## Framing
+## The Shape of Network Attacks
 
-Most network attacks are one of three things against traffic in transit — **reading it, changing it, or replaying it** — or one of two things against a session — **impersonating an endpoint or taking the session over**. Grouping them this way makes the defenses obvious, because each maps to a cryptographic service: confidentiality, integrity, freshness, authentication.
+Most network attacks do one of three things to traffic in transit — **read it, change it, or replay it** — or one of two things to a session: **impersonate an endpoint or take the session over**. Each maps to a cryptographic service, which is where the defense comes from.
 
 | Attack | What it violates | Core defense |
 |---|---|---|
@@ -41,7 +41,7 @@ Defenses: **integrity protection** rather than encryption alone — an AEAD ciph
 
 ## Replay Attacks
 
-A **replay attack** captures valid traffic and **resends it later** — an authentication exchange, a transaction, a command — without needing to decrypt or understand it. Encryption alone does not stop it, which is why it is worth separating from the other two: the replayed message is genuine.
+A **replay attack** captures valid traffic and **resends it later** — an authentication exchange, a transaction, a command — without needing to decrypt or understand it. Encryption alone does not stop it, because the replayed message is genuine.
 
 Defenses: **sequence numbers**, **timestamps** with a validity window (the reason Kerberos requires synchronized clocks), **nonces** and challenge-response (the reason CHAP challenges rather than accepting a hash), and **session tokens that expire**. Note that **packet sequencing** and session-layer controls exist in protocols partly for this reason.
 

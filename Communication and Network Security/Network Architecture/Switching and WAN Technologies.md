@@ -11,7 +11,7 @@ The fundamental division in how a network moves traffic.
 | **Failure** | A broken link kills the call | Traffic reroutes around a failure |
 | **Examples** | PSTN voice calls, ISDN, T-carrier/leased lines | The internet, X.25, Frame Relay, ATM, MPLS, Ethernet |
 
-**Security consequence**: a circuit is a fixed, known path — easier to physically protect, and traffic analysis is trivial since the circuit itself reveals who is talking to whom. Packets take unpredictable paths through networks nobody controls, so **encryption, not routing, is what protects them** — the argument for end-to-end protection and for VPNs.
+**Security consequence**: a circuit is a fixed, known path — easier to physically protect, and traffic analysis is trivial since the circuit itself reveals who is talking to whom. Packets take unpredictable paths through networks nobody controls, so **encryption, not routing, is what protects them**.
 
 ## Virtual Circuits
 
@@ -22,7 +22,7 @@ A **virtual circuit** is a logical connection built **on top of a packet-switche
 | **PVC** (permanent virtual circuit) | Always on, configured by the provider. The analogue of a **leased line**: it is simply there |
 | **SVC** (switched virtual circuit) | Built on demand, used, then torn down. The analogue of a **dial-up call** |
 
-Virtual circuits give a **quality of service commitment** — Frame Relay's **CIR** (committed information rate) is the classic example, a guaranteed minimum bandwidth with bursting above it when capacity allows.
+Virtual circuits can carry a **quality of service commitment**: Frame Relay's **CIR** (committed information rate) guarantees a minimum bandwidth, with bursting above it when capacity allows.
 
 ## WAN Technologies
 

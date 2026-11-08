@@ -2,7 +2,7 @@
 
 **Multimedia collaboration** is the use of shared real-time tools — remote meetings, instant messaging, chat channels, shared whiteboards and documents — to work across distance. Technologically these are **converged** applications: voice, video, screen content, files, and text over one IP platform, usually a cloud service (see [[Converged and Multilayer Protocols]]).
 
-The security story is short because it repeats: these tools make **an organization's internal conversation available on an outside platform**, in a form that is easy to record and easy to join.
+The common risk across all of them: they put **an organization's internal conversation on an outside platform**, in a form that is easy to record and easy to join.
 
 ## Remote Meetings
 

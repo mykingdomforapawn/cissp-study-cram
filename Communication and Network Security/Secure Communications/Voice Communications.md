@@ -6,17 +6,17 @@ Voice security splits into the **legacy circuit-switched world** (PSTN, PBX, ana
 
 The **public switched telephone network** is the global circuit-switched voice network; **POTS** (plain old telephone service) is the basic analog line into it. A call reserves a dedicated circuit end to end for its duration (see [[Switching and WAN Technologies]]).
 
-Security characteristics worth knowing:
+Security characteristics:
 
 - **No encryption and no authentication.** A PSTN call is protected only by the physical inaccessibility of the wiring and the switches. Tapping a line is a physical act, not a network one.
-- **It is also a backdoor into the building.** A modem on an analog line bypasses the firewall entirely. **War dialing** — calling ranges of numbers to find modems and fax machines — is the classic reconnaissance for this, and the control is an inventory of lines plus a prohibition on unauthorized modems.
+- **It is also a backdoor into the building.** A modem on an analog line bypasses the firewall entirely. **War dialing** — calling ranges of numbers to find modems and fax machines — is the reconnaissance for this; the control is an inventory of lines plus a prohibition on unauthorized modems.
 - **It is a dependency**, used for alarm circuits, elevator phones, fire panels, out-of-band management, and fax. Replacing it with VoIP moves those dependencies onto the data network and its power supply.
 
 ## Phreaking
 
-**Phreaking** is the attack on telephone systems: manipulating signaling to get free calls, unauthorized access, or control of switching equipment. It is historically important because telephone signaling originally traveled **in the same channel as the voice** (in-band signaling), so a caller who could generate the right tones could instruct the switch.
+**Phreaking** is the attack on telephone systems: manipulating signaling to get free calls, unauthorized access, or control of switching equipment. It worked because telephone signaling originally traveled **in the same channel as the voice** (in-band signaling), so a caller who could generate the right tones could instruct the switch.
 
-The **colored boxes** are the named examples:
+The **colored boxes**:
 
 | Box | What it did |
 |---|---|
@@ -25,7 +25,7 @@ The **colored boxes** are the named examples:
 | **Black box** | Manipulated line voltage so the called party's line never registered as answered, making calls unbilled |
 | **White box** | A portable DTMF keypad for controlling a line from outside |
 
-Modern networks use **out-of-band signaling** (SS7), so the tone attacks are dead — but the lesson generalizes: **control data and user data on the same channel means users can forge control data.** SS7 itself has its own well-documented abuse (location tracking, SMS interception), because it assumes all interconnected carriers are trustworthy.
+Modern networks use **out-of-band signaling** (SS7), so the tone attacks are dead. The general principle stands: **control data and user data on the same channel means users can forge control data.** SS7 has its own abuse (location tracking, SMS interception), because it assumes all interconnected carriers are trustworthy.
 
 ## PBX Fraud and Abuse
 
