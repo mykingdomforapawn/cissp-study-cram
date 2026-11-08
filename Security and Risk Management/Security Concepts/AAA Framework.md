@@ -43,7 +43,7 @@ This framework represents the core lifecycle of **Access Control** and **Identit
 
 ## AAA Protocols
 
-The AAA framework is implemented in practice through dedicated protocols — covered in detail in the networking chapter. For reference: **RADIUS** handles network access (VPNs, Wi-Fi), while **TACACS+** handles device administration (routers, switches). The key structural difference is that TACACS+ separates Authentication, Authorization, and Accounting into independent steps, whereas RADIUS combines the first two.
+The AAA framework is implemented in practice through dedicated protocols — covered in detail in the networking chapter. For reference: **RADIUS** handles network access (VPNs, Wi-Fi), while **TACACS+** handles device administration (routers, switches). The key structural difference is that TACACS+ separates Authentication, Authorization, and Accounting into independent steps, whereas RADIUS combines the first two. See [[Authentication Protocols]] for the comparison and for the link protocols (PAP, CHAP, EAP, 802.1X) that feed them.
 
 ## Abstraction
 

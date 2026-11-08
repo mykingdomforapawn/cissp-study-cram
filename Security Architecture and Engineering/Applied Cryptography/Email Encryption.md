@@ -1,3 +1,5 @@
+These two protect the **message**. The surrounding problems — spoofing, spam, phishing, open relays, and the SPF/DKIM/DMARC answers — are in [[Email Security]].
+
 Both solve the same problem — confidentiality, integrity, authentication, and non-repudiation for email — using the same hybrid cryptosystem pattern (see Hybrid Cryptosystems in Asymmetric Key Algorithms), but differ in how trust is established.
 
 ## PGP (Pretty Good Privacy)

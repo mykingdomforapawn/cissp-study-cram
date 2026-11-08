@@ -38,7 +38,7 @@ A **proxy** sits between client and server, terminates the client's connection, 
 - **Reverse proxy**: sits in front of servers for inbound traffic; load balances, terminates TLS, caches, and hides the server topology. A WAF is usually a reverse proxy.
 - **Anonymizing / open proxies** and **proxy chaining** on the attacker side hide origin; on the defender side, mixing proxies from different vendors is the same defense in depth idea as mixed firewalls.
 
-**NAT** is sometimes grouped with proxies because it also hides internal addresses, but it works at layer 3 and does not inspect content.
+**NAT** is sometimes grouped with proxies because it also hides internal addresses, but it works at layer 3, does not inspect content, and enforces no policy — see [[Network Address Translation]].
 
 ## Content and URL Filtering
 

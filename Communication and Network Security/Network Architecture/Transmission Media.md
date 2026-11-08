@@ -58,6 +58,14 @@ Transmits **light pulses** through a glass or plastic core. Advantages: very hig
 
 Connectors: SC, LC (most common today), ST, MTRJ. Fiber is the preferred medium wherever confidentiality or interference is a concern, and for backbone and inter-building links (it also provides electrical isolation between buildings).
 
+**Securing a fibre optic link.** Fiber's physical advantages are real but limited, and the common mistake is treating the medium as the security control:
+
+- **Hard to tap is not impossible to tap.** A bend coupler or a splice can lift the signal; it requires physical access and causes a measurable change in optical power, which is why carriers monitor link budgets and use an **OTDR** (optical time-domain reflectometer) to locate a loss or a new splice. Monitoring the link for unexplained attenuation is the detective control.
+- **Encrypt anyway.** A fiber run between buildings, campuses, or sites passes through conduits, manholes, patch panels, and splice enclosures that the organization does not control — and **leased dark fiber** runs through the carrier's plant entirely. Protect the traffic with **MACsec** at layer 2 or IPsec above it rather than relying on the glass (see [[Virtual Private Networks]]).
+- **Protect the passive infrastructure.** Patch panels, splice closures, and optical distribution frames are the practical tap points; they belong in locked rooms and cabinets with the same controls as wiring closets.
+- **Availability is the bigger risk.** A single cut takes the link down and repairs are slow and specialist, so critical links use **physically diverse paths** (not just two strands in the same trench) and self-healing ring topologies such as SONET/SDH or FDDI (see [[Switching and WAN Technologies]]).
+- **One fiber carries many links.** **WDM/DWDM** multiplexes many wavelengths onto one strand, so a single physical failure or a single compromised strand affects many logical connections at once.
+
 ## Comparison
 
 | Medium | Max speed | Distance | EMI resistance | Tap resistance | Cost |

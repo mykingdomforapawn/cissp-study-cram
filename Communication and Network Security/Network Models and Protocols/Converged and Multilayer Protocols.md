@@ -31,15 +31,7 @@ A **storage area network (SAN)** gives servers block storage over a dedicated or
 
 ## VoIP
 
-**Voice over IP** carries calls as packets: **SIP** (Session Initiation Protocol) sets up and tears down the call, **RTP** carries the audio. Protocols are standard, so the attacks are standard too:
-
-- **Eavesdropping** on unencrypted RTP; mitigated with **SRTP** and SIP over TLS.
-- **Caller ID spoofing** and **vishing** (voice phishing), since SIP headers are trivially forged.
-- **Toll fraud**: compromising a PBX to place premium-rate calls.
-- **Denial of service**: flooding SIP registrations or the network; voice is sensitive to latency and jitter, so even partial DoS degrades it.
-- **SPIT** (spam over internet telephony), and **hopping** between the voice VLAN and the data VLAN if the segmentation is weak.
-
-Controls: separate voice VLAN, SRTP/TLS, authentication of endpoints, a session border controller at the edge, and QoS. Note the availability dependency: when the network is down, so are the phones, which affects emergency calling.
+**Voice over IP** is the converged protocol people meet first: **SIP** sets up and tears down the call, **RTP** carries the audio, and both ride the ordinary data network, so voice inherits every IP attack — eavesdropping on unencrypted RTP, caller ID spoofing and vishing, toll fraud, denial of service, and hopping between the voice and data VLANs. Controls are a separate voice VLAN, SRTP and SIP over TLS, endpoint authentication, a session border controller, and QoS. The availability dependency is the converged-network trade-off in miniature: when the network or its power is down, so are the phones. Detail, together with the PSTN and PBX world it replaced, is in [[Voice Communications]].
 
 ## Software-Defined Networking
 

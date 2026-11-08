@@ -16,7 +16,7 @@ Secure communication protocols add **confidentiality, integrity, and authenticat
 
 ## Choosing by Layer
 
-- **Lower layer means broader and more transparent.** IPsec protects every application without any application change, and hides transport headers (ports) in tunnel mode. It is the choice for site-to-site and remote access VPNs.
+- **Lower layer means broader and more transparent.** IPsec protects every application without any application change, and hides transport headers (ports) in tunnel mode. It is the choice for site-to-site and remote access VPNs (see [[Virtual Private Networks]]).
 - **Higher layer means more targeted and more application-aware.** TLS protects one session and lets the application decide what to authenticate; SSH protects one administrative connection. Neither hides IP addresses.
 - **Link encryption vs end-to-end**: encryption on a link (including a VPN tunnel) is removed at the tunnel endpoint, so traffic beyond it is exposed again. End-to-end encryption (TLS to the real server, Signal between two devices) stays encrypted through every intermediary. See [[Network Encryption]] for the trade-off.
 

@@ -39,27 +39,11 @@ The **KRACK** attack (2017) exploited the four-way handshake to force nonce reus
 
 Early implementations had side-channel weaknesses (Dragonblood), and "transition mode" running WPA2 and WPA3 together inherits WPA2's weaknesses. Still, WPA3 is the target state.
 
-## 802.1X and EAP
+## 802.1X and EAP in Wireless
 
-**IEEE 802.1X** is **port-based network access control**, used on both wired switch ports and wireless associations. Three roles:
+**WPA2/WPA3-Enterprise is 802.1X applied to Wi-Fi**: the client is the **supplicant**, the access point is the **authenticator** that passes nothing but authentication traffic until the client is approved, and a **RADIUS** server makes the decision and can assign a VLAN. The method negotiated inside **EAP** decides the actual strength — **EAP-TLS** (mutual certificates) is strongest, **PEAP** and **EAP-TTLS** tunnel a password method inside server-authenticated TLS, and **LEAP** and **EAP-MD5** are unacceptable. Full comparison in [[Authentication Protocols]].
 
-1. **Supplicant**: the client device requesting access.
-2. **Authenticator**: the switch or access point; it blocks all traffic except authentication until the client is approved.
-3. **Authentication server**: usually **RADIUS** (or TACACS+, Diameter), which checks credentials against a directory and tells the authenticator to open the port, often also assigning a VLAN.
-
-802.1X carries **EAP** (Extensible Authentication Protocol), which is a framework, not an authentication method; the method inside decides the security:
-
-| EAP method | Mechanism | Assessment |
-|---|---|---|
-| **EAP-TLS** | Mutual certificate authentication; a client certificate on every device | Strongest; requires a PKI |
-| **EAP-TTLS** | Server certificate creates a TLS tunnel, client authenticates inside with any method (password) | Strong; no client certificates needed |
-| **PEAP** (Protected EAP) | Like TTLS: server certificate, TLS tunnel, usually **MS-CHAPv2** inside | Common in Windows environments; safe if the client validates the server certificate |
-| **EAP-FAST** | Cisco; tunnel based on a shared "protected access credential" instead of a certificate | Convenient; initial provisioning is the weak point |
-| **LEAP** | Cisco's early method using MS-CHAP without a tunnel | **Broken** (offline dictionary attack); do not use |
-| **EAP-MD5** | Plain challenge-response hash | No mutual authentication, no key derivation; unsuitable for wireless |
-| **EAP-SIM / EAP-AKA** | Authenticate with a cellular SIM | Carrier Wi-Fi offload |
-
-The common failure is clients **not validating the RADIUS server's certificate**, which lets an evil twin with its own RADIUS harvest credentials (see [[Wireless Attacks]]).
+The failure specific to wireless is clients **not validating the RADIUS server's certificate**: an evil twin with its own RADIUS then harvests credentials (see [[Wireless Attacks]]).
 
 ## Key Points
 

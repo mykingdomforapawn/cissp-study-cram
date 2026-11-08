@@ -16,7 +16,7 @@ Network devices are best understood by the **layer at which they make forwarding
 | **Wireless access point** | 2 | Bridges 802.11 wireless clients onto the wired LAN | See [[Wireless Fundamentals]] |
 | **Proxy** | 7 | Terminates the client connection and makes its own on the client's behalf | See [[Firewalls and Proxies]] |
 
-Switches versus hubs is the classic point: a switch sends a frame only to its destination port, so a sniffer on another port sees nothing unless the attacker uses a mirror port, ARP poisoning, or MAC flooding (see [[IP, ICMP, and ARP]]). Switches also support **VLANs**, **port security**, **802.1X**, DHCP snooping, and dynamic ARP inspection, which makes them security devices, not just connectivity.
+Switches versus hubs is the classic point: a switch sends a frame only to its destination port, so a sniffer on another port sees nothing unless the attacker uses a mirror port, ARP poisoning, or MAC flooding (see [[IP, ICMP, and ARP]]). Switches also support **VLANs**, **port security**, **802.1X**, DHCP snooping, and dynamic ARP inspection, which makes them security devices, not just connectivity — see [[Switch and VLAN Security]]. **Load balancers** are the other common appliance, covered in [[Load Balancing and Quality of Service]].
 
 **Collision domain**: the set of devices that can collide on a shared medium; split by bridges and switches. **Broadcast domain**: the set of devices that receive a layer 2 broadcast; split by routers and VLANs.
 

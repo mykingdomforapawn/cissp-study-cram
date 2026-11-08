@@ -46,7 +46,7 @@ Original **classful** addressing split the space by first octet:
 - 172.16.0.0/12 (172.16.0.0 to 172.31.255.255)
 - 192.168.0.0/16
 
-NAT hides internal addressing and conserves public addresses, but it is not a firewall in itself and breaks protocols that embed addresses in their payload (older FTP, SIP). **PAT** (port address translation, overloading) maps many internal hosts to one public address by varying the port. Related: a **bastion host** or a **screened subnet** uses these ranges to keep the internal network unaddressable from outside; see [[Network Segmentation]].
+These ranges exist to be translated at the boundary, and a packet arriving from the internet with a private source address is spoofed by definition. Translation itself — static NAT, dynamic NAT, PAT, what it hides and what it breaks — is covered in [[Network Address Translation]]. Related: a **bastion host** or a **screened subnet** uses these ranges to keep the internal network unaddressable from outside; see [[Network Segmentation]].
 
 ## ICMP
 

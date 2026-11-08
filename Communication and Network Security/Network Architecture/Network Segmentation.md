@@ -41,6 +41,6 @@ A **bastion host** is a hardened system exposed to an untrusted network, typical
 
 - **Segmentation creates control points; the security benefit is containment of lateral movement.**
 - **Intranet is private, extranet is for specific partners, screened subnet holds public-facing services with firewalls on both sides.**
-- **VLANs are logical segmentation at layer 2; inter-VLAN traffic must pass a router where ACLs apply; beware VLAN hopping.**
+- **VLANs are logical segmentation at layer 2; inter-VLAN traffic must pass a router where ACLs apply; beware VLAN hopping ([[Switch and VLAN Security]]).**
 - **Microsegmentation enforces policy per workload and underpins zero trust.**
 - **An air gap is the strongest isolation; its residual risk is removable media. A data diode allows one-way flow.**
