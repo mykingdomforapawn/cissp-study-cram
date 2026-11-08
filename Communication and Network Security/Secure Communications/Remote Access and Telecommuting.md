@@ -30,14 +30,16 @@ Choosing between them is a trade-off between **convenience and data location**. 
 
 ## Planning a Remote Access Policy
 
-A remote access policy answers four questions explicitly, so that access is granted by rule rather than by request:
+A remote access policy starts by defining **who** may work remotely and for which roles and data classifications — remote work is not automatically appropriate for every job. It then settles four areas:
 
-1. **Who** may work remotely, and for which roles and data classifications — remote work is not automatically appropriate for every job.
-2. **What** may be used: corporate device only, or BYOD under conditions (see [[Mobile Device Deployment]]); which applications; whether data may be stored locally or printed at home.
-3. **How** the connection is made: which VPN or portal, which authentication, full vs split tunnel, no untrusted public Wi-Fi without the tunnel.
-4. **What protections are required** at the remote site: disk encryption, lock screens, physical security of the device and of printed material, separation from family-shared computers, and secure disposal of printouts.
+| Area | What the policy decides |
+|---|---|
+| **Remote connectivity technology** | Which technology is sanctioned: VPN, web portal, published applications, VDI, dial-up; whether the device may be corporate-only or BYOD (see [[Mobile Device Deployment]]); which applications are reachable and whether data may be stored or printed at the remote site |
+| **Transmission protection** | How the traffic is protected in transit: the required encryption (VPN, TLS, SSH), full vs split tunnel, and the rule that untrusted networks and public Wi-Fi are never used without the tunnel |
+| **Authentication protection** | How the user and device prove identity: **MFA**, certificates or device identity, password rules, re-authentication and session timeouts, and how credentials are issued and revoked |
+| **Remote user assistance** | How remote workers get help: a support path for software, hardware, and connectivity problems, who supplies and maintains the equipment, and the training and awareness that office workers absorb by proximity |
 
-It must also cover **failure and exit**: reporting and wiping a lost device, and revoking access on termination. Two things are easy to forget — who supplies the hardware, software, and connectivity, and the **training and awareness** that office workers absorb by proximity.
+The policy must also cover **failure and exit**: how a lost or stolen device is reported and wiped, how physical protections apply at the remote site (disk encryption, lock screens, securing and disposing of printed material, separation from family-shared computers), and how access is revoked on termination.
 
 ## Network Administrative Functions and Management
 
@@ -64,6 +66,6 @@ Partners, suppliers, managed service providers, and customers often need a conne
 
 - **Service-specific = one application; remote control = taking over a desktop inside the network (data stays in); remote node = the device joins the network as a full member (data leaves).**
 - **MFA plus an encrypted tunnel is the baseline for remote access; callback authenticates by location and is defeated by call forwarding.**
-- **A remote access policy names who may connect, with what device, how, and what protections are required at the remote site — including device loss and termination.**
+- **A remote access policy covers four areas: remote connectivity technology, transmission protection, authentication protection, and remote user assistance — plus who may connect at all, and device loss and termination.**
 - **Administer devices out-of-band through a jump host with encrypted protocols and per-command logging.**
 - **Third-party connections inherit the partner's security: contract first, isolate into an extranet, name and time-limit accounts, and disconnect when the relationship ends.**
