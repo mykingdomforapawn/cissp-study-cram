@@ -29,34 +29,30 @@ Virtual circuits can carry a **quality of service commitment**: Frame Relay's **
 A **WAN** connects sites across distances that the organization does not own cabling for, so it buys a carrier's service. The terminology:
 
 - **Dedicated (leased) line**: a permanent, exclusive connection between two points, billed as a flat rate whether used or not. Predictable and private.
-- **Non-dedicated line**: a connection established as needed (dial-up, ISDN, DSL, cable), shared with other customers.
+- **Non-dedicated line**: a shared connection established as needed (broadband, cellular, historically dial-up and ISDN).
 - **CSU/DSU**: the device between the LAN router and the carrier's digital line — the "modem" for a leased line.
 - **Last mile**: the link from the carrier to the premises, usually the bottleneck and the single point of failure.
 
 | Technology | Nature | Notes |
 |---|---|---|
-| **T-carrier / E-carrier** | Dedicated digital | **T1** = 1.544 Mbps (24 channels), **T3** = 44.736 Mbps; **E1** = 2.048 Mbps in Europe. **Fractional T1** rents a subset of channels |
-| **ISDN** | Circuit-switched digital over phone lines | **BRI** = 2 B channels (64 kbps each) + 1 D channel for signaling; **PRI** = up to 23 B + 1 D. Early out-of-band signaling example |
-| **X.25** | Packet-switched, virtual circuits | The first public packet network; heavy error checking for noisy lines, hence slow. Obsolete |
-| **Frame Relay** | Packet-switched, virtual circuits (PVC/SVC) | X.25's faster successor: assumes clean lines, so error correction is left to the endpoints. Shared provider cloud, **CIR** for guarantees. Obsolete but a classic comparison |
-| **ATM** | Cell-switched, virtual circuits | Fixed **53-byte cells** make switching fast and latency predictable; strong QoS. Used in carrier backbones and early DSL |
-| **MPLS** | Label switching | Forwards on a short **label** rather than a routing lookup, creating engineered paths with QoS classes. The modern provider WAN; **private, but not encrypted** — the carrier can see the traffic |
-| **SONET/SDH** | Optical circuit | Carrier fiber transport with self-healing **rings** that survive a cut |
-| **DSL / cable** | Shared broadband | Cheap internet access; cable is a **shared medium** in the neighborhood segment |
-| **Cellular (4G/5G) and satellite** | Wireless WAN | Backup links and remote sites; see [[Edge Networks and CDNs]] |
-| **SD-WAN** | Overlay | Software-defined control over multiple underlying links (MPLS, broadband, LTE), steering traffic by policy and usually **encrypting** site-to-site over the internet — which is why it displaced MPLS-only designs |
+| **MPLS** | Label switching | Forwards on a short **label** instead of a routing lookup, creating engineered paths with QoS classes. The standard provider WAN; **private, but not encrypted** — the carrier sees the traffic |
+| **SD-WAN** | Overlay | Software-defined control over several underlying links (MPLS, broadband, LTE), steering traffic by policy and usually **encrypting** site-to-site over the internet. This is why pure MPLS designs are being replaced |
+| **Broadband (DSL, cable, fiber)** | Shared, non-dedicated | The common site and home connection; cable is a **shared medium** in the neighborhood segment |
+| **Cellular (4G/5G) and satellite** | Wireless WAN | Remote sites and backup links; satellite adds high latency. See [[Edge Networks and CDNs]] |
+| **Leased line (T-carrier / E-carrier)** | Dedicated digital | Still sold where a guaranteed private circuit is required. **T1** = 1.544 Mbps, **T3** = 44.736 Mbps, **E1** = 2.048 Mbps in Europe; **fractional** rents a subset of channels |
+
+**Legacy technologies** that appear in older material and in comparisons, none of which is deployed today: **X.25** (the first public packet network, slow because of heavy error checking for noisy lines), **Frame Relay** (its faster successor — error correction left to the endpoints, shared provider cloud, **CIR** for a guaranteed rate), **ATM** (cell switching with fixed **53-byte cells** for predictable latency), and **ISDN** (circuit-switched digital over phone lines, **BRI** = 2B+D, **PRI** = 23B+D). Their lasting points are the ones already made above: virtual circuits, committed rates, and the trade-off between error checking and speed.
 
 ## WAN Encapsulation Protocols
 
 The layer 2 protocols that frame data on these links:
 
-- **HDLC** — the standard synchronous encapsulation for serial links; bit-oriented, no authentication. Vendor variants (Cisco HDLC) are not interoperable.
-- **SDLC** — IBM's predecessor to HDLC, used in SNA mainframe networks; polled, with a primary station controlling secondaries.
-- **PPP** — the point-to-point protocol that replaced SLIP; supports multiple network protocols, error detection, and **authentication negotiation** (PAP, CHAP, EAP) — see [[Authentication Protocols]].
+- **PPP** — the point-to-point protocol in current use; replaced SLIP, supports multiple network protocols, error detection, and **authentication negotiation** (PAP, CHAP, EAP) — see [[Authentication Protocols]].
+- **HDLC**, and IBM's older **SDLC** before it, are the synchronous serial encapsulations PPP displaced: bit-oriented, no authentication.
 
 ## Security Considerations for WAN Links
 
-- **A private WAN is not an encrypted WAN.** MPLS, Frame Relay, and leased lines are private only in the sense that the carrier keeps customers logically separate. The carrier, and anyone who compromises the carrier, sees the traffic. Encrypt site-to-site links regardless of the underlying technology (see [[Virtual Private Networks]]).
+- **A private WAN is not an encrypted WAN.** MPLS and leased lines are private only in the sense that the carrier keeps customers logically separate. The carrier, and anyone who compromises the carrier, sees the traffic. Encrypt site-to-site links regardless of the underlying technology (see [[Virtual Private Networks]]).
 - **The carrier is a third party** with access to the organization's traffic and an outage that is outside its control — contract terms, SLAs, and an alternative path matter (see [[Remote Access and Telecommuting]] on third-party connectivity).
 - **Redundancy**: diverse carriers and diverse physical paths, since two "redundant" links often share the same conduit. A backhoe cutting one trench is the common WAN outage.
 - **Bandwidth and latency drive design**: a WAN link is slow and expensive compared with a LAN, which is why caching, compression, and QoS live at WAN edges.
@@ -65,7 +61,8 @@ The layer 2 protocols that frame data on these links:
 
 - **Circuit switching reserves a dedicated path (constant performance, wasteful, PSTN/ISDN/leased lines); packet switching routes each packet independently (efficient, variable, the internet).**
 - **A virtual circuit is a logical dedicated path over a packet network: PVC = always on like a leased line, SVC = built on demand like a dial-up call.**
-- **T1 = 1.544 Mbps, T3 = 44.736 Mbps, E1 = 2.048 Mbps; ISDN BRI = 2B+D, PRI = 23B+D; ATM uses fixed 53-byte cells; MPLS forwards on labels.**
-- **X.25 checked errors heavily and was slow; Frame Relay dropped that and added CIR for guaranteed bandwidth.**
-- **HDLC and SDLC are serial encapsulations without authentication; PPP adds it.**
+- **MPLS forwards on labels and is the provider WAN; SD-WAN steers traffic across several links by policy and encrypts over the internet.**
+- **T1 = 1.544 Mbps, T3 = 44.736 Mbps, E1 = 2.048 Mbps.**
+- **Legacy, for recognition only: X.25 (slow, heavy error checking), Frame Relay (faster, CIR), ATM (53-byte cells), ISDN (BRI 2B+D, PRI 23B+D).**
+- **PPP is the current serial encapsulation and the one that adds authentication; HDLC and SDLC do not.**
 - **Provider WANs are private, not encrypted — encrypt over them anyway, and plan for physically diverse paths.**

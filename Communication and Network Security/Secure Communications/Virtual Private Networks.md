@@ -27,26 +27,26 @@ What a VPN does **not** do: it does not protect data before it enters or after i
 
 **Always-on VPN** establishes the tunnel automatically whenever the device has connectivity, before the user is involved. It removes the choice (and the forgetting) from the user, guarantees that policy and inspection apply everywhere, and keeps the device manageable off-site. The costs are bandwidth through the corporate gateway and a hard dependency on gateway availability.
 
-| | Full tunnel | Split tunnel |
-|---|---|---|
-| **What goes through the VPN** | **All** traffic, including internet browsing | Only traffic destined for corporate networks; the rest goes direct |
-| **Security** | Stronger: everything passes corporate filtering, inspection, and logging | Weaker: the host is simultaneously on the untrusted local network and the corporate network, a potential **bridge** between them |
-| **Performance / cost** | Higher latency, all traffic consumes gateway and corporate bandwidth | Efficient; cloud and video traffic goes direct |
+|                               | Full tunnel                                                              | Split tunnel                                                                                                                     |
+| ----------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| **What goes through the VPN** | **All** traffic, including internet browsing                             | Only traffic destined for corporate networks; the rest goes direct                                                               |
+| **Security**                  | Stronger: everything passes corporate filtering, inspection, and logging | Weaker: the host is simultaneously on the untrusted local network and the corporate network, a potential **bridge** between them |
+| **Performance / cost**        | Higher latency, all traffic consumes gateway and corporate bandwidth     | Efficient; cloud and video traffic goes direct                                                                                   |
 
 **Full tunnel is the secure default.** Split tunneling is a deliberate performance trade-off, acceptable when the endpoint itself is hardened and monitored. The classic risk is a malware-infected or dual-homed host silently relaying from the home network into the corporate one.
 
 ## Common VPN Protocols
 
-| Protocol | Layer | Notes |
-|---|---|---|
-| **PPTP** | 2 | Microsoft's early protocol; encapsulates PPP, authenticates with MS-CHAPv2. **Cryptographically broken** — do not use |
-| **L2F** | 2 | Cisco's equivalent of PPTP; no encryption of its own; historical |
-| **L2TP** | 2 | Merger of PPTP and L2F; itself provides **no encryption**, so it is deployed as **L2TP/IPsec**. Can carry non-IP protocols and supports multi-hop |
-| **IPsec** | 3 | The workhorse. **AH** = integrity and authentication, **ESP** = encryption; **transport mode** protects the payload, **tunnel mode** the whole packet; **IKE** negotiates keys and builds **security associations**. Detail in [[Network Encryption]] |
-| **SSL/TLS VPN** | 5-7 | Runs over TCP 443, so it crosses firewalls and NAT that block IPsec; often clientless through a browser portal. The common remote-access choice today |
-| **SSH** | 7 | Port forwarding tunnels arbitrary TCP through an authenticated session; an administrator's VPN substitute, not an enterprise one |
-| **OpenVPN** | 5-7 | Open-source, uses TLS for key exchange and its own data channel over UDP or TCP; widely used in commercial and self-hosted VPNs |
-| **WireGuard** | 3 | Modern, small codebase, fixed modern cipher suite, fast to connect; increasingly the default in new deployments |
+| Protocol        | Layer | Notes                                                                                                                                                                                                                                                 |
+| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **PPTP**        | 2     | Microsoft's early protocol; encapsulates PPP, authenticates with MS-CHAPv2. **Cryptographically broken** — do not use                                                                                                                                 |
+| **L2F**         | 2     | Cisco's equivalent of PPTP; no encryption of its own; historical                                                                                                                                                                                      |
+| **L2TP**        | 2     | Merger of PPTP and L2F; itself provides **no encryption**, so it is deployed as **L2TP/IPsec**. Can carry non-IP protocols and supports multi-hop                                                                                                     |
+| **IPsec**       | 3     | The workhorse. **AH** = integrity and authentication, **ESP** = encryption; **transport mode** protects the payload, **tunnel mode** the whole packet; **IKE** negotiates keys and builds **security associations**. Detail in [[Network Encryption]] |
+| **SSL/TLS VPN** | 5-7   | Runs over TCP 443, so it crosses firewalls and NAT that block IPsec; often clientless through a browser portal. The common remote-access choice today                                                                                                 |
+| **SSH**         | 7     | Port forwarding tunnels arbitrary TCP through an authenticated session; an administrator's VPN substitute, not an enterprise one                                                                                                                      |
+| **OpenVPN**     | 5-7   | Open-source, uses TLS for key exchange and its own data channel over UDP or TCP; widely used in commercial and self-hosted VPNs                                                                                                                       |
+| **WireGuard**   | 3     | Modern, small codebase, fixed modern cipher suite, fast to connect; increasingly the default in new deployments                                                                                                                                       |
 
 **IPsec vs TLS VPN**: IPsec is transparent to applications and protects everything on the host, but needs a client and struggles with NAT (hence **NAT-T** encapsulating ESP in UDP). A TLS VPN is easier to deploy and firewall-friendly, but historically gives access to a defined set of applications rather than the whole network.
 
