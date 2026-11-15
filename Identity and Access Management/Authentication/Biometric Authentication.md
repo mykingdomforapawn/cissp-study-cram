@@ -4,11 +4,11 @@ Type 3 authentication: the subject is identified by a physiological or behaviora
 
 | Trait | Notes |
 |---|---|
-| **Fingerprint** | Most deployed; cheap, moderate accuracy, defeated by lifted prints without liveness detection |
+| **Fingerprint** | Most deployed; cheap, fast to enroll, moderate accuracy. Matches **minutiae** — **ridges** (the lines), **bifurcations** (where a ridge forks), and **whorls** (circular patterns). Defeated by lifted or molded prints without liveness detection, and a compromised print cannot be reissued |
 | **Iris** | Pattern of the colored ring; **highly accurate**, works at a distance, stable over life |
 | **Retina** | Blood-vessel pattern at the back of the eye; **most accurate**, but intrusive and can reveal medical conditions — a **privacy** concern |
 | **Face** | Convenient and contactless; sensitive to lighting, aging, and demographic bias |
-| **Palm / vein** | Subsurface vascular pattern; contactless and hard to forge |
+| **Palm / vein** | Subsurface **vein pattern**, not minutiae; contactless and hard to forge |
 | **Voice** | Low cost, usable over the phone; affected by illness and defeated by recordings or synthesis |
 | **Signature dynamics / keystroke rhythm / gait** | **Behavioral** ("something you do"); continuous or passive, lower accuracy |
 

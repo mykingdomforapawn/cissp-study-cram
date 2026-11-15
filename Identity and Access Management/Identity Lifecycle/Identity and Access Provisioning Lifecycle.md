@@ -22,7 +22,7 @@ Access is assigned to **roles**, and users to roles — so the policy is stated 
 
 ## Account Maintenance
 
-Keeping the account's state accurate across its life: role changes, name changes, temporary elevation, leave of absence (**suspend rather than delete**), and credential reissue after loss.
+Keeping the account's state accurate across its life: role changes, name changes, temporary elevation, **leave of absence** — disable rather than delete for any absence of roughly **30 days or more**, since the employee is expected to return; resetting the password is not enough, because someone else could still log on, and credential reissue after loss.
 
 Account types to watch:
 
@@ -43,7 +43,7 @@ Periodic verification that existing access is still justified — the control th
 ## Deprovisioning and Offboarding
 
 - **Disable immediately, delete later.** Disabling preserves encryption keys, file ownership, and audit trails; immediate deletion destroys evidence and orphans data.
-- For **hostile terminations**, disable access **before or during** the notification.
+- Disable **during the exit interview**, not after it. The point is to **prevent sabotage** by a departing employee who still has working access, and for **hostile terminations** the disable happens before or during the notification.
 - Cover **everything**: SSO account, local and legacy accounts, VPN and remote access, cloud and SaaS services outside SSO, shared-account passwords the person knew, API keys and certificates, physical badges and keys, and MFA enrollments.
 - **Transfer ownership** of data, mailboxes, and service accounts before removal.
 

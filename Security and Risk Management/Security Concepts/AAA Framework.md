@@ -34,6 +34,7 @@ This framework represents the core lifecycle of **Access Control** and **Identit
 - **Auditing (Recording Events)**
 	* Goal: Capturing a detailed trail of events for security analysis and non-repudiation. It focuses on "what happened."
 	* Mechanism: Security event logs, syslog, error logs, camera footage.
+	* Logs only support **accountability** if **identification and authentication** were sound first — a log entry naming a shared or spoofable account proves nothing about who acted.
 	* Example: The server records a specific log entry: *"User 'John' deleted file 'report.pdf' at 10:42 AM from IP address 192.168.1.5."*
 	* CIA link: Auditing supports **Integrity** by detecting unauthorized changes, and enables **non-repudiation** — a subject cannot deny an action that was logged. See [[CIA Triad]].
 - **Accounting (Accountability)**

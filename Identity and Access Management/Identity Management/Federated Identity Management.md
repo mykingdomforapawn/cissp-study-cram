@@ -6,6 +6,8 @@ Three roles:
 - **Service provider (SP) / relying party (RP)** — consumes the assertion and grants access.
 - **Federation trust** — the agreed relationship, backed by exchanged signing certificates and metadata, plus a legal agreement on identity vetting, attribute meaning, and incident notification.
 
+From the user's side nothing changes: they keep logging in with their **existing organizational account**, and the federation service brokers that identity to the partner — no second account is issued to them, whatever the deployment model.
+
 The security model: the SP never sees the credential, and revoking the account at the IdP cuts access everywhere — provided session lifetimes are short enough to matter.
 
 ## Protocols
