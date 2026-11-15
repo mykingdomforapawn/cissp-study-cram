@@ -3,7 +3,7 @@ Physical access controls follow the [[AAA Framework]]: **identify**, **authentic
 ## Badges and Smartcards
 
 - **ID badges** show identity visually (photo, name) and often use **color coding** for access level or visitor status. They support challenge culture but are easy to forge alone.
-- **Smartcards** carry a **chip** that stores credentials or a certificate and can perform cryptography. The card is **something you have**, and pairing it with a **PIN** or **biometric** gives multifactor access.
+- **Smartcards** carry a **chip** that stores credentials or a certificate and can perform cryptography. The card is **something you have**, and pairing it with a **PIN** or **biometric** gives multifactor access. The logical side — on-card keys, PIV/CAC, PKI dependence — is in [[Token and Certificate Authentication]].
 - **Magnetic stripe** cards are old and easy to clone.
 - **Lost or stolen** cards must be revoked quickly, so issuance follows identity verification and cards are returned on departure (see [[Personnel Security Lifecycle]]).
 
@@ -23,7 +23,7 @@ They are convenient, but legacy cards can be **cloned** by a nearby reader (skim
 
 - **Preset (mechanical)** locks (key locks, deadbolts, padlocks) are cheap, but keys can be copied and lost, and there is **no record** of use.
 - **Programmable** locks (keypad, cipher, electronic) can be **re-keyed instantly**, and keep **audit logs** and schedules.
-- **Biometric** locks authenticate by a physical trait (see [[AAA Framework]]).
+- **Biometric** locks authenticate by a physical trait (see [[Biometric Authentication]]).
 - Frames, hinges, and deadbolts matter as much as the lock.
 
 **Key and combination management:**
