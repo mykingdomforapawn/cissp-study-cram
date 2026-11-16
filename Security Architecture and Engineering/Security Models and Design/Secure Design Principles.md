@@ -82,7 +82,7 @@ Several named ideas express the same instinct:
 - **Micro-segmentation** — small isolated zones so a compromise cannot move laterally.
 - **Continuous evaluation** — trust is re-assessed during a session, not granted once at login.
 
-Architecturally it is described as a **control plane**, where a policy decision point decides based on identity and context, and a **data plane**, where a policy enforcement point allows or blocks the actual traffic. Zero trust is a strategy, not a single product.
+Zero trust is a strategy, not a single product. The enforcement architecture — policy engine, policy administrator, and policy enforcement point, split across a control and a data plane — is in [[Zero Trust Architecture]].
 
 An **air gap** is the opposite end of the spectrum: a system or network physically isolated, with no connection to other networks, so there is no path to verify or filter. It is used for the most sensitive systems (industrial control, classified networks). Zero trust assumes connectivity and controls it request by request, while an air gap removes the connectivity. An air gap is not absolute, since removable media, insiders, and side channels can still cross it.
 

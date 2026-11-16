@@ -21,6 +21,42 @@ The security model: the SP never sees the credential, and revoking the account a
 
 **SAML authenticates, OAuth authorizes, OIDC adds authentication to OAuth, SCIM provisions.** Using OAuth alone as a login mechanism is the classic design error — the token proves access was granted, not who the user is.
 
+### XML as the Substrate
+
+**XML** (Extensible Markup Language) is the data format the enterprise federation protocols were built on. Unlike HTML, which describes presentation with a fixed tag set, XML lets the parties **define their own tags** and so carry arbitrary structured attributes — department, clearance, entitlement — alongside the identity. That extensibility is what made it the basis for **SAML** assertions and for **SPML** (provisioning, now largely displaced by SCIM) and **XACML** (expressing authorization policy). The newer protocols moved to **JSON and JWT**, which carry the same information far more compactly.
+
+A SAML assertion is a **signed XML document** making one or more statements about a subject:
+
+- **Authentication statement** — this subject authenticated, at this time, by this method.
+- **Attribute statement** — these are the subject's attributes (group, role, email).
+- **Authorization decision statement** — this subject may or may not perform this action.
+
+The signature is what makes the assertion trustworthy; **XML signature wrapping**, where an attacker relocates a signed element and adds forged content, is the characteristic attack, and strict schema validation is the defense.
+
+### OAuth 2.0 Roles
+
+OAuth's vocabulary is worth having straight, because the delegation idea lives in it:
+
+| Role | Who it is |
+|---|---|
+| **Resource owner** | The user, who owns the data |
+| **Client** | The application requesting access on the user's behalf |
+| **Authorization server** | Issues the access token after the user consents |
+| **Resource server** | Holds the data and accepts the token |
+
+The user **consents to a scope** — a bounded set of permissions — and the client receives a token rather than the user's password. The token should be short-lived, paired with a refresh token, and bound to the scope granted. **OIDC** adds an **ID token** (a signed JWT describing who the user is) on top of this flow, which is precisely what plain OAuth lacks.
+
+### Comparing the Four
+
+| | SAML 2.0 | OAuth 2.0 | OIDC | SCIM |
+|---|---|---|---|---|
+| **Answers** | Who is this user? | May this app act for the user? | Who is this user? | Which accounts should exist? |
+| **Format** | XML assertion | Access token | JWT ID token | JSON over REST |
+| **Typical use** | Enterprise web SSO | API and third-party app delegation | Consumer and modern app login | Automated provisioning and deprovisioning |
+| **Era** | Enterprise, browser-based | Mobile and API | Mobile and API | Any |
+
+**If the stem says delegated access or "on behalf of", it is OAuth; if it says login or identity, it is SAML or OIDC; if it says account creation or removal, it is SCIM.**
+
 ## Deployment Models
 
 | Model | Where identities live | Fits |
@@ -44,3 +80,5 @@ With **JIT provisioning**, the SP creates the account **at first successful logi
 - **SAML authenticates, OAuth 2.0 authorizes, OIDC is authentication on top of OAuth, SCIM provisions.**
 - **On-premise, cloud, and hybrid federation differ in who holds the identities and therefore who holds the risk.**
 - **JIT provisioning creates accounts at first login but does not remove them.**
+- **SAML assertions are signed XML making authentication, attribute, or authorization statements; OAuth and OIDC use JSON tokens.**
+- **OAuth roles: resource owner, client, authorization server, resource server — the user consents to a scope and the client gets a token, never the password.**

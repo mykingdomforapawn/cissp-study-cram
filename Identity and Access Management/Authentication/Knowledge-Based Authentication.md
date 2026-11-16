@@ -35,7 +35,7 @@ The reasoning: forced rotation and complexity produce `Summer2024!` → `Summer2
 
 ## Protecting Stored Passwords
 
-Verifiers store a **salted hash** produced by a deliberately slow function (bcrypt, scrypt, Argon2, PBKDF2), never the password or a plain hash. The salt defeats rainbow tables; the work factor defeats bulk cracking. See [[Hashing Algorithms]] and [[Cryptographic Attacks]].
+Verifiers store a **salted hash** produced by a deliberately slow function (bcrypt, scrypt, Argon2, PBKDF2), never the password or a plain hash. The salt defeats rainbow tables; the work factor defeats bulk cracking. See [[Hashing Algorithms]] and [[Cryptographic Attacks]], and [[Access Control Attacks]] for the attacks each policy component is aimed at.
 
 ## Key Points
 

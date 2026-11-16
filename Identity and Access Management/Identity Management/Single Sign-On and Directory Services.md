@@ -20,7 +20,7 @@ Centralized is the norm; decentralized survives where systems cannot reach the a
 
 ## Directory Services and LDAP
 
-A **directory service** is the central database of identities, groups, and resources. **LDAP** (Lightweight Directory Access Protocol, TCP 389, or **LDAPS** on 636 / StartTLS) is the protocol used to query and modify it. **Active Directory** is the common implementation, with **Kerberos** as its authentication protocol — see [[Secure Communication Protocols]]; Kerberos mechanics and attacks belong with the access-control chapter.
+A **directory service** is the central database of identities, groups, and resources. **LDAP** (Lightweight Directory Access Protocol, TCP 389, or **LDAPS** on 636 / StartTLS) is the protocol used to query and modify it. **Active Directory** is the common implementation, with **Kerberos** as its authentication protocol — see [[Kerberos]] for the ticket exchange and its attacks.
 
 The directory is hierarchical: entries have **distinguished names** (`cn=jsmith,ou=finance,dc=example,dc=com`) mirroring the organization. That hierarchy is what makes group- and OU-based authorization administrable — the abstraction described in [[AAA Framework]].
 
