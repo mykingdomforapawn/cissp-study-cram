@@ -4,15 +4,15 @@ The problem it solves: let a user prove identity once and reach many services, *
 
 ## Components
 
-| Term | Meaning |
-|---|---|
-| **KDC** (Key Distribution Center) | The trusted third party holding a secret key for every principal |
-| **AS** (Authentication Service) | The KDC component that authenticates the user and issues the TGT |
-| **TGS** (Ticket Granting Service) | The KDC component that exchanges a TGT for service tickets |
-| **Principal** | Any entity with an identity in the realm — user, host, or service |
-| **Realm** | The administrative domain the KDC is authoritative for |
-| **TGT** (Ticket Granting Ticket) | Proof that the user authenticated; presented to get service tickets |
-| **Service ticket** | Proof of authorization to use one specific service |
+| Term                              | Meaning                                                             |
+| --------------------------------- | ------------------------------------------------------------------- |
+| **KDC** (Key Distribution Center) | The trusted third party holding a secret key for every principal    |
+| **AS** (Authentication Service)   | The KDC component that authenticates the user and issues the TGT    |
+| **TGS** (Ticket Granting Service) | The KDC component that exchanges a TGT for service tickets          |
+| **Principal**                     | Any entity with an identity in the realm — user, host, or service   |
+| **Realm**                         | The administrative domain the KDC is authoritative for              |
+| **TGT** (Ticket Granting Ticket)  | Proof that the user authenticated; presented to get service tickets |
+| **Service ticket**                | Proof of authorization to use one specific service                  |
 
 ## How the Exchange Works
 
@@ -28,6 +28,7 @@ Two consequences worth holding on to:
 
 ## Strengths and Weaknesses
 
+- **What it provides**: **authentication** is the primary purpose — proving a principal is who it claims to be. Confidentiality and integrity come along as side effects of the symmetric encryption protecting tickets and session traffic. It provides **no accounting or logging of its own**, so Kerberos alone does not deliver accountability; that comes from the systems and directory around it (see [[AAA Framework]]).
 - **Strengths**: no password on the wire, mutual authentication, replay protection through timestamps, and a single place to revoke an identity.
 - **The KDC is a single point of failure** — it is unavailable and nobody authenticates; it is compromised and every identity in the realm is forgeable. Deploy it redundantly and treat it as the most protected asset in the domain (compare the directory itself in [[Single Sign-On and Directory Services]]).
 - Depends on **time synchronization** and on the strength of the key derived from the user's password — a weak password remains offline-crackable from captured material.
@@ -47,6 +48,7 @@ Golden and silver tickets are the reason domain controller compromise is treated
 ## Key Points
 
 - **Kerberos uses symmetric cryptography and a trusted KDC; the password never crosses the network.**
+- **Its purpose is authentication; confidentiality and integrity are side effects, and it logs nothing, so accountability comes from elsewhere.**
 - **The AS issues a TGT, the TGS exchanges it for a service ticket, and the service validates the ticket with its own key.**
 - **Tickets are time-stamped and short-lived, so Kerberos depends on synchronized clocks — skew breaks authentication.**
 - **The KDC is a single point of failure and the highest-value target in the realm.**

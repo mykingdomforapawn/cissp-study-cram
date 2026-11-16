@@ -45,6 +45,18 @@ Cracking is unnecessary when the credential can be lifted intact.
 
 Defenses: credential guard and similar memory protections, disabling legacy NTLM, tiered administration so that a high-privilege credential is never typed on a lower-trust machine, and privileged access workstations.
 
+### Running Privileged Commands
+
+Administrators need elevated rights occasionally, and how that elevation is held decides what an attacker inherits:
+
+| Approach | What an attacker who owns the user's session gets | Accountability |
+|---|---|---|
+| **Standing administrator rights** on the daily account | Everything, immediately | Poor — the account is always privileged |
+| **`sudo` / "run as administrator"** from the user's own session | The same elevation, because it runs **in the context of that already-authenticated session** — no separate secret is required | Good — the log names the individual |
+| **A separate privileged credential entered on demand** (root password, second admin account) | Nothing extra: the attacker lacks the secret and cannot elevate | Good if the credential is per-person, poor if root is shared |
+
+The exchange is real: **`sudo` gives the better audit trail, a separately-held credential gives the better containment**, and the usual answer is a **separate named administrative account** that gets both — individually attributable and not reachable from a compromised standard session. A shared root password gives containment but destroys accountability, since the log cannot say who used it (see [[AAA Framework]]).
+
 ## Sniffing and Spoofing
 
 - **Sniffing** — passive capture of traffic to extract credentials or session tokens. Effective against any protocol that transmits credentials in the clear (Telnet, FTP, plain LDAP, HTTP, PAP). The defense is encryption in transit, not network trust; a switched network is not protection. See [[Wireless Attacks]] and [[Network Attacks]].
@@ -63,6 +75,7 @@ The defenses that matter, mapped to what they actually prevent:
 | **Breach-list screening and length requirements** | Dictionary, hybrid, and spraying attacks |
 | **Account lockout and cross-account detection** | Online guessing; cross-account detection catches spraying that lockout misses |
 | **Least privilege and tiered administration** | Turns a compromised account into a contained one, and limits what escalation yields |
+| **Separate named administrative accounts** | Elevation from a compromised standard session, while keeping the audit trail a shared root password would destroy |
 | **Encrypting credentials in transit and at rest** | Sniffing and theft of stored secrets |
 | **Access reviews and prompt deprovisioning** | Privilege creep and orphaned accounts (see [[Identity and Access Provisioning Lifecycle]]) |
 | **Logging and monitoring of authentication events** | Detection — nothing above prevents everything, and the account review depends on the trail |
@@ -77,5 +90,6 @@ The structural point: **prevention is layered because every individual control h
 - **Password spraying tries one password across many accounts; credential stuffing replays pairs breached elsewhere.**
 - **Salting defeats rainbow tables; a slow hash defeats bulk cracking.**
 - **Pass-the-hash works because legacy authentication proves knowledge of the hash, so only a password change invalidates it.**
+- **`sudo` elevates from the user's existing session, so a compromised session inherits it; a separately-held credential contains that, and a separate named admin account gives both containment and accountability.**
 - **Spoofing falsifies an identifier that was never verifiable; sniffing is defeated by encryption, not by network trust.**
 - **MFA is the highest-value single control, and monitoring covers what prevention misses.**

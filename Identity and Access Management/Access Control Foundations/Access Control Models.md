@@ -36,12 +36,21 @@ Permissions are granted to **roles** matching job functions, and users receive p
 - Cost: a role is an approximation, so any usable role over-grants somebody. Too many narrow roles ("role explosion") returns to unmanageability.
 - Implemented with **groups** in most directory products; group membership is the practical form of a role.
 
+Three mechanics that decide most questions about RBAC:
+
+- **A user may hold several roles at once**, and the effective permission set is their union. Roles are not mutually exclusive — a person can be both "Finance Analyst" and "Fire Warden".
+- **Roles are hierarchical**, derived from the organization's own structure: a senior role typically inherits the permissions of the junior roles beneath it, so the hierarchy is defined once rather than re-listed per role.
+- **RBAC uses no labels.** Labels are MAC. If a question mentions clearance or classification labels, it has left RBAC behind.
+
+Holding multiple roles over a career is how **privilege creep** (also called **creeping privileges**) happens: roles accumulate at each transfer and the old ones are never removed. The fix is removal at transfer plus periodic access review, not better role design — see [[Identity and Access Provisioning Lifecycle]].
+
 ### Rule-Based Access Control
 
 Access is decided by **global rules applied to every subject alike** — typically `if condition then allow/deny`, evaluated in order and ending in implicit deny.
 
 - The firewall ruleset is the canonical example; so is "no logins outside business hours".
 - The distinguishing feature: the rule is attached to **the system, not to the identity**. The same rule tests every request.
+- An **ACL** is often classified here as well, and the two framings are both correct: an ACL is a column of the access control matrix *and* an ordered set of rules evaluated against each request, ending in implicit deny. Think of the matrix view as what an ACL **describes** and the rule view as how it is **evaluated**.
 
 ### Attribute-Based Access Control (ABAC)
 

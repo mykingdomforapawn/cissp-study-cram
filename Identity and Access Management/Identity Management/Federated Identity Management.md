@@ -12,12 +12,12 @@ The security model: the SP never sees the credential, and revoking the account a
 
 ## Protocols
 
-| Protocol | Purpose | Format |
-|---|---|---|
-| **SAML 2.0** | Federated **authentication** (and attributes) between enterprises | XML assertions |
-| **OAuth 2.0** | **Authorization** — delegated access to resources on a user's behalf; it does *not* authenticate the user | Access tokens |
-| **OpenID Connect (OIDC)** | **Authentication layer on top of OAuth 2.0**; adds an identity token | JSON / JWT |
-| **SCIM** | **Provisioning** — pushing account creation, updates, and deletion between IdP and SP | JSON over REST |
+| Protocol                  | Purpose                                                                                                   | Format         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------- | -------------- |
+| **SAML 2.0**              | Federated **authentication** (and attributes) between enterprises                                         | XML assertions |
+| **OAuth 2.0**             | **Authorization** — delegated access to resources on a user's behalf; it does *not* authenticate the user | Access tokens  |
+| **OpenID Connect (OIDC)** | **Authentication layer on top of OAuth 2.0**; adds an identity token                                      | JSON / JWT     |
+| **SCIM**                  | **Provisioning** — pushing account creation, updates, and deletion between IdP and SP                     | JSON over REST |
 
 **SAML authenticates, OAuth authorizes, OIDC adds authentication to OAuth, SCIM provisions.** Using OAuth alone as a login mechanism is the classic design error — the token proves access was granted, not who the user is.
 

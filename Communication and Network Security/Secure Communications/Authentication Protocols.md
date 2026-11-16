@@ -64,6 +64,18 @@ The authenticator does not hold credentials itself; it asks a central service. T
 
 **RADIUS decides who may get on the network; TACACS+ decides who may type which command on the router.**
 
+### RADIUS Roles
+
+The naming trips people up, because the device users think of as "the server" is the **client**:
+
+| Role | Who it is |
+|---|---|
+| **User / supplicant** | The person or device seeking access. Not part of the RADIUS exchange at all — it talks to the NAS |
+| **Network access server (NAS)** | The VPN concentrator, wireless controller, or switch the user connects to. It is the **RADIUS client**: it collects the credential and asks the RADIUS server |
+| **RADIUS server** | The **authentication server** that holds or queries the credentials and returns accept or reject, together with authorization attributes and accounting |
+
+So the NAS is the **client**, and it maps onto the **authenticator** role in 802.1X above. Shared secrets are configured per NAS, which is why adding a new access point means registering it on the RADIUS server.
+
 ## Key Points
 
 - **PAP sends the password in cleartext; CHAP sends a hash of a server challenge and re-challenges during the session; EAP is a framework, not a method.**
@@ -71,3 +83,4 @@ The authenticator does not hold credentials itself; it asks a central service. T
 - **EAP-TLS is mutual certificate authentication and the strongest; PEAP tunnels MS-CHAPv2 in TLS and depends on the client validating the server certificate; LEAP and EAP-MD5 are broken.**
 - **802.1X = supplicant, authenticator, authentication server; the port stays unauthorized until EAP succeeds, then a VLAN or ACL can be assigned.**
 - **RADIUS encrypts only the password and merges authentication with authorization; TACACS+ encrypts everything and separates all three; Diameter is the modern RADIUS successor.**
+- **In RADIUS the network access server is the client and the RADIUS server is the authentication server; the NAS is the 802.1X authenticator.**
