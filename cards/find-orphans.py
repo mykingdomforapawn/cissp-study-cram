@@ -14,6 +14,7 @@ For each orphan it prints a Browse search matching the OLD wording, so the
 stale note can be found and deleted. Nothing is changed by this script.
 """
 
+import csv
 import html
 import pathlib
 import re
@@ -46,10 +47,15 @@ def markdown_questions():
 
 
 def exported_questions(path):
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if not line.strip() or line.startswith("#"):
-            continue
-        yield line.split("\t")[0]
+    """Anki quotes any field containing a quote and doubles the inner ones, so
+    the export must be read as CSV rather than split on tabs."""
+    with path.open(encoding="utf-8", newline="") as fh:
+        rows = csv.reader(
+            (ln for ln in fh if ln.strip() and not ln.startswith("#")), delimiter="\t"
+        )
+        for row in rows:
+            if row:
+                yield row[0]
 
 
 def main(argv):
@@ -66,12 +72,13 @@ def main(argv):
 
     print(f"{len(known)} cards in Markdown, {len(orphans)} notes in Anki with no match\n")
     for q in orphans:
-        plain = html.unescape(re.sub(r"<[^>]+>", "", q))
-        # A distinctive middle slice: start and end wording is often shared.
-        words = plain.split()
-        probe = " ".join(words[:12]) if len(words) > 12 else plain
+        plain = " ".join(html.unescape(re.sub(r"<[^>]+>", "", q)).split())
+        # Anki search breaks on quotes and on its own operators, so search a
+        # run of plain words rather than the start of the question.
+        runs = re.split(r'["\u201c\u201d:()*_-]+', plain)
+        probe = " ".join(max(runs, key=len).split()[:10])
         print(f"  {plain[:110]}")
-        print(f'    Browse:  "Question:{probe}*"\n')
+        print(f'    Browse:  "Question:*{probe}*"\n')
     if orphans:
         print("Delete these notes in Anki, then re-import the topic files.")
     return 0
