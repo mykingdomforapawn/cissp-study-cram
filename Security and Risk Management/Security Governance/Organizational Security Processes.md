@@ -37,7 +37,7 @@ Failing due care after due diligence is legal negligence. An organization that i
 
 ## Vulnerability Assessment vs. Penetration Testing
 
-Two related but distinct processes — covered in detail in the assessment chapter. For reference:
+Two related but distinct processes — covered in detail in [[Vulnerability Scanning]] and [[Penetration Testing]]. For reference:
 - **Vulnerability Assessment** — identifies and catalogs weaknesses without exploiting them; answers "what could be attacked?"
 - **Penetration Testing** — actively exploits vulnerabilities to prove real-world impact; answers "what can actually be breached?"
 
