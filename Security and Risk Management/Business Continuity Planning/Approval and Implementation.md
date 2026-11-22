@@ -9,3 +9,5 @@ The final element of BCP (see [[BCP vs DRP]]) turns the plan from a document int
 	- **Simulation** — a realistic scenario is role-played, still without disrupting live operations
 	- **Parallel** — recovery systems are actually activated alongside production, which keeps running
 	- **Full interruption** — production is actually taken down and recovery is executed for real; highest confidence, highest risk
+
+**These exercise types are not specific to continuity and disaster recovery.** The same ladder is used to test **incident response plans** and any other plan that depends on people acting correctly under pressure. A tabletop in particular is the standard way to find gaps in an incident response plan: the team talks through a scenario and discovers the missing role, decision, or contact path without touching a single system — unlike a red or blue team exercise, which uses live systems (see [[Penetration Testing]]).

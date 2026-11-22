@@ -29,11 +29,18 @@ The four to five mail and transfer protocols are the classic "which secure versi
 - **Default configurations** (SNMP community strings, anonymous FTP, open relays on SMTP) are a configuration management problem more than a protocol problem.
 - **Port numbers are identification, not security.** Moving a service to an unusual port hides it from casual scans only.
 
+### Database Ports
+
+Databases listen on well-known ports of their own: **Microsoft SQL Server 1433**, **MySQL and MariaDB 3306**, **Oracle 1521**, **PostgreSQL 5432**.
+
+These matter mainly as scan results. A database port **should never be reachable from an untrusted network** — the database belongs behind the application tier, and a database port answering an external scan is a serious finding (see [[Vulnerability Scanning]] and [[Network Segmentation]]).
+
 Email specifics, including SPF, DKIM, DMARC, S/MIME and PGP, are covered in [[Email Encryption]]. SSH, TLS and the other protective protocols are in [[Secure Communication Protocols]].
 
 ## Key Points
 
 - **Telnet 23, SSH 22, FTP 20/21, SFTP 22, SMTP 25, POP3 110, IMAP 143, HTTP 80, HTTPS 443, DNS 53, DHCP 67/68, TFTP 69, SNMP 161/162.**
+- **Database ports: SQL Server 1433, MySQL/MariaDB 3306, Oracle 1521, PostgreSQL 5432 — none should ever be exposed to an untrusted network.**
 - **Every legacy protocol has a secure replacement**: usually the same protocol wrapped in TLS or carried over SSH.
 - **SNMPv3 is the only SNMP version with authentication and encryption.**
 - **DHCP and TFTP have no authentication**; the defense is network placement and switch features, not the protocol.

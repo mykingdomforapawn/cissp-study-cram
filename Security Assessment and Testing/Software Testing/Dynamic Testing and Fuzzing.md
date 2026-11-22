@@ -22,7 +22,7 @@ Two approaches:
 
 | Type | How inputs are produced | Characteristics |
 |---|---|---|
-| **Mutation fuzzing** (dumb fuzzing) | Takes **real, valid sample inputs** and randomly alters them | Trivial to set up — needs only sample data, no knowledge of the format. Less efficient; deep paths behind checksums or strict parsing are rarely reached |
+| **Mutation fuzzing** (dumb fuzzing) | Takes **real, valid sample inputs** and slightly modifies them — **bit flipping** and similar random alterations | Trivial to set up — needs only sample data, no knowledge of the format. Less efficient; deep paths behind checksums or strict parsing are rarely reached |
 | **Generational fuzzing** (intelligent fuzzing) | **Builds inputs from scratch** using a model or specification of the expected format | Requires effort to model the protocol or format, but produces structurally valid inputs that pass early validation and reach far deeper code |
 
 **Mutation modifies existing samples; generational constructs new ones from a model of the format.** Generational is more effective and more expensive.
@@ -47,6 +47,6 @@ Monitoring a live application continuously, rather than testing it in a window, 
 - **Dynamic testing runs the software and needs no source code; it tests the system as deployed, including configuration.**
 - **Dynamic testing covers only the paths it reaches and can modify or destroy data, so it belongs in a test environment.**
 - **Fuzzing submits invalid, unexpected, or random input to find input-handling failures.**
-- **Mutation (dumb) fuzzing randomly alters real sample inputs; generational (intelligent) fuzzing builds inputs from a model of the expected format and reaches deeper code.**
+- **Mutation (dumb) fuzzing slightly modifies previously used inputs by bit flipping and similar alterations; generational (intelligent) fuzzing builds inputs from a model of the expected format and reaches deeper code.**
 - **A fuzzer reports that software failed, not whether the failure is exploitable — each crash needs triage.**
 - **Passive monitoring (RUM) analyzes real user traffic and is reactive; synthetic monitoring runs scripted transactions and is proactive.**

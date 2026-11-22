@@ -26,7 +26,7 @@ Auditing a supplier is part of third-party governance and vendor oversight (see 
 
 ## Type I and Type II
 
-Both SOC 1 and SOC 2 come in two types, and the difference is **time**:
+**There are only two types of SOC report — Type I and Type II.** "Type III" and "Type IV" do not exist; SOC 3 is a different *report*, not a third type. Both SOC 1 and SOC 2 come in these two types, and the difference between them is **time**:
 
 - **Type I** — the auditor evaluates the **design** of controls at a **single point in time**. It says the controls were suitably designed and in place on that date. It says nothing about whether they worked.
 - **Type II** — the auditor tests the **operating effectiveness** of controls **over a period**, typically six to twelve months. It says the controls actually functioned.
@@ -47,4 +47,5 @@ Both SOC 1 and SOC 2 come in two types, and the difference is **time**:
 - **SOC 1 covers financial reporting controls; SOC 2 covers the five trust services criteria; SOC 3 is the public summary of a SOC 2.**
 - **SOC 2 reports are confidential and shared under NDA; SOC 3 is the one that can be posted publicly.**
 - **Type I assesses control design at a point in time; Type II assesses operating effectiveness over a period and is far stronger assurance.**
+- **Only two types exist — Type I and Type II. Do not confuse the type with the SOC 1/2/3 report number.**
 - **SOC reports are produced under SSAE 18 (US) and ISAE 3402 (international).**

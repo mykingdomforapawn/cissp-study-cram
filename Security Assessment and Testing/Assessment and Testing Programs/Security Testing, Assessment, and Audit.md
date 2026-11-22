@@ -13,8 +13,19 @@ Three activities are often used interchangeably in conversation but are distinct
 The key distinctions:
 
 - An **assessment includes testing**, but adds analysis and recommendations. A test alone produces data; an assessment produces judgement.
+- **An assessment recommends mitigation; it does not perform it.** Vulnerability scanning, risk assessment, and threat assessment are all part of an assessment, and the report ends in recommendations. Actually fixing the findings is remediation work owned by the system owners, and sits outside the assessment.
 - An **audit never recommends**. The auditor states whether controls meet the standard; recommending a fix and then auditing it would destroy independence.
 - **Independence is what makes an audit an audit.** Internal staff can test and assess their own systems; they cannot credibly audit them.
+
+### Writing the Report
+
+**The assessment report is addressed to management**, which determines how it must be written:
+
+- **Plain language, not technical jargon.** The audience makes resourcing and risk decisions; a report they cannot read produces no decision.
+- **Lead with business risk and impact**, with technical detail supporting rather than driving the narrative.
+- **Include recommendations** and the relative priority among them, so the reader knows what to act on first.
+
+Detailed technical findings still belong in the report, but as an appendix for the owners who will act on them (see [[Security Process Data and Indicators]] on matching reporting to audience).
 
 ## Building a Testing Program
 
@@ -43,5 +54,7 @@ Manual review by a knowledgeable person remains necessary because automated tool
 - **A test answers whether a control works; an assessment adds analysis and recommendations for management; an audit produces a formal opinion for a third-party audience.**
 - **Auditors must be independent of what they audit, and do not make recommendations — doing so would compromise that independence.**
 - **An assessment includes testing; an audit is distinguished by independence and audience, not by technique.**
+- **An assessment report recommends mitigation but does not include performing it.**
+- **Assessment reports are addressed to management and written in plain language, avoiding technical jargon.**
 - **Test frequency is driven by criticality, likelihood of failure or attack, regulatory requirements, and the cost and disruption of testing.**
 - **Combine continuous automated testing with periodic manual testing, and always validate that remediation actually worked.**
